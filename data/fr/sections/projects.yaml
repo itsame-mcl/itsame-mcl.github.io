@@ -1,0 +1,34 @@
+# section information
+section:
+  name: Projets
+  id: projects
+  enable: true
+  weight: 5
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# your projects
+projects:
+  - name: PSycoQuAC
+    role: Développeur
+    timeline: "Octobre 2021 - Décembre 2021"
+    repo: https://github.com/maxence-lagalle/PSyCoQuAC # If your project is a public repo on GitHub, then provide this link. it will show star count.
+    #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+    summary: PSycoQuAC est un système collaboratif permettant de traiter des lots d'adresses postales françaises et de les qualifier en vérifiant leur existence et en les géolocalisant de manière précise grâce aux données de la Base Adresse Nationale. Ce projet a été réalisé dans le cadre de la 2ème année de la scolarité à l’ENSAI.
+    tags: ["académique", "python", "api"]
+
+  - name: data-pypeline
+    role: Développeur
+    timeline: "Mars 2021 - Mai 2021"
+    repo: https://github.com/maxence-lagalle/data-pypeline
+    #url: ""
+    summary: Projet de librairie de manipulation et de traitement de données en pur Python 3, réalisée dans le cadre du projet informatique de 1ère année de l'ENSAI, et diffusé sous licence libre EUPL.
+    tags: ["académique", "python", "data science"]
+
+  - name: learnr-lubridate
+    role: Co-Auteur
+    timeline: "Février 2021 - Mars 2021"
+    repo: https://github.com/maxence-lagalle/learnr-lubridate
+    summary: Package R contenant un tutoriel learnr dédié à l'apprentissage des bases du package de gestion des dates lubridate
+    tags: ["académique", "r", "formation"]
