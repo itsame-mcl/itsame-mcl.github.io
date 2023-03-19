@@ -1,0 +1,54 @@
+# section information
+section:
+  name: Certifications
+  id: accomplishments
+  enable: true
+  weight: 6
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+
+# Your accomplishments
+accomplishments:
+  - name: Examen professionnel de vérification d’aptitude aux fonctions d'Analyste-Développeur
+    timeline: "Mars 2023"
+    organization:
+      name: Ministère de l'Économie et des Finances
+      url: https://www.economie.gouv.fr/recrutement/analyste-developpeur-examen-professionnel
+    courseOverview: "L'analyste détermine et formule le processus de traitement par ordinateur. Il collabore sur le plan technique à l'élaboration de l'organigramme général et à la rédaction du cahier des charges. Il peut participer à la maintenance des applications."
+
+  - name: AWS Academy Graduate - AWS Academy Introduction to Cloud Semester 1
+    timeline: "Avril 2022"
+    organization:
+      name: Amazon Web Services Training and Certification
+      url: https://www.aws.training/
+    courseOverview: "Dans ce cours d'introduction, les étudiants explorent les services et les technologies AWS et apprennent comment aider les entreprises du monde entier. Ils apprennent également à exploiter la console de gestion AWS, à examiner les mises en œuvre réussies du cloud et à appliquer leurs connaissances à des scénarios basés sur le cloud."
+    certificateURL: "https://www.credly.com/badges/b5b9df9b-81a6-4b46-a9de-c52b3f1f3889/public_url"
+
+  - name: Examen professionnel de vérification d’aptitude aux fonctions de Programmeur
+    timeline: "Février 2019"
+    organization:
+      name: Ministère de l'Économie et des Finances
+      url: https://www.economie.gouv.fr/recrutement/programmeur-examen-professionnel
+    courseOverview: "Le programmeur contribue à la réalisation et au paramétrage de la solution technique et des codes sources qui répondent aux cahiers des charges fonctionnels et aux dossiers d'architecture fonctionnelle, logicielle et technique."
+
+  - name: Machine Learning
+    timeline: "Février 2017"
+    organization:
+      name: Coursera
+      url: https://www.coursera.org
+    courseOverview: "Les apprenants mettent en œuvre et appliquent des algorithmes d'apprentissage automatique prédictifs, de classification, de regroupement et de recherche d'informations à des ensembles de données réels tout au long de chaque cours de la spécialisation. Ils repartent avec une expérience de l'apprentissage automatique et de la programmation Python."
+    certificateURL: "https://www.coursera.org/account/accomplishments/specialization/MEKPW7VARFED"
+
+  - name: Certification professionnelle AMF
+    timeline: "Juin 2016"
+    organization:
+      name: First Finance
+      url: https://www.first-finance.fr/
+
+  - name: Expert Crowdfunding
+    timeline: "Mars 2015"
+    organization:
+      name: Ulule
+      url: https://fr.ulule.com/badges/expert/
