@@ -15,5 +15,5 @@ openGraph:
 customMenus:
   - name: Formations
     url: /formations
-    hideFromNavbar: true
+    hideFromNavbar: false
     showOnFooter: false
