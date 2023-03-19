@@ -1,0 +1,87 @@
+# section information
+section:
+  name: Résumé
+  id: about
+  enable: true
+  weight: 1
+  showOnNavbar: false
+  template: sections/about.html
+
+# your designation
+designation: Analyste-Développeur
+# your company information
+company:
+  name: Insee
+  url: "https://www.insee.fr"
+
+# your resume. this file path should be relative to you "static" directory
+# Dreprecated. Use resourceLinks instead.
+# resume: "files/resume.pdf"
+
+# a summary about you
+summary: 'Je suis un attaché statisticien de l’Insee depuis 2020. J’y exerce des fonctions d’analyste-développeur en région parisienne et je travaille avec les technologies [Java](https://www.java.com/), [Spring](https://spring.io/) et [React](https://react.dev/).'
+
+# your social links
+# give as many as you want. use font-awesome for the icons.
+socialLinks:
+  - name: Email
+    icon: "fas fa-envelope"
+    url: "contact@maxence-lagalle.fr"
+
+  - name: LinkedIn
+    icon: "fab fa-linkedin"
+    url: "https://www.linkedin.com/in/maxencelagalle/"
+
+  - name: Github
+    icon: "fab fa-github"
+    url: "https://github.com/maxence-lagalle"
+
+  - name: Stackoverflow
+    icon: "fab fa-stack-overflow"
+    url: "https://stackoverflow.com/users/15896797/maxence-lagalle"
+
+# You can put custom buttons to link your relevant resources.
+# For example, you can put link for your resume.
+resourceLinks:
+  - title: "Curriculum Vitae"
+    url: "files/cv.pdf"
+
+# Show your badges
+# You can show your verifiable certificates from https://www.credly.com.
+# You can also show a circular bar indicating the level of expertise on a certain skill
+badges:
+  - type: soft-skill-indicator
+    name: Esprit d'équipe
+    percentage: 90
+    color: blue
+
+  - type: soft-skill-indicator
+    name: Pédagogie
+    percentage: 95
+    color: yellow
+
+  - type: soft-skill-indicator
+    name: Agilité
+    percentage: 85
+    color: orange
+
+  - type: soft-skill-indicator
+    name: Communication
+    percentage: 80
+    color: green
+
+  - type: soft-skill-indicator
+    name: Curiosité
+    percentage: 90
+    color: pink
+
+  - type: certification
+    name: AWS Academy Graduate - AWS Academy Introduction to Cloud Semester 1
+    url: "https://www.credly.com/earner/earned/badge/b5b9df9b-81a6-4b46-a9de-c52b3f1f3889"
+    badge: "https://images.credly.com/size/680x680/images/973caa5a-e3d1-4616-806f-4c95d5f2ffea/image.png"
+
+# you can also provide color code instead of the color name
+# - type: soft-skill-indicator
+#   name: Example 1
+#   percentage: 75
+#   color: "#00adb5"
