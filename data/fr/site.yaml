@@ -11,3 +11,9 @@ openGraph:
   description: Curriculum Vitae et portfolio de Maxence Lagalle
   image: images/author/ml.jpg
   url: https://www.maxence-lagalle.fr
+
+customMenus:
+  - name: Formations
+    url: /formations
+    hideFromNavbar: true
+    showOnFooter: false
