@@ -78,154 +78,154 @@ params:
   topNavbar:
     maxVisibleSections: 5
 
-    # Configure various features of this theme
-    features:
+  # Configure various features of this theme
+  features:
 
-      # Enable dark theme
-      darkMode:
-        enable: true
-        services:
-          darkreader:
-            defaultColorScheme: system # options are 'system', 'dark', 'light'
-            fixes:
-              invert: [ 'img[src$=".svg"]' ] # inverts svg colors.
-            theme:
-              brightness: 100
-              contrast: 100
-              sepia: 0
+    # Enable dark theme
+    darkMode:
+      enable: true
+      services:
+        darkreader:
+          defaultColorScheme: system # options are 'system', 'dark', 'light'
+          fixes:
+            invert: [ 'img[src$=".svg"]' ] # inverts svg colors.
+          theme:
+            brightness: 100
+            contrast: 100
+            sepia: 0
 
-      # Enable and configure portfolio
-      portfolio:
-        enable: true
+    # Enable and configure portfolio
+    portfolio:
+      enable: true
 
-      # Enable and configure blog posts
-      blog:
-        enable: true
-        # Share post on different social media
-        shareButtons:
-          facebook: false
-          twitter: false
-          linkedin: false
-          reddit: false
-          whatsapp: false
-          email: true
-          # tumblr: true
-          # pocket: true
-          # diaspora: true
-          # mastodon: true
+    # Enable and configure blog posts
+    blog:
+      enable: true
+      # Share post on different social media
+      shareButtons:
+        facebook: false
+        twitter: false
+        linkedin: false
+        reddit: false
+        whatsapp: false
+        email: true
+        # tumblr: true
+        # pocket: true
+        # diaspora: true
+        # mastodon: true
 
-      # Enable & configure "Notes" features
-      notes:
-        enable: true
+    # Enable & configure "Notes" features
+    notes:
+      enable: true
 
-      # Enable comment feature. There, should be only one of them.
-      comment:
-        enable: false
+    # Enable comment feature. There, should be only one of them.
+    comment:
+      enable: false
 
-      # Enable Analytics
-      analytics:
-        enabled: false
+    # Enable Analytics
+    analytics:
+      enabled: false
 
-      # Enable Support
-      support:
-        enable: false
+    # Enable Support
+    support:
+      enable: false
 
-      # specify whether you want to show Table of Contents in reading page
-      toc:
-        enable: true
+    # specify whether you want to show Table of Contents in reading page
+    toc:
+      enable: true
 
-      # Show tags under the post title
-      tags:
-        enable: true
+    # Show tags under the post title
+    tags:
+      enable: true
 
-      # Specify whether to show flag in the language selector. Default is true.
-      flags:
-        enable: false
+    # Specify whether to show flag in the language selector. Default is true.
+    flags:
+      enable: false
 
-      # Enable this to use `embed-pdf` shortcode.
-      embedpdf:
-        enable: false
+    # Enable this to use `embed-pdf` shortcode.
+    embedpdf:
+      enable: false
 
-      # Enable this to create flowcharts using shortcodes.
-      flowchart:
-        enable: true
-        services:
-          # Uncomment for `mermaid` shortcode.
-          mermaid:
-          # For config options, see: https://mermaid-js.github.io/mermaid/#/Setup?id=configuration
-            theme: dark
+    # Enable this to create flowcharts using shortcodes.
+    flowchart:
+      enable: true
+      services:
+        # Uncomment for `mermaid` shortcode.
+        mermaid:
+        # For config options, see: https://mermaid-js.github.io/mermaid/#/Setup?id=configuration
+          theme: dark
 
-      # Enable this to create mathematic expressions using `$$` blocks
-      math:
-        enable: true
-        services:
-          # https://katex.org/docs/autorender.html#api for more configurations
-          katex:
-            delimiters:
-              - left: $$
-                right: $$
-                display: true
-              - left: \\[
-                right: \\]
-                display: true
-              - left: $
-                right: $
-                display: false
-              - left: \\(
-                right: \\)
-                display: false
+    # Enable this to create mathematic expressions using `$$` blocks
+    math:
+      enable: true
+      services:
+        # https://katex.org/docs/autorender.html#api for more configurations
+        katex:
+          delimiters:
+            - left: $$
+              right: $$
+              display: true
+            - left: \\[
+              right: \\]
+              display: true
+            - left: $
+              right: $
+              display: false
+            - left: \\(
+              right: \\)
+              display: false
 
-      # Enable to use custom syntax highlight
-      # Please note, Hugo comes with it's own html based syntax highlighter.
-      # Your code block will still be syntax highlighted by hugo.
-      # For more details: https://gohugo.io/content-management/syntax-highlighting/
-      # To disable Hugo's builtin syntax highlight,
-      # see: https://gohugo.io/getting-started/configuration-markup#highlight
-      # ```
-      # # config.yaml
-      # markup:
-      #   # this disables hugo's syntax highlighting.
-      #   codeFences: false
-      # ```
-      syntaxHighlight:
-        enable: true
-        services:
-          hljs:
-            # see: https://highlightjs.readthedocs.io/en/latest/api.html#configure
-            noHighlightRe: /^no-highlight$/i
+    # Enable to use custom syntax highlight
+    # Please note, Hugo comes with it's own html based syntax highlighter.
+    # Your code block will still be syntax highlighted by hugo.
+    # For more details: https://gohugo.io/content-management/syntax-highlighting/
+    # To disable Hugo's builtin syntax highlight,
+    # see: https://gohugo.io/getting-started/configuration-markup#highlight
+    # ```
+    # # config.yaml
+    # markup:
+    #   # this disables hugo's syntax highlighting.
+    #   codeFences: false
+    # ```
+    syntaxHighlight:
+      enable: true
+      services:
+        hljs:
+          # see: https://highlightjs.readthedocs.io/en/latest/api.html#configure
+          noHighlightRe: /^no-highlight$/i
 
-      # Enable to use `video-player` shortcode
-      videoPlayer:
-        enable: true
-        services:
-          # convert .js-player class into video player via https://plyr.io/
-          # Can play HTML5 Video, Audio, Youtube, Vimeo.
-          # For more info on setup: https://github.com/sampotts/plyr#quick-setup
-          plyr:
-          # options doc: https://github.com/sampotts/plyr#options
-            fullscreen: true
+    # Enable to use `video-player` shortcode
+    videoPlayer:
+      enable: true
+      services:
+        # convert .js-player class into video player via https://plyr.io/
+        # Can play HTML5 Video, Audio, Youtube, Vimeo.
+        # For more info on setup: https://github.com/sampotts/plyr#quick-setup
+        plyr:
+        # options doc: https://github.com/sampotts/plyr#options
+          fullscreen: true
 
-      # Provide footer configuration.
-      footer:
-        enable: true
-        # You can provide your custom footer template using this option.
-        # Put your template in "layouts/partials" folder of your repo.
-        template: footer.html
-        # Show/hide navigation in the footer. Default is "true".
-        navigation:
-          enable: true
-          # show custom menus in the footer
-          customMenus: true
-          # Show/hide "Contact Me" section in the footer. Default is "true".
-        contactMe:
-          enable: true
-        # Show/hide credentials section in the footer. Default is "true".
-        credentials:
-          enable: true
-        # Show/hide newsletter section in the footer. Default is "true".
-        # Currently, it supports "mailchimp".
-        newsletter:
-          enable: false
-        # Show/hide disclaimer notice in the footer. Default is "false".
-        disclaimer:
-          enable: false
+  # Provide footer configuration.
+  footer:
+    enable: true
+    # You can provide your custom footer template using this option.
+    # Put your template in "layouts/partials" folder of your repo.
+    template: footer.html
+    # Show/hide navigation in the footer. Default is "true".
+    navigation:
+      enable: true
+      # show custom menus in the footer
+      customMenus: true
+      # Show/hide "Contact Me" section in the footer. Default is "true".
+    contactMe:
+      enable: true
+    # Show/hide credentials section in the footer. Default is "true".
+    credentials:
+      enable: true
+    # Show/hide newsletter section in the footer. Default is "true".
+    # Currently, it supports "mailchimp".
+    newsletter:
+      enable: false
+    # Show/hide disclaimer notice in the footer. Default is "false".
+    disclaimer:
+      enable: false
