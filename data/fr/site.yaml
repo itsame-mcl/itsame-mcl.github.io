@@ -2,4 +2,12 @@
 copyright: © 2023 Maxence Lagalle
 
 # Meta description for your site.  This will help the search engines to find your site.
-description: Portfolio and personal blog of John Doe.
+description: Curriculum Vitae et portfolio de Maxence Lagalle
+
+# Specify OpenGraph Headers
+openGraph:
+  title: Maxence Lagalle
+  type: website
+  description: Curriculum Vitae et portfolio de Maxence Lagalle
+  image: images/author/ml.jpg
+  url: https://www.maxence-lagalle.fr
