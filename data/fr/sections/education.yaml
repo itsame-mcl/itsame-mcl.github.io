@@ -1,0 +1,78 @@
+# section information
+section:
+  name: Formation
+  id: formation
+  template: sections/education.html # Use "sections/education-alt.html for alternate template.
+  enable: true
+  weight: 3
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+degrees:
+  - name: Cursus Attaché Interne
+    icon: fa-university
+    timeframe: 2020-2022
+    institution:
+      name: École Nationale de la Statistique et de l'Analyste de l'Information (ENSAI)
+      url: "https://ensai.fr/"
+    extracurricularActivities:
+      - Élu titulaire au Conseil d'Administration du Groupe des Écoles Nationales d'Économie et de Statistiques (GENES) (2020-2021)
+  - name: Cycle Long - B6
+    icon: fa-university
+    timeframe: 2017-2018
+    institution:
+      name: Centre de Formation de l'Insee à Libourne (CEFIL)
+      url: "https://www.cefil.fr/"
+    takenCourses: #(optional)
+      # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
+      showGrades: false
+      collapseAfter: 3
+      courses:
+        - name: Analyse de Tableaux / Démographie
+        - name: Formation / Transferts de Ressources
+        - name: "Enquête : Les difficultés de recrutement dans la filière agro-alimentaire en Nouvelle-Aquitaine"
+    extracurricularActivities: #(optional)
+      - Délégué Concours Externe
+      - Vice-Secrétaire de l'association "Les Cefiliens"
+  - name: Master Recherche - Finance de marché
+    icon: fa-graduation-cap
+    timeframe: 2009-2011
+    institution:
+      name: Université de Poitiers
+      url: "https://www.univ-poitiers.fr/"
+    grade: #(optional)
+      scale: Mention
+      achieved: Très Bien - 17,5
+      outOf: 20
+    takenCourses:
+      showGrades: false
+      courses:
+        - name: Gestion de l'épargne institutionnelle
+        - name: "Mémoire de recherche : Financement et volatilité de l'activité économique"
+    extracurricularActivities:
+      - Élu titulaire au Conseil d'Administration de l'UFR Sciences Économiques (2009-2011)
+      - Président de l'association du Master "ÉCOFIN" (2010-2011)
+  - name: Licence - Économie appliquée
+    icon: fa-graduation-cap
+    timeframe: 2006-2009
+    institution:
+      name: Université de Poitiers
+      url: "https://www.univ-poitiers.fr/"
+    grade: #(optional)
+      scale: Mention
+      achieved: Très Bien - 17,8
+      outOf: 20
+    takenCourses:
+      showGrades: false
+      courses:
+        - name: Analyse économique et financière
+    extracurricularActivities:
+      - Élu suppléant au Conseil d'Administration de l'UFR Sciences Économiques (2007-2009)
+      - Vice-Secrétaire de l'Association de la Licence "ASSECO" (2007-2008)
+  - name: Baccalauréat général - Filière scientifique
+    icon: fa-school
+    timeframe: 2003-2006
+    institution:
+      name: Centre national d'enseignement à distance (CNED)
+      url: "https://www.cned.fr/"
