@@ -2,6 +2,9 @@ baseURL: https://www.maxence-lagalle.fr
 
 languageCode: fr-fr
 title: "Maxence Lagalle"
+theme:
+  - "github.com/hugo-toha/toha/v4"
+  - "github.com/dzello/reveal-hugo"
 
 # Use Hugo modules to add theme
 module:
@@ -44,6 +47,12 @@ outputs:
     - HTML
     - RSS
     - JSON
+
+outputFormats:
+  Reveal:
+    baseName: index
+    mediaType: text/html
+    isHTML: true
 
 # Enable global emoji support
 enableEmoji: true
@@ -207,18 +216,16 @@ params:
           enable: true
           # show custom menus in the footer
           customMenus: true
-        # Show/hide "Contact Me" section in the footer. Default is "true".
+          # Show/hide "Contact Me" section in the footer. Default is "true".
         contactMe:
           enable: true
         # Show/hide credentials section in the footer. Default is "true".
         credentials:
           enable: true
-
         # Show/hide newsletter section in the footer. Default is "true".
         # Currently, it supports "mailchimp".
         newsletter:
           enable: false
-
         # Show/hide disclaimer notice in the footer. Default is "false".
         disclaimer:
           enable: false
