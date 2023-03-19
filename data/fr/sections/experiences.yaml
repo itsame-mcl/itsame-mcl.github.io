@@ -47,7 +47,7 @@ experiences:
           - Contrôle de la qualité et apurement des données collectées
           - Développement d'outils (langage R) et suivi d'indicateurs de performance et de qualité
           - Gestion des relations téléphoniques et postales avec les personnes enquêtées
-          - Maître de stage d’un étudiant en 2ème année de DUT STID intitulé "Travaux de géocodage et de calcul de trajectoire optimale" (Python)
+          - "Maître de stage d’un étudiant en 2ème année de DUT STID : Travaux de géocodage et de calcul de trajectoire optimale (Python)"
 
       - designation: Assistant technique
         start: Mars 2018
@@ -56,7 +56,7 @@ experiences:
           - Stage réalisé au Pôle Services et Appui National aux Activités de Pilotage (PSANAP) situé au siège de la Direction Régionale Nouvelle-Aquitaine de l'Insee (Poitiers)
           - Développement en langages R et LaTeX d'une solution de traitement de données et de production de tableaux de bord
           - Utilisation de l'architecture trois tiers et de l'approche "Tidy Data"
-          - Mémoire intitulé "Dynamisation sous R de produits de diffusion"
+          - "Mémoire : Dynamisation sous R de produits de diffusion"
 
   - company:
       name: Castelambre
