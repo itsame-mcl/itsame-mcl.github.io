@@ -1,0 +1,99 @@
+# section information
+section:
+  name: Expériences
+  id: experiences
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your experiences
+experiences:
+  - company:
+      name: Insee
+      url: "https://www.insee.fr"
+      location: Poitiers (2018-2020), Montrouge (2022-)
+      # company overview
+      overview: L'Institut national de la statistique et des études économiques (Insee) est chargé de la production, de l'analyse et de la publication des statistiques officielles en France, depuis 1946
+    positions:
+      - designation: Analyste-Développeur
+        start: Septembre 2022
+        # don't provide end date if you are currently working there. It will be replaced by "Present"
+        # end: Dec 2020
+        # give some points about what was your responsibilities at the company.
+        responsibilities:
+          - Poste localisé au Service National de Développement Informatique de Paris (SNDIP), à la Direction Générale de l'Insee (Montrouge, Île-de-France)
+          - Développeur full stack dans l'équipe de maintenance du site web [insee.fr](https://www.insee.fr) (Web4G)
+          - Projet en agilité Scrum, en cours de transition DevOps
+
+      - designation: Référent managérial
+        start: Septembre 2019
+        end: Août 2020
+        responsibilities:
+          - Poste localisé à la Division Enquêtes Ménages (DEM) au siège de la Direction Régionale Nouvelle-Aquitaine de l'Insee (Poitiers)
+          - Suivi managérial des enquêteurs du réseau (entretiens annuels, bilans qualité)
+          - Formation et remise à niveau du réseau d'enquêteurs
+          - Contrôle de la qualité et accompagnements d'évaluation
+          - Développement d'outils (R, Python) et suivi d'indicateurs de performance et de qualité
+
+      - designation: Responsable d'enquêtes
+        start: Juillet 2018
+        end: Août 2019
+        responsibilities:
+          - Poste localisé à la Division Enquêtes Ménages (DEM) au siège de la Direction Régionale Nouvelle-Aquitaine de l'Insee (Poitiers)
+          - Organisation et coordination régionale des activités d'enquêtes auprès des ménages
+          - Formation du réseau d'enquêteurs aux nouvelles enquêtes
+          - Contrôle de la qualité et apurement des données collectées
+          - Développement d'outils (langage R) et suivi d'indicateurs de performance et de qualité
+          - Gestion des relations téléphoniques et postales avec les personnes enquêtées
+          - Maître de stage d’un étudiant en 2ème année de DUT STID intitulé "Travaux de géocodage et de calcul de trajectoire optimale" (Python)
+
+      - designation: Assistant technique
+        start: Mars 2018
+        end: Juin 2018
+        responsibilities:
+          - Stage réalisé au Pôle Services et Appui National aux Activités de Pilotage (PSANAP) situé au siège de la Direction Régionale Nouvelle-Aquitaine de l'Insee (Poitiers)
+          - Développement en langages R et LaTeX d'une solution de traitement de données et de production de tableaux de bord
+          - Utilisation de l'architecture trois tiers et de l'approche "Tidy Data"
+          - Mémoire intitulé "Dynamisation sous R de produits de diffusion"
+
+  - company:
+      name: Castelambre
+      location: Poitiers
+      overview: Castelambre était une entreprise de création audiovisuelle et de communication numérique
+    positions:
+      - designation: Créateur et administrateur d’entreprise
+        start: Juin 2015
+        end: Janvier 2017
+        responsibilities:
+          - Rédaction d’actes juridiques et de gestion, suivi fiscal et comptable de l’activité, prospection et réalisation de propositions commerciales
+          - Conception de sites Internet, tournages vidéo, conseil en financement participatif
+
+  - company:
+      name: Université de Poitiers
+      url: "https://www.univ-poitiers.fr/"
+      location: Poitiers
+      overview: Fondée en 1431, l'Université de Poitiers (UP) regroupe toutes les disciplines dans ses 14 facultés, instituts et écoles
+    positions:
+      - designation: Chargé de recherche et d'enseignement
+        start: Octobre 2011
+        end: Septembre 2014
+        responsibilities:
+          - Recherches bibliographiques et travaux économétriques (R, Stata) sur les conséquences de la crise de 2008 sur l’économie des pays en voie de développement
+          - Animation de travaux dirigés de microéconomie et d'économétrie
+
+      - designation: Chargé d'études statistiques
+        start: Mai 2010
+        end: Juillet 2010
+        responsibilities:
+          - Analyse (SAS) des résultats d’une enquête de satisfaction et rédaction d’un rapport de synthèse pour le compte du CROUS d’Orléans
+          - Contribution à des travaux d’enquête relatifs à l’impact du salariat étudiant et des conditions de vie sur la réussite en Licence
+
+      - designation: Moniteur d'accompagnement
+        start: Octobre 2007
+        end: Décembre 2008
+        responsibilities:
+          - Accompagnement des étudiants étrangers dans leur intégration sociale et culturelle au sein de l'Université (octobre 2007 à mai 2008)
+          - Sessions de soutien généraliste sur les matières de Licence en et langue française (octobre 2007 à mai 2008)
+          - Soutien renforcé en expression écrite et orale à destination des étudiants inscrits en 1ère année de Licence (octobre à décembre 2008)
