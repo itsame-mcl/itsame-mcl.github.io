@@ -1,5 +1,6 @@
 .idea/*
 resources/*
 node_modules/*
+assets/jsconfig.json
 .hugo_build.lock
 .wakatime-project
