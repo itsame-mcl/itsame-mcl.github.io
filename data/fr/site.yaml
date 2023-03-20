@@ -13,7 +13,7 @@ openGraph:
   url: https://www.maxence-lagalle.fr
 
 customMenus:
-  - name: Formations
+  - name: Cours
     url: /courses
     hideFromNavbar: true
     showOnFooter: false
