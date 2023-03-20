@@ -1,3 +1,3 @@
 ---
-title: Formations
+title: Cours
 ---
