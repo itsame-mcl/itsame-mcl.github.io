@@ -1,11 +1,11 @@
 ---
-title: "Introduction"
-date: 2020-06-08T08:06:25+06:00
-description: Introduction to Sample Post
+title: "Chapitre 1 - Introduction"
+date: 2023-03-22T00:00:00+01:00
+description: "Introduction : pourquoi utiliser un outil de suivi de versions ?"
 menu:
     sidebar:
-        name: Introduction
-        identifier: git-introduction
+        name: 1 - Introduction
+        identifier: introduction
         parent: git
         weight: 100
 ---
