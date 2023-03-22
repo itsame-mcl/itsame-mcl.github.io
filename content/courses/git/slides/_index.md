@@ -1,9 +1,13 @@
 ---
 outputs: "Reveal"
+reveal_hugo:
+    theme: moon
 menu:
     sidebar:
         name: Diaporama
         identifier: git-slides
         parent: git
-        weight: 50
+        weight: 0
 ---
+
+# Git & GitLab
