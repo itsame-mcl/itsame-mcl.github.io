@@ -76,9 +76,9 @@ badges:
     color: pink
 
   - type: certification
-    name: AWS Academy Graduate - AWS Academy Introduction to Cloud Semester 1
-    url: "https://www.credly.com/earner/earned/badge/b5b9df9b-81a6-4b46-a9de-c52b3f1f3889"
-    badge: "https://images.credly.com/size/680x680/images/973caa5a-e3d1-4616-806f-4c95d5f2ffea/image.png"
+    name: Heart of Agile Academy - Advanced Agile Masterclass - Level B
+    url: "https://heart-of-agile-academy.webflow.io/"
+    badge: "badges/heart-of-agile.png"
 
 # you can also provide color code instead of the color name
 # - type: soft-skill-indicator
