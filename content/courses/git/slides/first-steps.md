@@ -5,7 +5,7 @@ hideCard: true
 {{% section %}}
 
 # Premiers pas
-Installation, configuration et concepts de base
+Installation et configuration de Git
 
 ---
 
@@ -94,5 +94,56 @@ Installation, configuration et concepts de base
 
 - À configurer en fonction des habitudes de l'équipe.
   - En l'absence de préférence, l'option *Default (fast-forward or merge)* est plus simple à appréhender dans un premier temps. 
+
+
+---
+
+## Configuration de Git
+
+### Niveaux de configuration
+
+<div class="mermaid">
+  <pre>
+    flowchart TD
+      subgraph system
+        subgraph global
+          subgraph local
+            node[Configuration]
+          end
+        end
+      end
+  </pre>
+</div>
+
+- De manière générale, la configuration se définit à l'échelle de l'utilisateur, donc au niveau `global`.
+- Le niveau `local` peut également être utilisé pour des paramètres spécifiques à un projet.
+
+---
+
+### Configuration minimale
+
+- La configuration de Git s'effectue en ligne de commandes (CLI) dans un terminal.
+- Il faut au minimum configurer un nom d'auteur et une adresse e-mail :
+```bash
+git config --global user.name "Prénom Nom"
+git config --global user.email "utilisateur@domaine.tld"
+```
+- Dans un cadre professionnel, la configuration d'un proxy peut également être nécessaire :
+```bash
+ git config --global http.proxy "http://proxy.domaine.tld:port"
+ git config --global https.proxy "http://proxy.domaine.tld:port"
+ git config --global no.proxy "exception1,exception2,localhost"
+```
+
+---
+
+### Consulter la configuration active
+
+- La commande `git config` permet également de connaître la valeur actuelle d'un paramètre.
+- Il est même possible de consulter toute la configuration actuellement active grâce à la commande suivante :
+  ```bash
+  git config --list
+  ```
+  - L'option `--show-origin` permet d'indiquer en plus si une configuration vient du niveau `system`, `global` ou `local`. 
 
 {{% /section %}}
