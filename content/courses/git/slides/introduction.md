@@ -12,15 +12,14 @@ Pourquoi utiliser un système de gestion de versions ?
 
 ## Système de gestion de versions ?
 
-Un **système de gestion de versions (VCS)** est un outil permettant de suivre les 
+- Un **système de gestion de versions (VCS)** est un outil permettant de suivre les 
 modifications apportées au code source d'un projet au fil du temps.
 
-Son utilisation permet de :
-
-- travailler ensemble sur un même code source
-- conserver l'historique des modifications apportées
-- revenir à des versions précédentes
-- résoudre les conflits entre les modifications apportées par différents développeurs
+- Son utilisation permet de :
+  - travailler ensemble sur un même code source
+  - conserver l'historique des modifications apportées
+  - revenir à des versions précédentes
+  - résoudre les conflits entre les modifications apportées par différents développeurs
 
 ---
 
@@ -49,30 +48,24 @@ Son utilisation permet de :
 
 ## Git ?
 
-[Git](https://git-scm.com/) a été créé par Linus Torvalds, le créateur du système d'exploitation Linux, en 2005.
-
-Il a été conçu pour être un VCS décentralisé, capable de gérer efficacement les grands projets open source tels que le développement du noyau Linux.
-
-Git a rapidement gagné en popularité auprès de la communauté du développement de logiciels en raison de sa rapidité, de sa facilité d'utilisation et de sa flexibilité.
+- [Git](https://git-scm.com/) a été créé par Linus Torvalds, le créateur du système d'exploitation Linux, en 2005.
+- Il a été conçu pour être un VCS décentralisé, capable de gérer efficacement les grands projets open source tels que le développement du noyau Linux.
+- Git a rapidement gagné en popularité auprès de la communauté du développement de logiciels en raison de sa rapidité, de sa facilité d'utilisation et de sa flexibilité.
 
 ---
 
 ### Système décentralisé ?
 
-Git, en tant que VCS décentralisé (ou distribué), permet à chaque développeur de disposer d'une copie complète de l'historique des modifications et du code source sur leur ordinateur.
-
-Ils peuvent dont travailler en mode déconnecté (sans accès à Internet ou à un serveur centralisé) et ont accès à toutes les versions du code source.
-
-Cela signifie qu'il n'y a pas de point unique de défaillance, car le référentiel de code est distribué sur plusieurs machines.
+- Git, en tant que VCS décentralisé (ou distribué), permet à chaque développeur de disposer d'une copie complète de l'historique des modifications et du code source sur leur ordinateur.
+- Ils peuvent dont travailler en mode déconnecté (sans accès à Internet ou à un serveur centralisé) et ont accès à toutes les versions du code source.
+- Cela signifie qu'**il n'y a pas de point unique de défaillance**, car le référentiel de code est distribué sur plusieurs machines.
 
 ---
 
 ## GitLab ?
 
-[GitLab](https://about.gitlab.com/) est une plateforme web open source de gestion de projets de développement de logiciels qui utilise Git pour la gestion de versions de code source.
-
-GitLab fournit des fonctionnalités de collaboration supplémentaires telles que des tableaux de bord de suivi de projets, des outils de gestion de bugs ou bien encore des outils d'intégration continue.
-
-Il fournit également des fonctionnalités de gestion d'équipe telles que la gestion des utilisateurs, des permissions et des groupes de projets.
+- [GitLab](https://about.gitlab.com/) est une plateforme web open source de gestion de projets de développement de logiciels qui utilise Git pour la gestion de versions de code source.
+- GitLab fournit des fonctionnalités de collaboration supplémentaires telles que des tableaux de bord de suivi de projets, des outils de gestion de bugs ou bien encore des outils d'intégration continue.
+- Il fournit également des fonctionnalités de gestion d'équipe telles que la gestion des utilisateurs, des permissions et des groupes de projets.
 
 {{% /section %}}
