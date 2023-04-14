@@ -491,6 +491,179 @@ Créer un dépôt, écrire des commits, gérer des multiples branches, consulter
   ```
   - Le répertoire de travail est alors remis à l'état du commit ciblé et les modifications réalisées depuis sont remises dans l'index.
   - L'option `--hard` permet de réinitialiser **définitivement** le répertoire de travail et l'index et supprime les commits devenus obsolètes.
-- 
+
+---
+
+## Tags
+
+- Les tags sont un moyen simple d'associer une étiquette (généralement, un numéro de version) à un commit.
+- Une fois qu'ils sont positionnés, les tags peuvent être utilisés à la place des identifiants de commits dans presque toutes les commandes de Git.
+
+---
+
+### Ajouter un tag
+
+- Ajouter un tag s'effectue avec la commande :
+  ```bash
+  git tag <nom_du_tag> <commit>
+  ```
+  - Si aucun identifiant de commit n'est précisé, le tag s'appliquera au dernier commit (HEAD).
+  - Il est possible d'ajouter des informations détaillées à un tag (par exemple, un changelog) en ajoutant l'option `-a`.
+
+---
+
+### Manipuler les tags
+
+- Git peut fournir la liste des tags d'un dépôt :
+  ```bash
+  git tag --list
+  ```
+- Il est également possible d'afficher les détails d'un tag, notamment sa date et son auteur :
+  ```bash
+  git tag show <nom_du_tag>
+  ```
+- Enfin, il est possible de supprimer un tag :
+  ```bash
+  git tag -d <nom_du_tag>
+  ```
+
+---
+
+## Utiliser plusieurs branches
+
+- Avec celle de commit, la notion de branche et l'un des concepts clés de Git.
+  - La maîtriser permet de considérablement simplifier le travail collaboratif.
+- Une branche est un **enchaînement de commits parallèle** à la version principale du projet.
+  - Par convention, la version principale est la branche `main` (anciennement `master`).
+
+---
+
+- Techniquement, une branche est un tag dynamique qui se déplace automatiquement sur le dernier commit en date de sa lignée.
+  - `HEAD` est le tag du dernier commit de la branche actuellement active.
+
+<div class="mermaid">
+  <pre>
+    %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true }}}%%
+    gitGraph
+      commit
+      commit
+      branch feature
+      commit
+      commit
+      checkout main
+      commit tag: "main"
+      checkout feature
+      commit tag: "feature, HEAD"
+  </pre>
+</div>
+
+  - Sur cet exemple, `feature` est la branche active.
+
+---
+
+### Lister les branches d'un dépôt
+
+- Pour lister les branches d'un dépôt, la commande à utiliser est `git branch` :
+  ```bash
+  git branch
+  ```
+  ```console
+  * feature
+    main
+  ```
+  - La branche actuellement active est signalée par l'astérisque (`*`)
+  - L'option `-v` permet d'afficher en plus l'identifiant et le message du dernier commit de chaque branche
+
+---
+
+### Créer une branche
+
+- La création de branche s'effectue également grâce à `git branch` :
+  ```bash
+  git branch <nom_de_la_branche> <commit_initial>
+  ```
+  - Si aucun commit initial n'est précisé, `HEAD` sera le point de départ de la nouvelle branche.
+  - Le nom d'une branche :
+    - ne peut contenir que des caractères ASCII
+    - ne dois pas commencer par un tiret
+    - ne dois pas contenir deux points consécutifs
+    - ne dois pas se terminer par un slash, mais peut en contenir pour créer une hiérarchie
+
+---
+
+### Changer de branche
+
+- `git switch` permet de changer la branche active :
+  ```bash
+  git switch <branche_a_activer>
+  ```
+  - Pour les versions de Git antérieures à 2.23.0, la commande était `git checkout <branche>`
+  - Tous les nouveaux commits seront affiliés à la branche activée
+  - Changer de branche :
+    - Modifie le répertoire de travail et l'index
+    - Préserve les modifications en cours
+    - Déplace l'étiquette `HEAD`
+
+---
+
+### Mettre de côté les modifications en cours
+
+- Il peut arriver que l'on souhaite temporairement mettre de côté des modifications en cours, par exemple pour travailler en urgence sur un problème.
+- Git rend cela possible grâce à la commande :
+  ```bash
+  git stash
+  ```
+  - Cette commande stocke temporairement les modifications du répertoire de travail et de l'index, et remet le répertoire de travail à l'état du dernier commit de la branche.
+  - L'option `--include-untracked` permet d'également inclure les fichiers non suivis par Git.
+
+---
+
+- Pour réappliquer dans la branche active les dernières modifications mises de côté, la commande est :
+  ```bash
+  git stash pop
+  ```
+- Il est également possible de supprimer des modifications sans les appliquer :
+  ```bash
+  git stash drop
+  ```
+- Enfin, il est possible d'accumuler plusieurs stashs, qui peuvent être listés :
+  ```bash
+  git stash list
+  ```
+
+---
+
+### Fusionner deux branches
+
+- Fusionner des branches permet d'intégrer des modifications faites sur une branche dans une autre.
+  - C'est une opération cruciale, car elle permet par exemple d'intégrer à une version des productions des fonctionnalités développées en parallèle.
+- La fusion doit être initiée en ayant activé la branche cible (celle qui doit recevoir les modifications)
+  - La fusion s'effectue avec la commande `git merge`, en précisant la branche source des modifications :
+  ```bash
+  git merge <branche_source>
+  ```
+
+---
+
+<div class="mermaid">
+  <pre>
+    %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true }}}%%
+    gitGraph
+      commit
+      commit id: "1-8a4f40a"
+      branch feature
+      commit
+      commit
+      checkout main
+      commit
+      checkout feature
+      commit tag: "feature"
+      checkout main
+      merge feature id: "6-1a59d24" tag: "main, HEAD"
+  </pre>
+</div>
+
+- Git recherche l'ancêtre commun des branches à fusionner (ici, `1-8a4f40a`) et y injecte les modifications issues de chaque branche, pour créer un nouveau commit dans la branche active, dit commit de merge.
+  - Ici, le commit de merge a l'identifiant `6-1a59d24`.
 
 {{% /section %}}
