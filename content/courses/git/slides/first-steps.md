@@ -146,4 +146,14 @@ git config --global user.email "utilisateur@domaine.tld"
   ```
   - L'option `--show-origin` permet d'indiquer en plus si une configuration vient du niveau `system`, `global` ou `local`. 
 
+---
+
+## Obtenir de l'aide
+
+- Git propose une aide intégrée (en anglais) sur son fonctionnement et la syntaxe de ses commandes. Cette aide est accessible via la commande :
+  ```bash
+  git help <commande>
+  ```
+  - En cas d'utilisation de `git help` sans préciser de nom de commande, Git écrira dans le terminal une liste des commandes les plus usuelles.
+
 {{% /section %}}
