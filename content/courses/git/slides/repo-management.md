@@ -4,7 +4,7 @@ hideCard: true
 ---
 {{% section %}}
 
-# Gérer un dépôt local
+# Gérer un dépôt Git
 Créer un dépôt, écrire des commits, gérer des multiples branches, consulter et manipuler l'historique
 
 ---
