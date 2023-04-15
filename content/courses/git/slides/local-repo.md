@@ -626,7 +626,7 @@ Créer un dépôt, écrire des commits, gérer des multiples branches, consulter
   ```bash
   git stash drop
   ```
-- Enfin, il est possible d'accumuler plusieurs stashs, qui peuvent être listés :
+- Enfin, il est possible d'accumuler plusieurs stashes, qui peuvent être listés :
   ```bash
   git stash list
   ```
@@ -665,5 +665,325 @@ Créer un dépôt, écrire des commits, gérer des multiples branches, consulter
 
 - Git recherche l'ancêtre commun des branches à fusionner (ici, `1-8a4f40a`) et y injecte les modifications issues de chaque branche, pour créer un nouveau commit dans la branche active, dit commit de merge.
   - Ici, le commit de merge a l'identifiant `6-1a59d24`.
+
+---
+
+<div class="mermaid">
+  <pre>
+  classDiagram
+    direction LR
+    Commit1..Commit4
+    Commit1..Commit5
+    Commit4..Commit6
+    Commit5..Commit6
+    class Commit1 {
+      fichier1.txt 41ad58
+      fichier2.txt 1efc25
+      fichier3.txt 690a41
+    }
+    class Commit4 {
+      fichier1.txt 914da0
+      fichier2.txt 1efc25
+      fichier3.txt 690a41
+    }
+    class Commit5 {
+      fichier1.txt 41ad58
+      fichier2.txt ea451d
+      fichier3.txt 690a41
+    }
+    class Commit6 {
+      fichier1.txt 914da0
+      fichier2.txt ea451d
+      fichier3.txt 690a41
+    }
+  </pre>
+</div>
+
+---
+
+#### Fusion Fast-Forward
+
+- Si le commit de merge calculé par Git est égal au dernier commit de la branche source (il a le même hash), alors Git évite de créer un doublon.
+- À la place, il procède à une fusion *fast-forward* en déplaçant l'étiquette de la branche cible sur le commit de la branche source.
+
+<div class="mermaid">
+  <pre>
+    %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true }}}%%
+    gitGraph
+      commit
+      commit
+      branch feature
+      commit
+      commit
+      checkout main
+      merge feature tag: "main, feature, HEAD"
+  </pre>
+</div>
+
+---
+
+#### Conflits de fusion
+
+- Un conflit de fusion survient si la même zone d'un même fichier a été modifiée entre l'ancêtre commun d'une part et les branches source et cible simultanément d'autre part.
+  - Une zone d'un fichier correspond généralement à une ligne et son voisinage immédiat.
+- Dans ce cas, Git suspend la fusion et le développeur doit trancher manuellement le conflit en indiquant quelle version conserver.
+
+---
+
+- Git signale l'échec de la fusion automatique et les conflits dans la sortie de la commande `git merge` :
+  ```console
+  Auto-merging sonnet.txt
+  CONFLICT (add/add): Merge conflict in sonnet.txt
+  Automatic merge failed; fix conflicts and then commit the result.
+  ```
+
+- La commande `git status` précise également qu'une fusion est en cours et la liste des fichiers en conflit :
+  ```console
+  On branch main
+  You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+  
+  Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+  both added:      sonnet.txt
+  
+  no changes added to commit (use "git add" and/or "git commit -a")
+  ```
+
+---
+#### Résoudre les conflits de fusion
+
+- Pour résoudre les conflits, le développeur doit ouvrir dans un éditeur de texte les fichiers concernés.
+- Git a inséré dans le fichier des informations sur les modifications effectuées dans les branches source et cible sous le format suivant :
+  ```text
+  <<<<<<< HEAD
+  Version de la branche cible
+  =======
+  Version de la branche source
+  >>>>>>> source
+  ```
+  - Si une zone est vide, c'est qu'elle n'existe pas dans la branche concernée.
+
+---
+
+- Il est possible, et souvent utile, d'afficher également des informations sur le contenu de l'ancêtre commun via une option de configuration de Git :
+  ```bash
+  git config --global merge.conflictstyle diff3
+  ```
+  - Dans ce cas, les informations sur les modifications adopteront la présentation suivante :
+  ```text
+  <<<<<<< HEAD
+  Version de la branche cible
+  ||||||| merged common ancestor
+  Version de l'ancêtre commun
+  =======
+  Version de la branche source
+  >>>>>>> source
+  ```
+
+---
+
+- Une fois le fichier ouvert dans l'éditeur de texte, il est possible de reprendre à l'identique l'une des versions proposées, ou d'en écrire une nouvelle.
+- Lorsque tous les conflits d'un fichier sont résolus (il n'y a plus de marqueurs ajoutés par Git), le fichier doit être indexé (`git add`)
+- Après la résolution du dernier fichier, l'index peut finalement être commité (`git commit`), ce qui permettra de finaliser le commit de merge et la fusion des branches.
+
+---
+##### Exemple
+
+- Fichier `sonnet.txt` avant résolution des conflits :
+```text
+<<<<<<< HEAD
+=======
+Quand l'écran s'allume, je tape sur mon clavier,
+Et je me sens l'âme d'un héros bien armé,
+Mais parfois c'est la guerre, les bugs sont aguerris,
+Et je dois me résoudre à un peu de répit.
+
+>>>>>>> alt-sonnet
+Sur mon écran s'affichent des pixels brillants,
+Des octets bien alignés, des programmes ardents,
+Des virus dévastateurs, des spams envahissants,
+Des câbles emmêlés, des bugs persistants.
+
+<<<<<<< HEAD
+Je pianote sur mon clavier, tel un virtuose,
+Je créé des dossiers, des fichiers grandioses,
+Je navigue sur le web, je me sens comme un rose,
+Mais parfois je m'emmêle, je suis un peu névrose.
+
+Je rêve de machines, de logiciels parfaits,
+De claviers qui répondent à mes moindres souhaits,
+De souris magiques qui font tout à ma place.
+=======
+Je rêve de machines, de logiciels parfaits,
+D'ordinateurs qui pensent, qui lisent dans mes traits,
+De robots programmés, qui m'apportent le café.
+>>>>>>> alt-sonnet
+
+Mais en attendant, je m'en remets à mon ordinateur,
+Avec ses programmes parfois un peu farfelus,
+Et je souris, car je sais qu'il est mon sauveur.
+```
+
+---
+
+- Fichier `sonnet.txt` après résolution des conflits :
+  ```text
+  Quand l'écran s'allume, je tape sur mon clavier,
+  Et je me sens l'âme d'un héros bien armé,
+  Mais parfois c'est la guerre, les bugs sont aguerris,
+  Et je dois me résoudre à un peu de répit.
+  
+  Je pianote sur mon clavier, tel un virtuose,
+  Je créé des dossiers, des fichiers grandioses,
+  Je navigue sur le web, je me sens comme un rose,
+  Mais parfois je m'emmêle, je suis un peu névrose.
+  
+  Je rêve de machines, de logiciels parfaits,
+  D'ordinateurs qui pensent, qui lisent dans mes traits,
+  De robots programmés, qui m'apportent le café.
+  
+  Mais en attendant, je m'en remets à mon ordinateur,
+  Avec ses programmes parfois un peu farfelus,
+  Et je souris, car je sais qu'il est mon sauveur.
+  ```
+  - Le premier conflit a été résolu en conservant la version de `alt-sonnet`
+  - Le second par une ré-écriture mélangeant les deux versions et supprimant un texte commun
+
+---
+
+- La commande `git status` permet de confirmer que la fusion est terminée après commit des modifications :
+  ```console
+  On branch main
+  nothing to commit, working tree clean
+  ```
+- En cas de difficultés, il est possible d'abandonner une fusion pour la recommencer ultérieurement ou avec d'autres branches :
+  ```bash
+  git merge --abort
+  ```
+
+---
+
+### Linéariser un historique
+
+- Pour des raisons de lisibilité, on peut vouloir rendre aussi linéaire que possible l'historique d'une branche, en particulier de la branche principale.
+- Git propose des approches permettant de récupérer tout ou partie des modifications d'une autre branche tout en conservant un historique clair.
+
+---
+
+#### Récupérer un commit : le cherry pick
+
+- Git permet de récupérer dans une branche les modifications apportées par un commit réalisé dans une autre branche avec la commande `git cherry-pick` :
+  ```bash
+  git cherry-pick <identifiant_commit>
+  ```
+  - En cas de conflit, la même mécanique de résolution des conflits que pour la fusion de branches sera déclenchée 
+
+---
+
+<div class="mermaid">
+  <pre>
+    %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true }}}%%
+    gitGraph
+      commit
+      commit
+      branch feature
+      commit id: "2-7ed128b" tag: "feature"
+      checkout main
+      commit
+      cherry-pick id: "2-7ed128b"
+      commit
+      commit tag: "main, HEAD"
+  </pre>
+</div>
+
+- Le commit `2-7ed128b`, initialement présent dans la branche `feature` a été intégré sans fusion à l'historique de la branche `main`.
+
+---
+
+#### Réécrire une branche dans une autre : le rebase
+
+- Le rebase est une autre façon de fusionner deux branches.
+  - Au lieu d'écrire un commit de merge, le rebase consiste à intégrer tous les commits de la branche source dans la branche cible.
+  - Une fois positionné dans la branche cible, la commande `git rebase` permet d'effectuer cette opération :
+    ```bash
+    git rebase <branche_source>
+    ```
+
+---
+
+- Les commits de la branche source seront réécrits dans la branche cible dans le même ordre, immédiatement après l'ancêtre commun.
+- Les conflits devront être résolus après chaque commit, pour permettre à l'opération de continuer :
+  - Les fichiers en conflit doivent être ajoutés à l'index avec `git add`
+  - Puis, il faut demander à Git de continuer le rebase avec la commande :
+    ```bash
+    git rebase --continue
+    ```
+
+---
+
+##### Comparaison entre merge et rebase
+
+- Exemple d'historique après un `git merge` :
+<div class="mermaid">
+  <pre>
+    %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true }}}%%
+    gitGraph
+      commit id: "0-71af11d"
+      commit id: "1-8a4f40a"
+      branch feature
+      commit id: "2-9358c74"
+      commit id: "3-8151b64"
+      checkout main
+      commit id: "4-09aa3e3"
+      checkout feature
+      commit id: "5-af29107" tag: "feature"
+      checkout main
+      merge feature id: "6-1a59d24"
+      commit id: "7-46ccbcb" tag: "main, HEAD"
+  </pre>
+</div>
+
+- Le même historique après un `git rebase`:
+<div class="mermaid">
+  <pre>
+    %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true }}}%%
+    gitGraph
+      commit id: "0-71af11d"
+      commit id: "1-8a4f40a"
+      commit id: "2-9358c74"
+      commit id: "3-8151b64"
+      commit id: "5-af29107"
+      commit id: "4-09aa3e3"
+      commit id: "6-1a59d24"
+      commit id: "7-46ccbcb" tag: "main, HEAD"
+  </pre>
+</div>
+
+---
+
+#### Simplifier l'historique : le squash
+
+- Le `squash` permet à Git de rassembler plusieurs commits en un seul au moment d'une fusion, ce qui est une autre façon de linéariser un historique tout en le simplifiant.
+  - La manière la plus simple d'y parvenir est d'ajouter l'option `--squash` à `git merge`: 
+    ```bash
+    git merge --squash <branche_source>
+    ```
+  - Cette opération écrit dans l'index la combinaison de tous les commits de la branche source.
+  - Il faut ensuite effectuer un commit classique pour terminer la fusion.
+
+---
+
+### Supprimer une branche
+
+- L'option `-d` de `git branch` permet de supprimer une branche :
+  ```bash
+  git branch -d <branche_a_supprimer>
+  ```
+  - La suppression ne doit être effectuée que si la branche est devenue inutile :
+    - Parce qu'elle a été fusionnées dans une autre
+    - Parce que ses modifications ont été abandonnées (l'option devient alors `-D` par sécurité)
+  - Une fois la branche supprimée, ses commits non fusionnés sont définitivement perdus
 
 {{% /section %}}
