@@ -482,6 +482,16 @@ Créer un dépôt, écrire des commits, gérer des multiples branches, consulter
 
 ---
 
+### Annuler un commit
+
+- Git propose un mécanisme de `revert` permettant d'annuler les modifications d'un commit. Il consiste à écrire un nouveau commit qui continent l'inverse des modifications du commit original. Ce mécanisme s'utilise avec la commande suivante :
+  ```bash
+  git revert <commit_a_annuler>
+  ```
+  - Ce nouveau commit s'inscrit dans l'historique au moment où il est créé, comme n'importe quel autre commit.
+
+---
+
 ### Revenir à un état antérieur de l'historique
 
 - Git permet facilement de revenir à un état antérieur, par exemple pour repartir d'une version précédente ou annuler des modifications expérimentales.
