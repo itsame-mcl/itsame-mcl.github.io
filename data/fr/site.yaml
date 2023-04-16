@@ -15,5 +15,5 @@ openGraph:
 customMenus:
   - name: Cours
     url: /courses
-    hideFromNavbar: true
+    hideFromNavbar: false
     showOnFooter: false
