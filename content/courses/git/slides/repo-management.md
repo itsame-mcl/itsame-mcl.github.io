@@ -24,7 +24,7 @@ Créer un dépôt, écrire des commits, gérer des multiples branches, consulter
   ```bash
   git init
   ```
-  - Ceci va créer un sous-dossier .git (caché sous UNIX, pour le voir : `ls -la`) qui sert notamment à stocker l'historique.
+  - Ceci va créer un sous-dossier `.git` (caché sous UNIX, pour le voir : `ls -la`) qui sert notamment à stocker l'historique.
     - Il n'est pas utile d'y accéder en utilisation courante.
 
 ---

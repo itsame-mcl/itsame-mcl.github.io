@@ -62,7 +62,7 @@ Installation et configuration de Git
 
 ---
 
-#### Choix de l'éxécutable SSH
+#### Choix de l'exécutable SSH
 
 <img src="install/ssh.png" alt="Choosing the SSH executable" height="350">
 

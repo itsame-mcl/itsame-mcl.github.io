@@ -24,7 +24,7 @@ Se synchroniser avec un dépôt distant et travailler de manière collaborative,
 
 ## Dépôt distant ?
 
-- Un dépôt distant est un dépôt Git hébergé sur un serveur, permettant de centraliser et de redistribuer les modifications d'un projet a toute une équipe.
+- Un dépôt distant est un dépôt Git hébergé sur un serveur, permettant de centraliser et de redistribuer les modifications d'un projet à toute l'équipe.
 - Les forges logicielles incluent un serveur Git pour l'hébergement de dépôts distants.
 
 ---
