@@ -166,6 +166,7 @@ Se synchroniser avec un dépôt distant et travailler de manière collaborative,
   git push --force-with-lease
   ```
   - Cette opération échouera si d'autres modifications ont été effectuées entre temps sur la branche, pour éviter tout risque de perte de code.
+    - Il existe une option `--force` pour réécrire l'historique sans cette sécurité.
 
 ---
 
@@ -177,6 +178,20 @@ Se synchroniser avec un dépôt distant et travailler de manière collaborative,
   ```
   - Si on souhaite effectuer cette fusion avec un rebase, il suffit d'ajouter l'option `--rebase`.
   - Le `pull` est en fait l'enchaînement de deux opérations : `fetch` pour télécharger les modifications, puis `merge` pour les intégrer.  
+
+---
+
+### Supprimer totalement un fichier de l'historique
+
+- Dans le cas où un fichier a été commit **par erreur**, il est possible de demander à Git de réécrire son historique en le filtrant pour supprimer totalement ce fichier :
+  ```bash
+  git filter-branch --index-filter \
+  'git rm -rf --cached --ignore-unmatch <chemin_vers_le_fichier>' HEAD
+  ```
+- Sur un système avec Python>=3.5 installé, l'extension [git filter-repo](https://github.com/newren/git-filter-repo) fournit une commande simplifiée :
+  ```bash
+  git filter-repo --invert-paths --path <chemin_vers_le_fichier>
+  ```
 
 ---
 

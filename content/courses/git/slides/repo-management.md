@@ -447,6 +447,13 @@ Créer un dépôt, écrire des commits, gérer des multiples branches, consulter
 
 ---
 
+- `git diff` permet également de vérifier les modifications qui seront incluses dans le commit en cours de préparation en comparant l'index et le dernier commit :
+  ```bash
+  git diff --staged
+  ```
+  
+---
+
 ### Rechercher un commit défectueux
 
 - L'outil `git bisect` permet de retrouver un commit défectueux (par exemple, ayant introduit un bug) par recherche dichotomique.
