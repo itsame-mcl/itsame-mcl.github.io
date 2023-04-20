@@ -525,8 +525,6 @@ Créer un dépôt, écrire des commits, gérer des multiples branches, consulter
 
 ---
 
----
-
 ## Tags
 
 - Les tags sont un moyen simple d'associer une étiquette (généralement, un numéro de version) à un commit.
