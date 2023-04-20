@@ -501,13 +501,29 @@ Créer un dépôt, écrire des commits, gérer des multiples branches, consulter
 
 ### Revenir à un état antérieur de l'historique
 
-- Git permet facilement de revenir à un état antérieur, par exemple pour repartir d'une version précédente ou annuler des modifications expérimentales.
-- Pour cela, il faut utiliser la commande :
+- `git reset` permet de ramener un dépôt à un état antérieur en supprimant tous les commits réalisés après un commit donné :
+    ```bash
+    git reset <dernier_commit_a_conserver>
+    ```
+  - Avec `--soft`, le répertoire de travail est remis à l'état du commit ciblé et les modifications réalisées depuis sont remises dans l'index.
+  - Sans option, les modifications restent dans le répertoire de travail, mais pas dans l'index.
+  - `--hard` réinitialise **définitivement** le répertoire de travail et l'index.
+
+---
+
+### Supprimer totalement un fichier de l'historique
+
+- Dans le cas où un fichier a été commité **par erreur**, il est possible de demander à Git de réécrire son historique en le filtrant pour supprimer totalement ce fichier :
   ```bash
-  git reset <commit>
+  git filter-branch --index-filter \
+  'git rm -rf --cached --ignore-unmatch <chemin_vers_le_fichier>' HEAD
   ```
-  - Le répertoire de travail est alors remis à l'état du commit ciblé et les modifications réalisées depuis sont remises dans l'index.
-  - L'option `--hard` permet de réinitialiser **définitivement** le répertoire de travail et l'index et supprime les commits devenus obsolètes.
+- Sur un système avec Python>=3.5 installé, l'extension [git filter-repo](https://github.com/newren/git-filter-repo) fournit une commande simplifiée :
+  ```bash
+  git filter-repo --invert-paths --path <chemin_vers_le_fichier>
+  ```
+
+---
 
 ---
 

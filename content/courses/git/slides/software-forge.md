@@ -181,20 +181,6 @@ Se synchroniser avec un dépôt distant et travailler de manière collaborative,
 
 ---
 
-### Supprimer totalement un fichier de l'historique
-
-- Dans le cas où un fichier a été commit **par erreur**, il est possible de demander à Git de réécrire son historique en le filtrant pour supprimer totalement ce fichier :
-  ```bash
-  git filter-branch --index-filter \
-  'git rm -rf --cached --ignore-unmatch <chemin_vers_le_fichier>' HEAD
-  ```
-- Sur un système avec Python>=3.5 installé, l'extension [git filter-repo](https://github.com/newren/git-filter-repo) fournit une commande simplifiée :
-  ```bash
-  git filter-repo --invert-paths --path <chemin_vers_le_fichier>
-  ```
-
----
-
 ## Rôles et permissions
 
 - Même lorsqu'un dépôt est public et peut être cloné librement, GitLab propose un système de contrôle d'accès permettant de donner des droits différenciés aux différents intervenants d'un projet.
