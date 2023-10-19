@@ -28,6 +28,11 @@ socialLinks:
     icon: "fas fa-envelope"
     url: "contact@maxence-lagalle.fr"
 
+  - name: Mastodon
+    icon: "fab fa-mastodon"
+    url: "https://rivals.space/@itsame_mcl"
+    rel: "me"
+
   - name: LinkedIn
     icon: "fab fa-linkedin"
     url: "https://www.linkedin.com/in/maxencelagalle/"
