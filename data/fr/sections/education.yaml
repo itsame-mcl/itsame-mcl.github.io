@@ -25,7 +25,7 @@ degrees:
       name: Centre de Formation de l'Insee à Libourne (CEFIL)
       url: "https://www.cefil.fr/"
     takenCourses: #(optional)
-      # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
+      # if true, the posts will be rendered as a table otherwise it will render as a list and the grades will be hidden.
       showGrades: false
       collapseAfter: 3
       courses:

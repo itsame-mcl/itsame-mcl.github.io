@@ -1,8 +1,4 @@
-github.com/dzello/reveal-hugo v0.0.0-20230226080734-ba781cae5b54 h1:OiHgy3inaBU4LFE5alXgmEkEOkkf9O331XVIabt9eT4=
-github.com/dzello/reveal-hugo v0.0.0-20230226080734-ba781cae5b54/go.mod h1:9mgTYgEkMfnc36vaNSvk3xRedXIv2qXjejlugfwyb3o=
 github.com/dzello/reveal-hugo v0.0.0-20230621074321-b5fd252eab49 h1:cp7gJZFaCfhehEGAWnElHVrypf34oQVEOjjjcRtHTD4=
 github.com/dzello/reveal-hugo v0.0.0-20230621074321-b5fd252eab49/go.mod h1:9mgTYgEkMfnc36vaNSvk3xRedXIv2qXjejlugfwyb3o=
-github.com/hugo-toha/toha/v4 v4.0.0-20230414115758-4940d4a9292d h1:tejfAWN5gXwBQ74u5T4NNAOdZc2gsfU4Qju5PUKmcOs=
-github.com/hugo-toha/toha/v4 v4.0.0-20230414115758-4940d4a9292d/go.mod h1:p/K34lqlqmhzfPd4cx66od7sjlROBqhMxG30mJz+aKQ=
-github.com/hugo-toha/toha/v4 v4.0.0-20230704072803-5372e856d72b h1:zCPbFvEqqgbi5K57GQB4HBCnvl+gK5zIFspTKi/VEAY=
-github.com/hugo-toha/toha/v4 v4.0.0-20230704072803-5372e856d72b/go.mod h1:p/K34lqlqmhzfPd4cx66od7sjlROBqhMxG30mJz+aKQ=
+github.com/hugo-toha/toha/v4 v4.0.0-20231018171257-fecc0546e637 h1:yVxBcqIQnWVU5Y9IZ0FiLMSc1XOpUr4cewxolbWQPaQ=
+github.com/hugo-toha/toha/v4 v4.0.0-20231018171257-fecc0546e637/go.mod h1:p/K34lqlqmhzfPd4cx66od7sjlROBqhMxG30mJz+aKQ=
