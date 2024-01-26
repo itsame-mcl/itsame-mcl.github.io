@@ -26,7 +26,7 @@ summary: 'Je suis un attaché statisticien de l’Insee depuis 2020. J’y exerc
 socialLinks:
   - name: Email
     icon: "fas fa-envelope"
-    url: "contact@maxence-lagalle.fr"
+    url: "maxence@collard-lagalle.me"
 
   - name: Mastodon
     icon: "fab fa-mastodon"
@@ -35,15 +35,11 @@ socialLinks:
 
   - name: LinkedIn
     icon: "fab fa-linkedin"
-    url: "https://www.linkedin.com/in/maxencelagalle/"
+    url: "https://www.linkedin.com/in/maxencecollardlagalle/"
 
   - name: Github
     icon: "fab fa-github"
-    url: "https://github.com/maxence-lagalle"
-
-  - name: Stackoverflow
-    icon: "fab fa-stack-overflow"
-    url: "https://stackoverflow.com/users/15896797/maxence-lagalle"
+    url: "https://github.com/itsame-mcl"
 
 # You can put custom buttons to link your relevant resources.
 # For example, you can put link for your resume.

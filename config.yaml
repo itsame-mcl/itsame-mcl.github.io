@@ -1,7 +1,7 @@
-baseURL: https://www.maxence-lagalle.fr
+baseURL: https://maxence.collard-lagalle.me
 
 languageCode: fr-fr
-title: "Maxence Lagalle"
+title: "Maxence Collard-Lagalle"
 theme:
   - "github.com/hugo-toha/toha/v4"
   - "github.com/dzello/reveal-hugo"
@@ -75,7 +75,7 @@ params:
     favicon: /images/author/ml.jpg
 
   # GitHub repo of your site
-  gitRepo: https://github.com/maxence-lagalle/maxence-lagalle.github.io
+  gitRepo: https://github.com/itsame-mcl/itsame-mcl.github.io
   # Default branch of your Git repo
   gitBranch: main
 
@@ -107,16 +107,16 @@ params:
       enable: true
       # Share post on different social media
       shareButtons:
+        email: true
+        mastodon: true
+        linkedin: true
         facebook: false
         twitter: false
-        linkedin: false
         reddit: false
         whatsapp: false
-        email: true
         # tumblr: true
         # pocket: true
         # diaspora: true
-        # mastodon: true
 
     # Enable & configure "Notes" features
     notes:

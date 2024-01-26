@@ -2,12 +2,12 @@
 copyright: <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"> Licence Creative Commons Attribution -  Partage dans les Mêmes Conditions 4.0 International</a>.
 
 # Meta description for your site.  This will help the search engines to find your site.
-description: Curriculum Vitae et portfolio de Maxence Lagalle
+description: Curriculum Vitae et portfolio de Maxence Collard-Lagalle
 
 # Specify OpenGraph Headers
 openGraph:
-  title: Maxence Lagalle
+  title: Maxence Collard-Lagalle
   type: website
-  description: Curriculum Vitae et portfolio de Maxence Lagalle
+  description: Curriculum Vitae et portfolio de Maxence Collard-Lagalle
   image: images/author/ml.jpg
-  url: https://www.maxence-lagalle.fr
+  url: https://maxence.collard-lagalle.me
