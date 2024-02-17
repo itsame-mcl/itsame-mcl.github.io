@@ -3,7 +3,7 @@ name: "Maxence Collard-Lagalle"
 nickname: "Maxence Collard-Lagalle"
 # greeting message before your name. it will default to "Hi! I am" if not provided
 greeting: "Bonjour, je suis"
-image: "images/author/ml.jpg"
+image: "images/author/maxence_collard-lagalle_executive-portrait_2024.png"
 # give your some contact information. they will be used in the footer
 contactInfo:
   email: "maxence@collard-lagalle.me"
