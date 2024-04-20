@@ -51,12 +51,6 @@ outputs:
     - RSS
     - JSON
 
-outputFormats:
-  Reveal:
-    baseName: index
-    mediaType: text/html
-    isHTML: true
-
 # Enable global emoji support
 enableEmoji: true
 
@@ -126,7 +120,10 @@ params:
 
     # Enable Analytics
     analytics:
-      enabled: false
+      enabled: true
+      services:
+        counterDev:
+          id: 1c78cebc-b650-4a21-9910-330b02cbb999
 
     # Enable Support
     support:
