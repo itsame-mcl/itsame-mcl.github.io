@@ -1,8 +1,7 @@
-module github.com/maxence-lagalle/maxence-lagalle.github.io
+module github.com/itsame-mcl/itsame-mcl.github.io
 
 go 1.20
 
 require (
-	github.com/dzello/reveal-hugo v0.0.0-20240121164136-5e38035fe41f // indirect
 	github.com/hugo-toha/toha/v4 v4.4.0 // indirect
 )
