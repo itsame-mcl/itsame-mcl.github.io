@@ -28,11 +28,6 @@ socialLinks:
     icon: "fas fa-envelope"
     url: "maxence@collard-lagalle.me"
 
-  - name: Mastodon
-    icon: "fab fa-mastodon"
-    url: "https://rivals.space/@itsame_mcl"
-    rel: "me"
-
   - name: LinkedIn
     icon: "fab fa-linkedin"
     url: "https://www.linkedin.com/in/maxencecollardlagalle/"
@@ -40,6 +35,15 @@ socialLinks:
   - name: Github
     icon: "fab fa-github"
     url: "https://github.com/itsame-mcl"
+
+  - name: Bluesky
+    icon: "fab fa-bluesky"
+    url: "https://bsky.app/profile/collard-lagalle.me"
+
+  - name: Mastodon
+    icon: "fab fa-mastodon"
+    url: "https://rivals.space/@itsame_mcl"
+    rel: "me"
 
 # You can put custom buttons to link your relevant resources.
 # For example, you can put link for your resume.
@@ -79,7 +83,7 @@ badges:
   - type: certification
     name: Heart of Agile Academy - Advanced Agile Masterclass - Level B
     url: "https://heartofagile.com/pdf_download.php?st=7008&f=A4&o=fr"
-    badge: "badges/heart-of-agile.png"
+    badge: "images/badges/heart-of-agile.png"
 
 # you can also provide color code instead of the color name
 # - type: soft-skill-indicator

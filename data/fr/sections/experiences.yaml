@@ -13,6 +13,7 @@ experiences:
   - company:
       name: Insee
       url: "https://www.insee.fr"
+      logo: /images/logos/logo_insee.jpg
       location: Poitiers (2018-2020), Montrouge (2022-)
       # company overview
       overview: L'Institut national de la statistique et des études économiques (Insee) est chargé de la production, de l'analyse et de la publication des statistiques officielles en France, depuis 1946
@@ -60,6 +61,7 @@ experiences:
 
   - company:
       name: Castelambre
+      logo: /images/logos/logo_castelambre.png
       location: Poitiers
       overview: Castelambre était une entreprise de création audiovisuelle et de communication numérique
     positions:
@@ -73,6 +75,7 @@ experiences:
   - company:
       name: Université de Poitiers
       url: "https://www.univ-poitiers.fr/"
+      logo: /images/logos/logo_up.jpg
       location: Poitiers
       overview: Fondée en 1431, l'Université de Poitiers (UP) regroupe toutes les disciplines dans ses 14 facultés, instituts et écoles
     positions:

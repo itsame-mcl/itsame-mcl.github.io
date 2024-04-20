@@ -16,6 +16,7 @@ degrees:
     institution:
       name: École Nationale de la Statistique et de l'Analyste de l'Information (ENSAI)
       url: "https://ensai.fr/"
+      logo: /images/logos/logo_ensai.jpg
     extracurricularActivities:
       - Élu titulaire au Conseil d'Administration du Groupe des Écoles Nationales d'Économie et de Statistiques (GENES) (2020-2021)
   - name: Cycle Long - B6
@@ -24,6 +25,7 @@ degrees:
     institution:
       name: Centre de Formation de l'Insee à Libourne (CEFIL)
       url: "https://www.cefil.fr/"
+      logo: /images/logos/logo_insee.jpg
     takenCourses: #(optional)
       # if true, the posts will be rendered as a table otherwise it will render as a list and the grades will be hidden.
       showGrades: false
@@ -41,6 +43,7 @@ degrees:
     institution:
       name: Université de Poitiers
       url: "https://www.univ-poitiers.fr/"
+      logo: /images/logos/logo_up.jpg
     grade: #(optional)
       scale: Mention
       achieved: Très Bien - 17,5
@@ -59,6 +62,7 @@ degrees:
     institution:
       name: Université de Poitiers
       url: "https://www.univ-poitiers.fr/"
+      logo: /images/logos/logo_up.jpg
     grade: #(optional)
       scale: Mention
       achieved: Très Bien - 17,8
@@ -76,3 +80,4 @@ degrees:
     institution:
       name: Centre national d'enseignement à distance (CNED)
       url: "https://www.cned.fr/"
+      logo: /images/logos/logo_cned.png
