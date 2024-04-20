@@ -25,9 +25,10 @@ experiences:
         # give some points about what was your responsibilities at the company.
         responsibilities:
           - Poste localisé au Service National de Développement Informatique de Paris (SNDIP), à la Direction Générale de l'Insee (Montrouge, Île-de-France)
-          - Développeur full stack dans l'équipe de maintenance du site web [insee.fr](https://www.insee.fr) (Web4G)
-          - Projet en agilité Scrum, en cours de transition DevOps
-
+          - Développeur full stack dans l'équipe de maintenance du site web [insee.fr](https://www.insee.fr) (Java/Spring, JavaScript/React, SQL)
+          - Travail organisé en agilité avec la méthodologie Scrum / Kanban
+          - Administration quotidienne des environnements virtualisés de production et de hors production (DevOps, Puppet)
+          - Formations des développeurs à Git et GitLab CI/CD dans le cadre du cursus interne du service
       - designation: Référent managérial
         start: Septembre 2019
         end: Août 2020
@@ -37,7 +38,6 @@ experiences:
           - Formation et remise à niveau du réseau d'enquêteurs
           - Contrôle de la qualité et accompagnements d'évaluation
           - Développement d'outils (R, Python) et suivi d'indicateurs de performance et de qualité
-
       - designation: Responsable d'enquêtes
         start: Juillet 2018
         end: Août 2019
@@ -49,7 +49,6 @@ experiences:
           - Développement d'outils (langage R) et suivi d'indicateurs de performance et de qualité
           - Gestion des relations téléphoniques et postales avec les personnes enquêtées
           - "Maître de stage d’un étudiant en 2ème année de DUT STID : Travaux de géocodage et de calcul de trajectoire optimale (Python)"
-
       - designation: Assistant technique
         start: Mars 2018
         end: Juin 2018
@@ -58,7 +57,6 @@ experiences:
           - Développement en langages R et LaTeX d'une solution de traitement de données et de production de tableaux de bord
           - Utilisation de l'architecture trois tiers et de l'approche "Tidy Data"
           - "Mémoire : Dynamisation sous R de produits de diffusion"
-
   - company:
       name: Castelambre
       logo: /images/logos/logo_castelambre.png
@@ -71,7 +69,6 @@ experiences:
         responsibilities:
           - Rédaction d’actes juridiques et de gestion, suivi fiscal et comptable de l’activité, prospection et réalisation de propositions commerciales
           - Conception de sites Internet, tournages vidéo, conseil en financement participatif
-
   - company:
       name: Université de Poitiers
       url: "https://www.univ-poitiers.fr/"
@@ -85,14 +82,12 @@ experiences:
         responsibilities:
           - Recherches bibliographiques et travaux économétriques (R, Stata) sur les conséquences de la crise de 2008 sur l’économie des pays en voie de développement
           - Animation de travaux dirigés de microéconomie et d'économétrie
-
       - designation: Chargé d'études statistiques
         start: Mai 2010
         end: Juillet 2010
         responsibilities:
           - Analyse (SAS) des résultats d’une enquête de satisfaction et rédaction d’un rapport de synthèse pour le compte du CROUS d’Orléans
           - Contribution à des travaux d’enquête relatifs à l’impact du salariat étudiant et des conditions de vie sur la réussite en Licence
-
       - designation: Moniteur d'accompagnement
         start: Octobre 2007
         end: Décembre 2008

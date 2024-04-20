@@ -17,7 +17,7 @@ skills:
   #  url: "https://kubernetes.io/"
 
   - name: Java
-    summary: "Java 11+, Spring 5+ (Spring Boot, Spring Data, Spring MVC), Hibernate, Maven"
+    summary: "Java 21, Spring 6 (Spring Boot 3, Spring Data, Spring MVC), Hibernate, Maven"
     url: "https://www.java.com/"
 
   - name: JavaScript
@@ -28,7 +28,7 @@ skills:
     url: "https://www.python.org/"
 
   - name: R
-    summary: "R 3-4, tidyverse (dplyr, ggplot)"
+    summary: "R 4, tidyverse (dplyr, ggplot)"
     url: "https://www.r-project.org/"
 
   - name: Linux
