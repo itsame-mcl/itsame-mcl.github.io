@@ -1,9 +1,8 @@
 ---
 title: "Syntaxe HTML 5 et structure sémantique d'une page web"
-date: 2024-05-07T12:30:00+01:00
+date: 2024-05-07T11:30:00+01:00
 tags: ["HTML 5"]
 categories: ["Formation"]
-mermaid: true
 menu:
   sidebar:
     name: HTML - Syntaxe & Stucture
