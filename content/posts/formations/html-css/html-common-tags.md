@@ -1,6 +1,6 @@
 ---
 title: "Principales balises HTML 5"
-date: 2024-05-09T19:00:00+01:00
+date: 2024-05-09T21:15:00+01:00
 tags: ["HTML 5"]
 categories: ["Formation"]
 menu:
@@ -36,7 +36,6 @@ Les balises `<h1>` a `<h6>` permettent de définir jusqu'à 6 niveaux de titres 
 Un paragraphe standard, contenant du texte et autres éléments, est délimité par une balise `<p>`. Il existe cependant d'autres types de paragraphes :
 
 - `<pre>` : texte préformaté, permettant de préserver les retours à la ligne et les espaces tels que définis dans le texte.
-- `<code>` : variante de texte préformaté dédiée à l'affichage de code source.
 - `<blockquote>` : citation d'une autre source, ou d'une autre page web (pouvant être précisée par un attribute `cite=`). Généralement mis en retrait dans l'affichage par défaut des navigateurs.
 - `<address>` : paragraphe dédié à des informations de contact ou à une adresse postale.
 
@@ -81,3 +80,54 @@ Les éléments sémantiques (présentés dans le chapitre précédent) sont des 
 Enfin, HTML 5 propose un élément neutre de type bloc : `<div>`. Il est très utile pour pouvoir délimiter des blocs qui n'ont pas de sens sémantique, mais auxquels doivent s'appliquer des règles différentes de mise en forme. Dans l'idéal, il convient de n'utiliser `div` que lorsqu'il n'existe pas de balise permettant de décrire correctement le sens d'un bloc.
 
 {{< alert type="info" >}} Les tableaux et formulaires, qui sont également des balises de type bloc, sont traités dans un chapitre dédié. {{< /alert >}}
+
+## Éléments usuels de type en ligne
+
+### Emphases
+
+- L'emphase faible se déclare au moyen d'une balise `<em>`. Par défaut, cette emphase est représentée par l'italique.
+- L'emphase forte se déclare au moyen d'une balise `<strong>`. Par défaut, cette emphase est représentée par la mise en gras.
+
+À noter que ces balises ont avant tout un sens sémantique, car le comportement de mise en italique ou en gras peut être modifié par la feuille de style.
+Il existe également des balises `<i>` et `<b>` permettant de demander une mise en italique ou en gras (*bold*), sans sens sémantique.
+
+### Exposants et indices
+
+- Un exposant (caractères occupant uniquement la moitié supérieure de la ligne de texte) est déclaré par la balise `<sup>` (*superscript*).
+- Un indice (caractères occupant uniquement la moitié inférieure de la ligne de texte) est déclaré par la balise `<sub>` (*subscript*).
+
+### Liens hypertextes
+
+Un lien hypertexte est délimité au moyen d'une balise `<a>`.
+
+L'attribut `href=` permet de définir la cible du lien, qu'il s'agisse d'une autre page web, ou d'un autre emplacement de la même page. Il est obligatoire.
+
+Pour cibler un élément de la même page (une ancre), cet élément doit avoir un attribut `id=`, ayant pour valeur un nom qui doit être unique. Ce nom est ensuite utilisé dans l'attribut `href`, précédé d'un dièse (`# `).
+
+#### Exemple
+```html
+<section id="partie-1"></section>
+<section id="partie-2">
+  <p>Voir la <a href="#partie-1">première partie</a> pour en savoir plus.</p>
+</section>
+```
+
+D'autres attributs peuvent églement être précisés, notamment pour améliorer l'accessibilité des liens :
+
+- `title=` permet de donner un titre au lien, qui sera généralement affiché sous forme d'infobulle
+- `accesskey=` permet d'associer un lien à un raccourci clavier de la forme Alt+`accesskey`, sous réserve que cette combinaison ne soit pas déjà utilisée par le navigateur.
+- `target=` permet de préciser comment le navigateur doit ouvrir le lien. Les valeurs les plus usuelles sont `_self` pour une ouverture dans le même onglet et `_blank` pour une ouverture dans un nouvel onglet.
+
+### Images
+
+L'insertion d'une image s'effectue au moyen de la balise `<img>`. Cette balise a deux attributs obligatoires :
+
+- `src=` pour renseigner la source de l'image à afficher. Le support des différents formats d'image dépend des navigateurs, mais en général, les formats JPEG, PNG et GIF sont supportés.
+Les images devant être chargées pour permettre l'affichage de la page, il est déterminant de minimiser le poids des fichiers.
+- `alt=` permet de fournir une description de l'image, à destination des publics utilisant des outils d'accessibilité tels que des lecteurs d'écran. Il doit rester vide pour une image purement décorative, n'ayant aucun sens sémantique.
+
+Comme pour les liens, l'attribut `title=` permet d'ajouter un titre, affiché sous forme d'infobulle.
+
+### Élément neutre
+
+A l'instar des éléments de type bloc, les éléments de type en ligne admettent un élément neutre, permettant d'effectuer des mises en forme particulières, indépendamment de toute notion sémantique. Il s'agit de l'élément `<span>`.
