@@ -22,7 +22,8 @@ Les éléments HTML 5 se décomposent en 2 grandes familles : les éléments de 
 - Les éléments **bloc** délimitent des sections de la page. Par défaut, ils occupent toute la largeur de la page et se succèdent verticalement, dans l'ordre où ils sont décrits dans le document HTML, et sont séparés par un retour à la ligne.
 - Les éléments **en ligne** s'inscrivent dans la continuité du flux de la page. Par défaut, ils occupent la taille minimale nécessaire à leur affichage, et ne provoquent aucun retour à la ligne.
 
-{{< alert type="warning" >}} Les éléments en ligne peuvent être imbriqués, mais ne peuvent en aucun cas contenir d'élément bloc. En revanche, des éléments blocs peuvent être imbriqués entre eux et contenir des éléments en ligne. {{< /alert >}}
+{{< alert type="warning" >}} Les éléments en ligne peuvent être imbriqués, mais ne peuvent en aucun cas contenir d'élément bloc. {{< /alert >}}
+En revanche, des éléments blocs peuvent être imbriqués entre eux et contenir des éléments en ligne.
 
 ## Élements usuels de type bloc
 

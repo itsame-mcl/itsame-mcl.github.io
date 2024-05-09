@@ -37,7 +37,7 @@ Un nœud texte s'insère entre une balise ouvrante et une balise fermante. Une b
 
 Toutes les balises peuvent être complétées d'un ou plusieurs **attributs**, sous forme de combinaison clé/valeur : `<balise attribut="valeur" autre-attribut='autre-valeur'>`. Chaque attribut est unique à l'échelle d'une balise.
 
-Le respect strict des normes de syntaxe est obligatoire en XML. Un document non conforme générera des erreurs bloquantes dans les traitements automatisés.
+{{< alert type="danger" >}} Le respect strict des normes de syntaxe est obligatoire en XML. Un document non conforme générera des erreurs bloquantes dans les traitements automatisés. {{< /alert >}}
 
 #### Exemple de document XML valide
 
@@ -127,7 +127,7 @@ Cette évolution passe par l'introduction de nouvelles balises permettant de sub
 | header  | En-tête de bloc                                | Peut aussi bien être utilisé pour délimiter l'en-tête de la page web que celui d'un bloc sémantique                         |
 | footer  | Pied de page de bloc                           | Peut aussi bien être utilisé pour délimiter le pied de page de la page web que celui d'un bloc sémantique                   |
 
-L'usage de ces balises n'est pas obligatoire, mais fortement recommandé pour améliorer les performances en référencement et accessibilité de la page web. Il permet également de simplifier l'écriture des feuilles de style.
+{{< alert type="info" >}} L'usage de ces balises n'est pas obligatoire, mais fortement recommandé pour améliorer les performances en référencement et accessibilité de la page web. Il permet également de simplifier l'écriture des feuilles de style. {{< /alert >}}
 
 #### Exemple de document HTML 5 avec métadonnées et structure sémantique
 
