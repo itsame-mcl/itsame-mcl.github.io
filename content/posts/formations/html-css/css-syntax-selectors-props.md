@@ -199,6 +199,15 @@ Les propriétés sur le padding, la bordure et la marge admettent une version ra
 
 Pour les bordures, la propriété `border-width` est à compléter par la propriété `border-style` qui prend également de 1 à 4 valeurs de style. Si l'on souhaite utiliser la même valeur de dimension et de style pour les 4 côtés, il existe aussi la propriété `border`.
 
+#### Dépassement
+
+Lorsque l'on fixe les dimensions d'un bloc, il est possible que son contenu ne puisse pas y loger intégralement. La propriété CSS `overflow` permet de régler le comportement à adopter dans ce cas de figure :
+
+- `visible` (par défaut) : le contenu déborde en dehors du bloc, jusqu'à occuper l'espace qui lui est nécessaire.
+- `hidden`: le contenu qui ne peut pas tenir dans le bloc est masqué
+- `scroll` : une barre de navigation s'affiche pour permettre de consulter le contenu qui dépasse du bloc
+- `auto` : le client est autorisé à gérer automatiquement le dépassement. Pour les navigateurs, cela implique généralement de n'afficher une barre de défilement que si nécessaire.
+
 #### Box-sizing
 
 La propriété `box-sizing` permet de modifier le comportement du modèle de boîte. Grâce à elle, il est possible de faire en sorte que les propriétés `width` et `height` englobent des couches en plus de celle du contenu principal, ce qui permet de simplifier la mise en page. Elle peut prendre 3 valeurs :
