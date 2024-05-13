@@ -58,7 +58,7 @@ Par défaut, les colonnes sont espacées par une gouttière de largeur `1em`. Il
 
 Le système de *flexbox* a été introduit dans la norme CSS 3 dans le but de simplifier la mise en page en permettant le positionnement des blocs selon un axe horizontal ou vertical.
 
-Pour initialiser une flexbox, il suffit de donner la valeur `flex` à la propriété `display` d'un bloc, qui devient alors un conteneur flex (*flex container*). Tous ses blocs enfants deviennent ainsi des éléments flex (*flex items*).
+Pour initialiser une flexbox, il suffit de donner la valeur `flex` à la propriété `display` d'un bloc, qui devient alors un conteneur flex (*flex container*). Tous ses blocs enfants directs deviennent ainsi des éléments flex (*flex items*).
 
 #### Axe principal
 
@@ -108,3 +108,31 @@ Enfin, la valeur `baseline` permet de positionner les éléments afin d'aligner 
 Il est possible de modifier l'alignement selon l'axe perpendiculaire d'un élément flex en particulier en donnant à une valeur à sa propriété `align-self`. Les valeurs possibles sont les mêmes que pour `align-items`.
 
 ### Grilles
+
+Les grilles CSS sont une autre solution moderne de positionnement.
+Il s'agit d'une normalisation d'une pratique qui était déjà utilisée grâce à des frameworks CSS tels que [Bootstrap](https://getbootstrap.com/) qui proposait une grille à 12 colonnes.
+
+Comme pour les flexbox, une grille s'initialise en donnant la valeur `grid` à la propriété `display` d'un élément, qui devient un conteneur de grille. Ses enfants directs sont des éléments de grille.
+
+#### Colonnes de la grille
+
+Par défaut, la trame de la grille se compose d'une seule colonne. Elle ne représente donc pas de différence avec le flux normal.
+
+Pour spécifier le nombre de colonnes de la grille, il faut utiliser la propriété `grid-template-columns`. Elle prend en valeur une liste de dimensions, représentant la largeur de chaque colonne.
+Ces dimensions peuvent utiliser les unités habituelles, mais aussi l'unité `fr`, qui représente une fraction de la largeur totale de la grille (sur le principe des dimensions sans unités de flexbox).
+
+La largeur de la gouttière entre les colonnes de la grille se fixe avec la propriété `gap`.
+
+#### Lignes de la grille
+
+Par défaut, chaque ligne de la grille à la hauteur de son contenu. Il peut être utile de fixer une hauteur constante avec la propriété `grid-auto-rows`.
+La valeur de cette propriété peut être fixée de manière à donner une hauteur minimale tout en gardant la flexibilité de s'adapter à un contenu plus haut grâce à la fonction `minmax`. Ainsi, `minmax(valeur, auto)` donne `valeur` comme minimum.
+
+#### Positionnement des éléments
+
+Les éléments de la grille peuvent être positionnés grâce aux propriétés `grid-column` pour les colonnes et `grid-row` pour les lignes.
+
+Si un élément tient dans une seule ligne ou une seule colonne, il suffit de préciser le numéro de cette dernière en valeur, la numérotation commençant à 1.
+Si l'élément s'étend sur plusieurs lignes ou colonnes, la valeur de la propriété devient `début / fin`.
+
+La valeur de fin est à entendre comme le début de la colonne ou ligne suivante, ainsi, pour recouvrir 2 colonnes, on considère que l'élément va du début de la colonne 1 au début de la colonne 3, d'où la notation `1 / 3`;
