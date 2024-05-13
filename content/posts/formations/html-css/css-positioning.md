@@ -11,7 +11,9 @@ menu:
     weight: 60
 ---
 
-## Principes du positionnement en CSS
+## Flux de positionnement
+
+### Positionnement dans le flux
 
 Par défaut, le positionnement des objets s'effectue de manière dite statique, ou dans le flux.
 Cela implique que :
@@ -22,5 +24,23 @@ Cela implique que :
 Par défaut, les éléments ont pour hauteur celle de tous les éléments dans le flux qu'ils contiennent, et 0 si ils sont vides ou ne contiennent que des éléments hors du flux.
 La largeur par défaut des élements dépend de leur type : pour les éléments de type bloc, il s'agit de celle de le élément parent, alors que pour les éléments en ligne, il s'agit de celle de leur contenu.
 
-Seuls les éléments de type bloc ou de type en ligne dimensionnables peuvent recevoir un autre type de dimensionnement, hors du flux.
+### Positionnement hors du flux
 
+Seuls les éléments de type bloc ou de type en ligne dimensionnables peuvent recevoir un autre type de dimensionnement, hors du flux. La propriété CSS `position` permet de choisir le type de positionnement :
+
+- `relative` : l'élément est positionné relativement à sa position dans le flux
+- `absolute` : l'élément est positionné relativement à la position de son élément parent.
+Ce positionnement ne fonctionne que si l'élement parent est lui même hors du flux; si ce n'est pas le cas, une solution simple consiste à positionner le parent en relatif avec un décalage nul. 
+- `fixed` : l'élément est positionné relativement à l'écran. Ainsi, il ne bouge pas au défilement.
+
+Le décalage est ensuite à régler à l'aide d'une combinaison des propritétés `left`, `right`, `top`et `bottom` qui permettent respectivement de décaler par rapport au côté gauche, droite, supérieur et inférieur.
+
+Il est possible que ce type de positionnement engendre des superpositions. La propriété `z-index` permet de déterminer l'ordre des blocs dans cet empilement, le bloc ayant la valeur de `z-index` la plus élevée étant affiché au dessus des autres.
+
+## Flottants
+
+Le positionnement flottant permet de placer un élément le plus à gauche ou à droite possible de la page, tout en préservant son emplacement vertical dans le flux.
+
+La propriété CSS concernée est `float`. Elle peut prendre pour valeur `left` pour un flottant à gauche, `right` pour un flottant à droite et `none` pour empêcher le flottement.
+
+Il est aussi possible de préciser avec la propriété `clear` qu'un bloc doit interrompre les flottants, quitte à créer un espace vertical vierge. Elle peut prendre pour valeurs `left` pour interrompre les flottants à gauche, `right` pour ceux à droite et `both` pour interrompre tous les flottants.
