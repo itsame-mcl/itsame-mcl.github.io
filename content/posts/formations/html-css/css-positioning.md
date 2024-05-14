@@ -135,4 +135,4 @@ Les éléments de la grille peuvent être positionnés grâce aux propriétés `
 Si un élément tient dans une seule ligne ou une seule colonne, il suffit de préciser le numéro de cette dernière en valeur, la numérotation commençant à 1.
 Si l'élément s'étend sur plusieurs lignes ou colonnes, la valeur de la propriété devient `début / fin`.
 
-La valeur de fin est à entendre comme le début de la colonne ou ligne suivante, ainsi, pour recouvrir 2 colonnes, on considère que l'élément va du début de la colonne 1 au début de la colonne 3, d'où la notation `1 / 3`;
+La valeur de fin est à entendre comme le début de la colonne ou ligne suivante, ainsi, pour recouvrir 2 colonnes, on considère que l'élément va du début de la colonne 1 au début de la colonne 3, d'où la notation `1 / 3`.

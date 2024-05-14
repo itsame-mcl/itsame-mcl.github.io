@@ -1,11 +1,11 @@
 ---
 title: "Tableaux et formulaires en HTML 5"
-date: 2024-05-14T19:00:00+01:00
+date: 2024-05-14T18:00:00+01:00
 tags: ["HTML 5"]
 categories: ["Formation"]
 menu:
   sidebar:
-    name: HTML - Principales balises
+    name: HTML - Tableaux et formulaires
     identifier: html-tables-forms
     parent: html-css
     weight: 40
@@ -29,8 +29,6 @@ Une légende peut être ajoutée au tableau grâce à un élément `<caption>`, 
 
 #### Exemple
 
-{{< split 6 6 >}}
-
 ```html
 <table>
     <caption>Heures de travail nécessaires à la production d’une unité</caption>
@@ -51,21 +49,18 @@ Une légende peut être ajoutée au tableau grâce à un élément `<caption>`, 
     </tr>
 </table>
 ```
+Ce code donne le tableau ci-dessous :
 
----
-
-|Pays|Drap|Vin|
-|:--:|:--:|:-:|
-|Angleterre|100|120|
-|Portugal|90|80|
+|    Pays    | Drap | Vin |
+|:----------:|:----:|:---:|
+| Angleterre | 100  | 120 |
+|  Portugal  |  90  | 80  |
 
 *Heures de travail nécessaires à la production d’une unité*
 
-{{< /split >}}
-
 ### Tableau avec en-tête et pied de page
 
-A l'instar des blocs sémantiques, il est possible de distinguer 3 zones dans un tableau : l'en-tête, le corps, et le pied de page, grâce aux balises `<thead>`, `<tbody>` et `<tfoot>`.
+À l'instar des blocs sémantiques, il est possible de distinguer 3 zones dans un tableau : l'en-tête, le corps, et le pied de page, grâce aux balises `<thead>`, `<tbody>` et `<tfoot>`.
 
 ```html
 <table>
@@ -97,7 +92,7 @@ A l'instar des blocs sémantiques, il est possible de distinguer 3 zones dans un
 
 ### Tableau complexe
 
-un tableau est dit complexe dès lors que des cellules s'en-tête ou de données s'étendent sur plus d'une ligne ou d'une colonne.
+Un tableau est dit complexe dès lors que des cellules d'en-tête ou de données s'étendent sur plus d'une ligne ou d'une colonne.
 Pour étendre une cellule, les propriétés `rowspan` et `colspan` permettent de définir les dimensions d'une cellule.
 
 L'utilisation de tableaux complexes pouvant perturber les outils d'accessibilité numérique, de nouveaux attributs sont à fixer : un identifiant (`id=`) doit être donné à chaque balise `<th>` à la place des attributs `scope`, et une référence à ces identifiants doit être donnée par un attribut `headers=` dans les balises `<td>`.
@@ -138,3 +133,57 @@ L'utilisation de tableaux complexes pouvant perturber les outils d'accessibilit�
 ```
 
 ## Formulaires
+
+Un formulaire est initialisé en HTML 5 au moyen de la balise de type bloc `<form>`. Elle contient ensuite les différents éléments, appelés contrôles, du formulaire.
+
+### Contrôles de formulaire
+
+La plupart des contrôles de formulaire se déclarent à l'aide d'une balise `<input>`.
+L'attribut `name=` permet de préciser le nom du contrôleur, tel qu'il sera utilisé à l'envoi des données, et l'attribut `type=` permet de préciser le type de contrôle. Le tableau ci-dessous donne une liste de valeurs usuelles pour cet argument :
+
+|   Type   | Description                              |
+|:--------:|:-----------------------------------------|
+|   text   | Champ de texte libre sur une ligne       |
+|  number  | Champ de saisie de valeur numérique      |
+|  email   | Champ de saisie pour adresse e-mail      |
+|   tel    | Champ de saisie pour numéro de téléphone |
+| password | Champ de saisie pour mot de passe        |
+| checkbox | Case à cocher                            |
+|  radio   | Bouton radio                             |
+|   date   | Sélecteur de date                        |
+|   time   | Sélecteur d'heure                        |
+|  color   | Sélecteur de couleur                     |
+|   file   | Sélecteur de fichier                     |
+
+Une valeur initiale peut être donnée à ces contrôles avec l'attribut `value=`.
+
+### Boutons
+
+Les boutons se définissent grâce à une balise `<button>`. Cette balise contient un nœud texte qui correspond au libellé du bouton. Elle peut également prendre un attribut `type=`qui a 3 valeurs possibles :
+- `submit` : déclenche l'action d'envoi du formulaire *(voir ci-après)*
+- `reset` : réinitialise tout le formulaire à ses valeurs par défaut
+- `button` : n'a pas d'effet propre. Cette valeur permet par exemple de positionner un bouton qui aura un effet grâce à JavaScript.
+
+### Zones de texte multilignes
+
+Si le formulaire doit contenir une zone de saisie en texte libre sur plusieurs lignes, la balise `<textarea>` permet de placer cet élément.
+
+L'attribut `maxlength=` permet de donner une longueur maximale à ce texte
+
+### Groupes et libellés
+
+Pour regrouper plusieurs éléments de formulaire, il est possible d'utiliser une balise `<fieldset>`. Un bloc `fieldset` peut être légendé au moyen d'une balise `<legend>`.
+
+Tous les autres éléments peuvent être légendés par des balises `<label>`. Elles prennent comme attribut `for=`, qui précise la valeur de l'attribut `id` de l'élément auquel cette légende est associée.
+
+### Envoi des données
+
+Les attributs de la balise `<form>` permettent de contrôler l'envoi des données du formulaire. Cet envoi est effectué par le navigateur au moyen d'une requête HTTP.
+
+L'attribut `action=` donne le chemin de l'URL qui attend de recevoir ces données. S'il s'agit de la page en cours, il est facultatif.
+
+L'attribut `method=` permet de choisir le type de requête HTTP :
+- Si sa valeur est `get`, l'envoi se fera par une requête HTTP GET, et les valeurs seront transmises en paramètres d'URL, sous la forme `?name1=valeur&name2=valeur`.
+- Si sa valeur est `post`, l'envoi se fera par une requête HTTP POST, et les valeurs seront transmises dans le corps de la requête.
+
+Pour rendre un contrôle obligatoire, il suffit de lui ajouter l'attribut `required`. Au clic sur le bouton d'envoi, le navigateur vérifiera que ces contrôles sont bien remplis, et empêchera l'envoi dans le cas contraire.
