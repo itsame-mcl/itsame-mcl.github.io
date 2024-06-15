@@ -21,14 +21,14 @@ skills:
     url: "https://www.java.com/"
 
   - name: JavaScript
-    summary: "React, Svelte, npm"
+    summary: "VanillaJS, React, jQuery, npm"
 
   - name: Python
     summary: "Python 3, Jupyter, pandas, scikit-learn"
     url: "https://www.python.org/"
 
   - name: R
-    summary: "R 4, tidyverse (dplyr, ggplot)"
+    summary: "R 4, Quarto, tidyverse (dplyr, ggplot)"
     url: "https://www.r-project.org/"
 
   - name: Linux

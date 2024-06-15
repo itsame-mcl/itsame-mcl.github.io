@@ -28,14 +28,6 @@ socialLinks:
     icon: "fas fa-envelope"
     url: "maxence@collard-lagalle.me"
 
-  - name: LinkedIn
-    icon: "fab fa-linkedin"
-    url: "https://www.linkedin.com/in/maxencecollardlagalle/"
-
-  - name: Github
-    icon: "fab fa-github"
-    url: "https://github.com/itsame-mcl"
-
   - name: Bluesky
     icon: "fab fa-bluesky"
     url: "https://bsky.app/profile/collard-lagalle.me"
@@ -44,6 +36,15 @@ socialLinks:
     icon: "fab fa-mastodon"
     url: "https://rivals.space/@itsame_mcl"
     rel: "me"
+
+  - name: LinkedIn
+    icon: "fab fa-linkedin"
+    url: "https://www.linkedin.com/in/maxencecollardlagalle/"
+
+  - name: Github
+    icon: "fab fa-github"
+    url: "https://github.com/itsame-mcl"
+
 
 # You can put custom buttons to link your relevant resources.
 # For example, you can put link for your resume.
