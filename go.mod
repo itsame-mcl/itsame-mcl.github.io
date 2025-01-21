@@ -1,5 +1,7 @@
 module github.com/itsame-mcl/itsame-mcl.github.io
 
-go 1.20
+go 1.21
 
-require github.com/hugo-toha/toha/v4 v4.5.0 // indirect
+toolchain go1.23.5
+
+require github.com/hugo-toha/toha/v4 v4.7.0 // indirect
