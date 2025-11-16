@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSS 3 on Maxence Collard-Lagalle</title><link>https://maxence.collard-lagalle.me/tags/css-3/</link><description>Recent content in CSS 3 on Maxence Collard-Lagalle</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Mon, 13 May 2024 12:00:00 +0100</lastBuildDate><atom:link href="https://maxence.collard-lagalle.me/tags/css-3/index.xml" rel="self" type="application/rss+xml"/><item><title>Positionnement des éléments en CSS</title><link>https://maxence.collard-lagalle.me/posts/formations/html-css/css-positioning/</link><pubDate>Mon, 13 May 2024 12:00:00 +0100</pubDate><guid>https://maxence.collard-lagalle.me/posts/formations/html-css/css-positioning/</guid><description>&lt;h2 id="flux-de-positionnement">Flux de positionnement&lt;/h2>
-&lt;h3 id="positionnement-dans-le-flux">Positionnement dans le flux&lt;/h3>
-&lt;p>Par défaut, le positionnement des objets s&amp;rsquo;effectue de manière dite statique, ou dans le flux.
-Cela implique que :&lt;/p>
-&lt;ul>
-&lt;li>les éléments en ligne s&amp;rsquo;enchaînent à la suite, autant que possible sur la même ligne.&lt;/li>
-&lt;li>les éléments de type bloc se positionnent les uns en dessous des autres, les marges externes supérieures et inférieures étant fusionnées.&lt;/li>
-&lt;/ul>
-&lt;p>Par défaut, les éléments ont pour hauteur celle de tous les éléments dans le flux qu&amp;rsquo;ils contiennent, et 0 si ils sont vides ou ne contiennent que des éléments hors du flux.
-La largeur par défaut des élements dépend de leur type : pour les éléments de type bloc, il s&amp;rsquo;agit de celle de le élément parent, alors que pour les éléments en ligne, il s&amp;rsquo;agit de celle de leur contenu.&lt;/p></description></item><item><title>Syntaxe CSS 3, sélecteurs et propriétés usuelles</title><link>https://maxence.collard-lagalle.me/posts/formations/html-css/css-syntax-selectors-props/</link><pubDate>Sun, 12 May 2024 21:00:00 +0100</pubDate><guid>https://maxence.collard-lagalle.me/posts/formations/html-css/css-syntax-selectors-props/</guid><description>&lt;h2 id="syntaxe-de-css-3">Syntaxe de CSS 3&lt;/h2>
-&lt;p>Une &lt;strong>feuille de style&lt;/strong> CSS 3 se compose d&amp;rsquo;un ensemble de &lt;strong>blocs&lt;/strong>.
-Ces blocs sont introduits par un &lt;strong>sélecteur&lt;/strong> qui précise à quels éléments HTML il s&amp;rsquo;applique, puis d&amp;rsquo;une ou plusieurs &lt;strong>déclarations&lt;/strong>.
-Une déclaration est une &lt;strong>propriété&lt;/strong> choisie parmi celles de la norme CSS 3, suivie d&amp;rsquo;une &lt;strong>valeur&lt;/strong> :&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-css" data-lang="css">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">selecteur-1&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> propriete-1: valeur;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> propriete-2: valeur;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">selecteur-2&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> propriete-3: valeur;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>De manière générale, CSS fonctionne avec une notion d&amp;rsquo;&lt;strong>héritage&lt;/strong> : si un élément est inclus dans un autre, il hérite de toutes les règles de style qui l&amp;rsquo;affecte.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSS 3 on Maxence Collard-Lagalle</title><link>https://maxence.collard-lagalle.me/tags/css-3/</link><description>Recent content in CSS 3 on Maxence Collard-Lagalle</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Mon, 13 May 2024 12:00:00 +0100</lastBuildDate><atom:link href="https://maxence.collard-lagalle.me/tags/css-3/index.xml" rel="self" type="application/rss+xml"/><item><title>Positionnement des éléments en CSS</title><link>https://maxence.collard-lagalle.me/posts/formations/html-css/css-positioning/</link><pubDate>Mon, 13 May 2024 12:00:00 +0100</pubDate><guid>https://maxence.collard-lagalle.me/posts/formations/html-css/css-positioning/</guid><description>&lt;h2 id="flux-de-positionnement"&gt;Flux de positionnement&lt;/h2&gt;
+&lt;h3 id="positionnement-dans-le-flux"&gt;Positionnement dans le flux&lt;/h3&gt;
+&lt;p&gt;Par défaut, le positionnement des objets s&amp;rsquo;effectue de manière dite statique, ou dans le flux.
+Cela implique que :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;les éléments en ligne s&amp;rsquo;enchaînent à la suite, autant que possible sur la même ligne.&lt;/li&gt;
+&lt;li&gt;les éléments de type bloc se positionnent les uns en dessous des autres, les marges externes supérieures et inférieures étant fusionnées.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Par défaut, les éléments ont pour hauteur celle de tous les éléments dans le flux qu&amp;rsquo;ils contiennent, et 0 si ils sont vides ou ne contiennent que des éléments hors du flux.
+La largeur par défaut des élements dépend de leur type : pour les éléments de type bloc, il s&amp;rsquo;agit de celle de le élément parent, alors que pour les éléments en ligne, il s&amp;rsquo;agit de celle de leur contenu.&lt;/p&gt;</description></item><item><title>Syntaxe CSS 3, sélecteurs et propriétés usuelles</title><link>https://maxence.collard-lagalle.me/posts/formations/html-css/css-syntax-selectors-props/</link><pubDate>Sun, 12 May 2024 21:00:00 +0100</pubDate><guid>https://maxence.collard-lagalle.me/posts/formations/html-css/css-syntax-selectors-props/</guid><description>&lt;h2 id="syntaxe-de-css-3"&gt;Syntaxe de CSS 3&lt;/h2&gt;
+&lt;p&gt;Une &lt;strong&gt;feuille de style&lt;/strong&gt; CSS 3 se compose d&amp;rsquo;un ensemble de &lt;strong&gt;blocs&lt;/strong&gt;.
+Ces blocs sont introduits par un &lt;strong&gt;sélecteur&lt;/strong&gt; qui précise à quels éléments HTML il s&amp;rsquo;applique, puis d&amp;rsquo;une ou plusieurs &lt;strong&gt;déclarations&lt;/strong&gt;.
+Une déclaration est une &lt;strong&gt;propriété&lt;/strong&gt; choisie parmi celles de la norme CSS 3, suivie d&amp;rsquo;une &lt;strong&gt;valeur&lt;/strong&gt; :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-css" data-lang="css"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;selecteur-1&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; propriete-1: valeur;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; propriete-2: valeur;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;selecteur-2&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; propriete-3: valeur;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;De manière générale, CSS fonctionne avec une notion d&amp;rsquo;&lt;strong&gt;héritage&lt;/strong&gt; : si un élément est inclus dans un autre, il hérite de toutes les règles de style qui l&amp;rsquo;affecte.&lt;/p&gt;</description></item></channel></rss>
