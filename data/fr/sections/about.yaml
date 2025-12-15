@@ -8,7 +8,7 @@ section:
   template: sections/about.html
 
 # your designation
-designation: Analyste-Développeur
+designation: Chef de Projet Informatique
 # your company information
 company:
   name: Insee
@@ -19,7 +19,7 @@ company:
 # resume: "files/resume.pdf"
 
 # a summary about you
-summary: 'Je suis un attaché statisticien de l’Insee depuis 2020. J’y exerce des fonctions d’analyste-développeur en région parisienne et je travaille avec les technologies [Java](https://www.java.com/), [Spring](https://spring.io/) et [React](https://react.dev/).'
+summary: 'Je suis un attaché statisticien de l’Insee depuis 2020. J’y exerce des fonctions de chef de projet informatique en région parisienne et je travaille avec les technologies [Java](https://www.java.com/), [Spring](https://spring.io/) et [React](https://react.dev/).'
 
 # your social links
 # give as many as you want. use font-awesome for the icons.

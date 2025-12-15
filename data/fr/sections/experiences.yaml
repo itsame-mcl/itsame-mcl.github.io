@@ -18,17 +18,25 @@ experiences:
       # company overview
       overview: L'Institut national de la statistique et des études économiques (Insee) est chargé de la production, de l'analyse et de la publication des statistiques officielles en France, depuis 1946
     positions:
-      - designation: Analyste-Développeur
-        start: Septembre 2022
+      - designation: Chef de Projet Informatique
+        start: Septembre 2024
         # don't provide end date if you are currently working there. It will be replaced by "Present"
         # end: Dec 2020
         # give some points about what was your responsibilities at the company.
+        responsibilities:
+        - Poste localisé au Service National de Développement Informatique de Paris (SNDIP), à la Direction Générale de l'Insee (Montrouge, Île-de-France)
+        - Chef de projet informatique en charge de la rénovation en profondeur du site web [insee.fr](https://www.insee.fr) (Java/Spring, JavaScript/Next.Js, Python/FastAPI, NoSQL/ElasticSearch)
+        - Conception d'une solution d'architecture logicielle en services, en lien avec l'équipe d'Architecture d'Infrastructure et Applicative
+        - Administration quotidienne des environnements conteneurisés de production et de hors production (Docker, Kubernetes)
+      - designation: Analyste-Développeur
+        start: Septembre 2022
+        end: Août 2024
         responsibilities:
           - Poste localisé au Service National de Développement Informatique de Paris (SNDIP), à la Direction Générale de l'Insee (Montrouge, Île-de-France)
           - Développeur full stack dans l'équipe de maintenance du site web [insee.fr](https://www.insee.fr) (Java/Spring, JavaScript/React, SQL)
           - Travail organisé en agilité avec la méthodologie Scrum / Kanban
           - Administration quotidienne des environnements virtualisés de production et de hors production (DevOps, Puppet)
-          - Formations des développeurs à Git et GitLab CI/CD dans le cadre du cursus interne du service
+          - Formations des développeurs à Git et HTML/CSS dans le cadre du cursus interne du service
       - designation: Référent managérial
         start: Septembre 2019
         end: Août 2020
