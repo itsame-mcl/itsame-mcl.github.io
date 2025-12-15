@@ -15,7 +15,9 @@ accomplishments:
     timeline: "Décembre 2025"
     organization:
       name: Opquast
-      url: https://directory.opquast.com/fr/certificat/PDQM47/
+      url: https://www.opquast.com/toutes-les-formations-opquast/certification/
+    courseOverview: "La certification Opquast est une formation qui permet aux professionnels du numérique d’acquérir un socle de règles, de compétences et de vocabulaire multidisciplinaires pour maîtriser la qualité des sites et applications numériques, en couvrant des domaines tels que le référencement, la sécurité, l’accessibilité, la protection des données, la performance, l’écoconception et l’e-commerce, tout en intégrant les enjeux liés à la diversité des utilisateurs."
+    certificateURL: "https://directory.opquast.com/fr/certificat/PDQM47/"
 
   - name: Examen professionnel de vérification d’aptitude aux fonctions de Programmeur de système d'exploitation - concepteur réalisateur d'applications
     timeline: "Juillet 2023"
