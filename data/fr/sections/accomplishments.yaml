@@ -11,6 +11,12 @@ section:
 
 # Your accomplishments
 accomplishments:
+  - name: Intégrer les règles et le vocabulaire assurance qualité web dans sa pratique professionnelle - Avancé - 891 points
+    timeline: "Décembre 2025"
+    organization:
+      name: Opquast
+      url: https://directory.opquast.com/fr/certificat/PDQM47/
+
   - name: Examen professionnel de vérification d’aptitude aux fonctions de Programmeur de système d'exploitation - concepteur réalisateur d'applications
     timeline: "Juillet 2023"
     organization:
