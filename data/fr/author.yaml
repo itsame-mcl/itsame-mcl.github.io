@@ -1,14 +1,14 @@
 # some information about you
-name: "Maxence Collard-Lagalle"
-nickname: "Maxence Collard-Lagalle"
+name: "Maxence Lagalle"
+nickname: "Maxence Lagalle"
 # greeting message before your name. it will default to "Hi! I am" if not provided
 greeting: "Bonjour, je suis"
 image: "images/author/maxence_collard-lagalle_executive-portrait_2024.png"
 # give your some contact information. they will be used in the footer
 contactInfo:
-  email: "maxence@collard-lagalle.me"
+  email: "hello@itsame-mcl.eu"
   phone: "+33648189695"
-  linkedin: maxencecollardlagalle
+  linkedin: itsamemcl
   github: itsame-mcl
 
 # some summary about what you do
