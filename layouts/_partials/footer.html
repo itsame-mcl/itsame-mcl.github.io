@@ -1,0 +1,13 @@
+{{- $d := partial "cv.html" . -}}
+<footer class="site-footer">
+  <div class="wrap">
+    <p>{{ $d.ui.made_with }}. © {{ now.Year }} {{ site.Params.author }}. {{ $d.ui.license }} <a rel="license" href="{{ $d.ui.license_url }}">{{ $d.ui.license_name }}</a>.</p>
+    <ul>
+      <li><a href="mailto:{{ site.Params.email }}">{{ $d.ui.email }}</a></li>
+      <li><a href="{{ site.Params.linkedin }}" rel="me">LinkedIn</a></li>
+      <li><a href="{{ site.Params.github }}" rel="me">GitHub</a></li>
+      <li><a href="{{ site.Params.repo }}">{{ $d.ui.source }}</a></li>
+      {{- range site.Home.OutputFormats }}{{ if eq .Name "rss" }}<li><a href="{{ .RelPermalink }}">{{ $d.ui.rss }}</a></li>{{ end }}{{ end }}
+    </ul>
+  </div>
+</footer>

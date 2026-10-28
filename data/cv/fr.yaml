@@ -1,0 +1,248 @@
+ui:
+  skip: Aller au contenu
+  cta_title: Un échange, une question, une intervention ?
+  cta_text: Écrivez-moi, je réponds volontiers.
+  made_with: Fait main avec Hugo
+  menu: Navigation principale
+  language: Langue
+  contact: Contact
+  email: Courriel
+  cv_pdf: CV (PDF)
+  cv_file: files/cv-maxence-lagalle-fr.pdf
+  cv_print: CV imprimable
+  current: En poste
+  present: aujourd'hui
+  more_career: Voir tout le parcours
+  highlights: En bref
+  experience: Expérience
+  earlier: Parcours antérieur
+  education: Formation
+  certifications: Certifications et qualifications
+  skills: Compétences
+  languages: Langues
+  teaching: Enseignement et jurys
+  talks: Interventions
+  projects: Projets
+  source: Code source du site
+  license: Contenus sous licence
+  license_name: Creative Commons BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/deed.fr
+  rss: Flux RSS
+  toc: Sommaire
+  course_nav: Navigation de la formation
+  prev: Précédent
+  next: Suivant
+  courses_all: Toutes les formations
+  untranslated: Ce contenu n'existe qu'en français.
+  tags: Étiquettes
+  alert_info: Information
+  alert_note: À noter
+  alert_warning: Attention
+  alert_danger: Danger
+  alert_success: À retenir
+  alert_a11y: Accessibilité
+  alert_check: Vérification
+  alert_tip: Astuce
+  alert_pair: Variante à deux
+  alert_pitfall: Pièges fréquents
+  alert_try: À essayer
+  alert_practice: Pour pratiquer
+  corrige: Corrigé
+
+person:
+  display: Maxence (Collard) Lagalle
+  title: RSSI adjoint, composante homologation
+  org: Insee
+  tagline: Attaché statisticien de l'Insee, entre sécurité des systèmes d'information, développement et pédagogie.
+  description: Maxence Lagalle, attaché statisticien à l'Insee, RSSI adjoint chargé de l'homologation. Ancien chef de projet de la refonte d'insee.fr, formateur et enseignant.
+  portrait_alt: Portrait de Maxence Lagalle
+  greeting: Bonjour, je suis
+  values: J'aime m'investir sur des projets d'utilité publique.
+  summary:
+    - "Attaché statisticien de l'Insee depuis 2020, je suis depuis septembre 2026 **RSSI adjoint, composante homologation** : j'accompagne les équipes métier et informatiques pour que chaque système d'information soit mis en service en connaissance des risques et avec des mesures de sécurité décidées."
+    - "Auparavant, j'ai piloté la maîtrise d'œuvre informatique de la **refonte modulaire d'insee.fr**, après deux ans comme analyste-développeur sur le site. Je viens des enquêtes auprès des ménages, de la recherche en économétrie et d'une expérience d'entrepreneur."
+    - "J'enseigne l'informatique à l'ENSAI, je forme les développeurs de la DSI à Git et au web, et je partage ce que j'apprends en séminaires et sur ce site."
+
+highlights:
+  - title: Sécurité et homologation
+    text: Pilotage de démarches d'homologation de systèmes d'information, analyse de risques selon la méthode de l'ANSSI, préparation des commissions d'homologation.
+    link: /parcours/
+  - title: Refonte d'insee.fr
+    text: Architecture modulaire en conteneurs, migration page à page grâce à un aiguillage sur mesure, nouveau moteur de recherche Elasticsearch.
+    link: /parcours/
+  - title: Agilité, qualité et accessibilité
+    text: Scrum Master, Heart of Agile, certification Opquast de niveau avancé, auditeur de l'accessibilité numérique (RGAA).
+    link: /parcours/
+  - title: Enseignement et transmission
+    text: Travaux dirigés et tutorat de projet à l'ENSAI, jurys, séminaire du développement de la DSI, formations Git et HTML/CSS.
+    link: /enseignement/
+
+experience:
+  - role: RSSI adjoint, composante homologation
+    org: Insee, Direction du système d'information
+    place: Montrouge
+    start: Septembre 2026
+    summary: "Division Sécurité et maîtrise des risques. Je veille à ce qu'aucun système d'information de l'Insee ne soit mis ou maintenu en service sans que ses risques aient été analysés, que les mesures de sécurité aient été décidées et que son directeur responsable ait formellement accepté les risques restants."
+    points:
+      - Pilotage de plusieurs démarches d'homologation par an, applications ou infrastructures, en lien avec les chefs de projet et les maîtrises d'ouvrage des directions métier.
+      - Analyse de risques selon la méthode de référence de l'ANSSI, avec le métier, les équipes de développement, d'exploitation et d'architecture.
+      - Vérification de la conformité aux référentiels de sécurité de l'État, préparation des commissions d'homologation, pilotage des audits avec les prestataires et suivi des plans de remédiation.
+      - Traitement des incidents de sécurité et sensibilisation des agents.
+      - "Assistant d'IA spécialisé en sécurité et homologation, mis à disposition des collègues sur la plateforme interne d'IA, pour exploiter les guides de l'ANSSI."
+  - role: Chef de projet informatique, refonte modulaire de l'écosystème insee.fr
+    org: Insee, SNDIP (Service national de développement informatique de Paris)
+    place: Montrouge
+    start: Septembre 2024
+    end: Août 2026
+    summary: "Maîtrise d'œuvre informatique de la refonte d'insee.fr, principal canal de diffusion de l'Institut, dans une équipe passée au « mode produit »."
+    points:
+      - "Architecture cible élaborée à partir d'un audit, confrontée à la vision fonctionnelle puis approuvée par l'équipe transverse d'architecture de l'Insee, avec passage à une infrastructure en conteneurs (Kubernetes)."
+      - "Aiguillage développé sur mesure pour faire cohabiter ancien et nouveau site et basculer les pages une à une : définitions en mars 2026, convertisseur franc-euro en avril."
+      - "Nouvelle recherche fondée sur Elasticsearch, démontrable sur l'essentiel des publications à mon départ, ouvrant la voie aux requêtes en langage naturel et aux assistants d'IA."
+      - "Coordination agile des développeurs sans lien hiérarchique, participation aux développements, entretiens techniques de recrutement."
+      - "Prototype du simulateur d'inflation personnalisé développé avec un agent d'IA générative, puis transmis à un développeur et publié sur insee.fr en septembre 2026."
+  - role: Analyste-développeur
+    org: Insee, SNDIP
+    place: Montrouge
+    start: Septembre 2022
+    end: Août 2024
+    summary: "Maintenance et évolutions d'insee.fr au sein d'une équipe de cinq développeurs (Java, Spring, JavaScript, SQL)."
+    points:
+      - "Conception du repérage des publications « Première approche » destinées au grand public : pictogramme et filtre dédié dans la recherche du site."
+      - "Référent qualité de l'équipe et membre du réseau qualité du service."
+      - "Formateur Git et bases du web pour les développeurs et les équipes de production de la DSI : refonte des supports et transmission à d'autres formateurs."
+      - "Prototype de mise en page automatique des publications, réalisé avec le préfigurateur de la refonte."
+  - role: Attaché statisticien stagiaire
+    org: ENSAI, cursus fonctionnaire
+    place: Bruz
+    start: Septembre 2020
+    end: Août 2022
+    summary: "Élu représentant des élèves au conseil d'administration du GENES (2020-2021)."
+    points: []
+
+earlier:
+  - role: Contrôleur de l'Insee, responsable d'enquêtes puis référent managérial
+    org: Insee, Direction régionale de Nouvelle-Aquitaine
+    place: Poitiers
+    period: 2018 à 2020
+    summary: "Responsable d'enquêtes auprès des ménages (Emploi en continu, enquête de conjoncture, Trajectoires et origines 2). Référent managérial d'un réseau de quatre enquêteurs : entretiens professionnels annuels, accompagnement, outils R et Python de suivi de la qualité."
+  - role: Créateur et administrateur de Castelambre
+    org: Entreprise de création audiovisuelle et de communication numérique
+    place: Poitiers
+    period: 2015 à 2017
+    summary: Conception de sites Internet, tournages vidéo, conseil en financement participatif, gestion juridique, fiscale et comptable.
+  - role: Chargé d'études statistiques puis doctorant contractuel
+    org: Université de Poitiers
+    place: Poitiers
+    period: 2010, 2011 à 2014
+    summary: Exploitation d'une enquête de satisfaction du CROUS d'Orléans en 2010, puis, de 2011 à 2014, recherches en économétrie sur les effets de la crise de 2008 dans les pays en développement et travaux dirigés de microéconomie et d'économétrie (thèse non soutenue).
+
+education:
+  - name: Cursus d'attaché statisticien (voie interne)
+    org: ENSAI
+    period: 2020 à 2022
+  - name: Cycle long (B6)
+    org: Centre de formation de l'Insee à Libourne
+    period: 2017 à 2018
+  - name: Master recherche Finance de marché, mention très bien
+    org: Université de Poitiers
+    period: 2011
+  - name: Licence d'économie appliquée, mention très bien
+    org: Université de Poitiers
+    period: 2009
+  - name: Baccalauréat scientifique
+    org: CNED
+    period: 2006
+
+certifications:
+  - name: Opquast, qualité web, niveau avancé (891 points)
+    period: 2025
+    url: https://directory.opquast.com/fr/certificat/PDQM47/
+  - name: Heart of Agile, niveau avancé
+    period: ""
+    url: "https://heartofagile.com/pdf_download.php?st=7008&f=A4&o=fr"
+  - name: Auditeur de l'accessibilité numérique (RGAA)
+    period: ""
+  - name: Examen professionnel de programmeur système d'exploitation, concepteur réalisateur d'applications
+    period: Juillet 2023
+    url: https://www.economie.gouv.fr/recrutement/programmeur-systeme-dexploitation-concepteur-realisateur-dapplications-examen-professi-2
+  - name: Examen professionnel d'analyste-développeur
+    period: Mars 2023
+    url: https://www.economie.gouv.fr/recrutement/analyste-developpeur-examen-professionnel
+  - name: Examen professionnel de programmeur
+    period: Février 2019
+    url: https://www.economie.gouv.fr/recrutement/programmeur-examen-professionnel
+  - name: Formations de l'ANSSI
+    period: Prévues en 2027
+
+skills:
+  - group: Sécurité des systèmes d'information
+    items: Homologation, analyse de risques (méthode ANSSI), référentiels de sécurité de l'État, pilotage d'audits, sensibilisation
+  - group: Développement
+    items: Java (Spring), JavaScript (React, Next.js), Python (FastAPI), R, SQL, HTML/CSS
+  - group: Infrastructure et outils
+    items: Linux, Docker, Kubernetes, Elasticsearch, Git, GitLab CI
+  - group: IA générative
+    items: Co-développement avec des agents d'IA, assistants spécialisés
+  - group: Méthodes
+    items: Scrum, Kanban, Heart of Agile, qualité web, accessibilité (RGAA)
+
+languages:
+  - Français, langue maternelle
+  - Anglais, courant (TOEIC 970, 2021)
+
+teaching:
+  intro: Je transmets ce que je pratique, auprès d'élèves de l'ENSAI comme de collègues de la DSI.
+  sections:
+    - title: ENSAI
+      items:
+        - period: 2023 et 2026
+          text: "Chargé de travaux dirigés d'informatique et tuteur de projet des élèves de deuxième année. En 2026, 40 heures d'enseignement, dont le tutorat du projet informatique « Anonymia » : un outil d'anonymisation de documents administratifs reposant sur la plateforme d'IA du SSP Cloud, l'offre de science des données du service statistique public."
+        - period: 2025
+          text: Membre du jury des projets informatiques.
+    - title: Jurys et examens
+      items:
+        - period: 2026
+          text: Membre du jury de l'examen professionnel de programmeur du ministère de l'Économie et des Finances et auteur du sujet de l'épreuve écrite d'admissibilité, avec l'IGPDE et des collègues d'autres directions.
+    - title: Formation interne à la DSI
+      items:
+        - period: 2022 à 2024
+          text: Refonte et animation des formations des développeurs à Git et aux bases du web, y compris à distance pour les équipes de production. Les supports sont publiés sur ce site.
+  talks_intro: Séminaire du développement de la DSI de l'Insee, chaque année depuis 2024.
+  talks:
+    - period: 2026
+      place: Metz
+      text: "« Vue depuis la frontière : récit d'une expérimentation d'IA générative sur nos données ouvertes », prolongée par un billet sur le blog interne de la DSI. Atelier sur les tests de charge, coanimé avec l'équipe Infrastructure pour le développement et le déploiement des applications."
+    - period: 2025
+      place: Orléans
+      text: Atelier de présentation d'un outil de développement web, coanimé avec deux collègues de mon équipe.
+    - period: 2024
+      place: Lille
+      text: "« Ne tirez pas sur le coach agile », conférence théâtralisée qui rappelle les bases de Scrum par des saynètes, donnée avec un collègue de la division accompagnement et coaching. Rejouée à la Direction générale et à la conférence Agile Secteur Public (18 octobre 2024)."
+    - period: Novembre 2023
+      place: YouTube
+      text: Témoignage sur mon parcours de contrôleur devenu attaché, dans une vidéo de promotion du concours de contrôleur sur la chaîne de l'Insee.
+
+projects_intro: "Réalisations personnelles et libres. Mon travail à l'Insee, qui appartient à l'État, est décrit dans mon parcours."
+
+projects:
+  - name: Formations Git et HTML/CSS
+    period: 2023
+    summary: Supports de formation sous licence libre, utilisés pour former les développeurs de la DSI.
+    url: /posts/formations/
+    tags: [Formation, Git, HTML, CSS]
+  - name: PSyCoQuAC
+    period: 2021
+    summary: Système collaboratif de qualification et de géolocalisation de lots d'adresses postales françaises à partir de la Base Adresse Nationale. Projet de deuxième année à l'ENSAI.
+    repo: https://github.com/itsame-mcl/PSyCoQuAC
+    tags: [Python, API]
+  - name: data-pypeline
+    period: 2021
+    summary: Bibliothèque de manipulation et de traitement de données en Python pur, sous licence EUPL. Projet de première année à l'ENSAI.
+    repo: https://github.com/itsame-mcl/data-pypeline
+    tags: [Python, Data science]
+  - name: learnr-lubridate
+    period: 2021
+    summary: Package R contenant un tutoriel learnr pour apprendre les bases du package de gestion des dates lubridate.
+    repo: https://github.com/itsame-mcl/learnr-lubridate
+    tags: [R, Formation]

@@ -1,0 +1,12 @@
+{{- /* Arbre de navigation des cours, construit à partir du menu « sidebar » du front matter. */ -}}
+{{- $page := .page -}}
+{{- $entries := .entries | default site.Menus.sidebar -}}
+<ul>
+  {{- range $entries }}
+  {{- $current := $page.IsMenuCurrent "sidebar" . }}
+  <li>
+    <a href="{{ .URL }}"{{ if $current }} aria-current="page"{{ end }}>{{ .Name }}</a>
+    {{- if .HasChildren }}{{ partial "course-nav.html" (dict "page" $page "entries" .Children) }}{{ end }}
+  </li>
+  {{- end }}
+</ul>

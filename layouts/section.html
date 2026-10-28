@@ -1,0 +1,22 @@
+{{ define "main" }}
+{{- $d := partial "cv.html" . }}
+<div class="wrap article-layout">
+  {{- if eq .Section "posts" }}
+  <aside class="course-nav"><details open><summary>{{ $d.ui.course_nav }}</summary>{{ partial "course-nav.html" (dict "page" .) }}</details></aside>
+  {{- end }}
+  <div class="prose">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+    {{- with .Sections }}
+    <ul class="cards">
+      {{- range . }}<li class="card"><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>{{ with .Description }}<p>{{ . }}</p>{{ end }}</li>{{ end }}
+    </ul>
+    {{- end }}
+    {{- with .RegularPages }}
+    <ol class="plain">
+      {{- range sort . "Params.menu.sidebar.weight" }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+    </ol>
+    {{- end }}
+  </div>
+</div>
+{{ end }}

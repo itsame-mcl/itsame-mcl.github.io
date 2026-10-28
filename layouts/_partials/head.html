@@ -1,0 +1,38 @@
+{{- $d := partial "cv.html" . -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $title := cond .IsHome (printf "%s · %s" site.Title $d.person.title) (printf "%s · %s" .Title site.Title) }}
+{{- $desc := .Description | default (cond .IsHome $d.person.description $d.person.tagline) }}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<meta name="author" content="{{ site.Params.author }}">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="{{ .Permalink }}">
+{{- range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{- end }}
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:type" content="{{ cond .IsHome "profile" "website" }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="{{ replace site.Language.Locale "-" "_" }}">
+{{- $portrait := resources.Get "images/author/portrait.jpg" }}
+{{- with $portrait }}
+{{- $og := .Fill "896x896 Top q82" }}
+{{- $icon := .Fill "128x128 Top png" }}
+<meta property="og:image" content="{{ $og.Permalink }}">
+<meta property="og:image:width" content="896">
+<meta property="og:image:height" content="896">
+<meta property="og:image:alt" content="{{ $d.person.portrait_alt }}">
+<link rel="icon" type="image/png" href="{{ $icon.RelPermalink }}">
+{{- end }}
+{{- range .OutputFormats }}{{ if eq .Name "rss" }}
+<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">
+{{- end }}{{ end }}
+<link rel="preload" href="/fonts/mulish-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+{{- $css := slice (resources.Get "css/main.css") (resources.Get "css/chroma.css") | resources.Concat "css/site.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{- if .IsHome }}
+{{ partial "jsonld.html" . }}
+{{- end }}

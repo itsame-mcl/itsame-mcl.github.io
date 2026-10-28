@@ -1,0 +1,16 @@
+{{- /* Liste d'expériences : contexte attendu = tableau d'expériences. */ -}}
+{{- $d := partial "cv.html" . -}}
+<ol class="timeline">
+  {{- range . }}
+  <li>
+    <h3>{{ .role }}</h3>
+    <p class="meta">{{ .org }}{{ with .place }}, {{ . }}{{ end }} ·
+      {{- if .period }} {{ .period }}
+      {{- else }} {{ .start }} – {{ .end | default $d.ui.present }}{{ end }}</p>
+    {{- with .summary }}<p>{{ . }}</p>{{ end }}
+    {{- with .points }}
+    <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+    {{- end }}
+  </li>
+  {{- end }}
+</ol>

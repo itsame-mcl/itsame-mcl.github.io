@@ -1,0 +1,6 @@
+{{- $type := .Get "type" | default "info" -}}
+{{- $d := partial "cv.html" .Page -}}
+<aside class="alert alert-{{ $type }}" role="note">
+<strong class="alert-title">{{ index $d.ui (printf "alert_%s" $type) }}</strong>
+<div class="alert-body">{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>
+</aside>

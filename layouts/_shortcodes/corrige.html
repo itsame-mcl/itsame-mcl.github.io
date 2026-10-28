@@ -1,0 +1,5 @@
+{{- $d := partial "cv.html" .Page -}}
+<details class="corrige">
+<summary>{{ .Get "title" | default $d.ui.corrige }}</summary>
+<div class="corrige-body">{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>
+</details>

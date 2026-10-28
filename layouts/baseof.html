@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang }}">
+<head>
+{{- partial "head.html" . }}
+</head>
+<body>
+<a class="skip" href="#main">{{ (partial "cv.html" .).ui.skip }}</a>
+{{ partial "header.html" . }}
+<main id="main">
+{{- block "main" . }}{{ end }}
+</main>
+{{ partial "footer.html" . }}
+{{ partial "scripts.html" . }}
+</body>
+</html>

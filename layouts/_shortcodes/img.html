@@ -1,0 +1,2 @@
+{{- $alt := .Get "alt" | default (.Get "title") -}}
+<img src="{{ .Get "src" | relURL }}" alt="{{ $alt }}" loading="lazy"{{ with .Get "width" }} width="{{ . }}"{{ end }}{{ with .Get "height" }} height="{{ . }}"{{ end }}>

@@ -1,0 +1,12 @@
+{{- $d := partial "cv.html" . -}}
+{{- $p := dict
+  "@context" "https://schema.org"
+  "@type" "Person"
+  "name" "Maxence Lagalle"
+  "alternateName" (slice "Maxence Collard-Lagalle" "Maxence Collard Lagalle")
+  "jobTitle" $d.person.title
+  "worksFor" (dict "@type" "Organization" "name" "Insee" "url" "https://www.insee.fr")
+  "url" site.Home.Permalink
+  "sameAs" (slice site.Params.linkedin site.Params.github)
+-}}
+<script type="application/ld+json">{{ $p | jsonify | safeJS }}</script>

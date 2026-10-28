@@ -1,0 +1,4 @@
+{{- .Page.Store.Set "mermaid" true -}}
+<figure class="diagram diagram-{{ .Get "align" | default "center" }}">
+<pre class="mermaid"{{ with .Get "alt" }} role="img" aria-label="{{ . }}"{{ end }}>{{ .Inner | htmlEscape | safeHTML }}</pre>
+</figure>

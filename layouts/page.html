@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{- $d := partial "cv.html" . }}
+<div class="wrap article-layout">
+  {{- if eq .Section "posts" }}
+  <aside class="course-nav">
+    <details open>
+      <summary>{{ $d.ui.course_nav }}</summary>
+      {{ partial "course-nav.html" (dict "page" .) }}
+    </details>
+  </aside>
+  {{- end }}
+  <article class="prose">
+    <h1>{{ .Title }}</h1>
+    {{- with .GetTerms "tags" }}
+    <ul class="tags" aria-label="{{ $d.ui.tags }}">{{ range . }}<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>{{ end }}</ul>
+    {{- end }}
+    {{- if and (ne .Params.toc false) (gt (len .TableOfContents) 80) }}
+    <details class="toc"><summary>{{ $d.ui.toc }}</summary>{{ .TableOfContents }}</details>
+    {{- end }}
+    {{ .Content }}
+    {{- if eq .Section "posts" }}
+    {{- $sorted := sort .CurrentSection.RegularPages "Params.menu.sidebar.weight" }}
+    {{- $prev := "" }}{{ $next := "" }}{{ $found := false }}
+    {{- range $sorted }}
+      {{- if $found }}{{ if not $next }}{{ $next = . }}{{ end }}{{ end }}
+      {{- if eq . $ }}{{ $found = true }}{{ end }}
+      {{- if not $found }}{{ $prev = . }}{{ end }}
+    {{- end }}
+    <nav class="pager" aria-label="{{ $d.ui.course_nav }}">
+      <span>{{ with $prev }}<a rel="prev" href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}</span>
+      <span>{{ with $next }}<a rel="next" href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}</span>
+    </nav>
+    {{- end }}
+  </article>
+</div>
+{{ end }}
