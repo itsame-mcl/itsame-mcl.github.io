@@ -1,133 +1,139 @@
 ---
 title: "Principales balises HTML 5"
+description: "Titres, paragraphes, listes, liens, images, audio, vidéo et éléments neutres."
 date: 2024-05-09T21:15:00+01:00
-tags: ["HTML 5"]
+lastmod: 2026-07-21T12:00:00+02:00
+tags: ["HTML"]
 categories: ["Formation"]
 menu:
   sidebar:
-    name: HTML - Principales balises
+    name: "HTML - Principales balises"
     identifier: html-common-tags
     parent: html-css
     weight: 30
 ---
 
-Le principe de HTML 5 est de proposer un ensemble normé d'éléments représentés par des balises XML, dont les règles d'interprétation sont censées être implémentées de manière homogène entre tous les clients HTML (et notamment, les navigateurs).
+Le standard définit plus d'une centaine de balises, mais un petit sous-ensemble couvre l'immense majorité des besoins. Ce chapitre présente les balises usuelles, en dehors des tableaux et formulaires qui font l'objet des chapitres 4 et 5.
 
-La version actuellement en vigueur du standard HTML 5 est [publiquement consultable](https://html.spec.whatwg.org/). Néanmoins, il n'est pas utile dans un cadre général de connaître toutes les balises, certains étant beaucoup plus usuelles que d'autres.
+## 3.1. Titres et hiérarchie
+Les balises `<h1>` à `<h6>` définissent six niveaux de titres. Elles structurent le document comme le ferait le plan d'un rapport :
 
-## Typologie des éléments HTML
+- une page contient en principe **un seul `&lt;h1&gt;`**, qui annonce son sujet principal ;
+- les niveaux s'enchaînent **sans saut** : un `<h3>` ne doit apparaître que sous un `<h2>` ;
+- on ne choisit jamais un niveau de titre pour sa taille d'affichage — c'est le rôle de CSS.
 
-Les éléments HTML 5 se décomposent en 2 grandes familles : les éléments de type **bloc**, et les éléments **en ligne** (*inline*) :
+{{< alert type="a11y" >}}
+La hiérarchie des titres est le second mode de navigation des lecteurs d'écran (touche H pour sauter de titre en titre). Un plan de titres incohérent rend la page très difficile à explorer. Les outils de développement des navigateurs et l'extension HeadingsMap permettent de visualiser ce plan.
+{{< /alert >}}
 
-- Les éléments **bloc** délimitent des sections de la page. Par défaut, ils occupent toute la largeur de la page et se succèdent verticalement, dans l'ordre où ils sont décrits dans le document HTML, et sont séparés par un retour à la ligne.
-- Les éléments **en ligne** s'inscrivent dans la continuité du flux de la page. Par défaut, ils occupent la taille minimale nécessaire à leur affichage, et ne provoquent aucun retour à la ligne.
+## 3.2. Paragraphes
+- `<p>` : paragraphe standard.
+- `<pre>` : texte préformaté, qui préserve espaces et retours à la ligne (utile pour du code).
+- `<blockquote>` : citation longue, avec un attribut facultatif `cite=` indiquant l'URL de la source.
+- `<address>` : informations de contact de l'auteur de la page ou de l'article.
 
-{{< alert type="warning" >}} Les éléments en ligne peuvent être imbriqués, mais ne peuvent en aucun cas contenir d'élément bloc. {{< /alert >}}
-En revanche, des éléments blocs peuvent être imbriqués entre eux et contenir des éléments en ligne.
+## 3.3. Listes
+Trois types de listes existent, toutes de type bloc :
 
-## Élements usuels de type bloc
+### Liste ordonnée : &lt;ol&gt;
+Chaque élément, défini par `<li>` (*list item*), est numéroté. Trois attributs personnalisent la numérotation : `start=` (première valeur), `type=` (style de numérotation : `1`, `A`, `a`, `I`, `i`) et `reversed` (ordre décroissant). L'attribut `value=` sur un `<li>` force une valeur particulière.
 
-### Titres et intertitres
-
-Les balises `<h1>` a `<h6>` permettent de définir jusqu'à 6 niveaux de titres et inter-titres au sein d'une page web.
-
-### Paragraphes
-
-Un paragraphe standard, contenant du texte et autres éléments, est délimité par une balise `<p>`. Il existe cependant d'autres types de paragraphes :
-
-- `<pre>` : texte préformaté, permettant de préserver les retours à la ligne et les espaces tels que définis dans le texte.
-- `<blockquote>` : citation d'une autre source, ou d'une autre page web (pouvant être précisée par un attribute `cite=`). Généralement mis en retrait dans l'affichage par défaut des navigateurs.
-- `<address>` : paragraphe dédié à des informations de contact ou à une adresse postale.
-
-### Listes
-
-Toutes les balises liées aux listes sont des balises de type bloc.
-Il existe trois types de listes :
-
-- Liste ordonnée : il s'agit d'une liste dont tous les éléments sont numérotés. Elle s'initialise par une balise `<ol>` (*ordered list*). Cette numérotation peut être personnalisée de plusieurs manières grâce à des attributs :
-  - `start=` permet de définir la 1ʳᵉ valeur de la liste.
-  - `type=` permet de préciser le type de numérotation à utiliser, les types possibles étant `1`, `A`, `a`, `I` et `i`.
-  - `reversed` permet de retourner l'ordre de numérotation (qui est croissant par défaut)
-- Liste à puces : dans cette liste, chaque élément est précédé par une puce (par défaut, un point épais), sans qu'il n'y ait nécessairement d'ordre. Ce type de liste se déclare avec une balise `<ul>` (*unordered list*)
-
-Chaque ligne à l'intérieur de ces deux types de liste se définit par une balise `<li>` (*list item*). L'attribut `value=` permet de donner une valeur spécifique à une ligne dans une liste ordonnée.
-
-#### Exemple
 ```html
 <ol type="I">
-  <li>Élément I</li>
-  <li>Élement II</li>
-  <li value="V">Élément V</li>
+    <li>Élément I</li>
+    <li>Élément II</li>
+    <li value="5">Élément V</li>
 </ol>
 ```
 
-- Liste de définitions : cette liste permet de définir un glossaire, ou plus généralement une liste d'éléments associés à leur définition. Elle s'initialise avec la balise `<dl>` (*description list*). Chaque élément est ensuite introduit par une balise `<dt>` (*description term*), puis sa définition est précisée grâce à une balise `<dd>` (*description term description*).
+### Liste non ordonnée : &lt;ul&gt;
+Chaque élément `<li>` est précédé d'une puce. C'est la liste à utiliser dès qu'il n'y a pas d'ordre significatif — c'est aussi la structure standard d'un menu de navigation :
 
-#### Exemple
+```html
+<nav>
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="decouvrir.html">Découvrir la ville</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+```
+
+### Liste de descriptions : &lt;dl&gt;
+Elle associe des termes (`<dt>`, *description term*) et leurs définitions (`<dd>`, *description details*). Idéale pour un glossaire ou une liste de caractéristiques :
+
 ```html
 <dl>
-  <dt>HTML</dt>
+    <dt>HTML</dt>
     <dd>HyperText Markup Language</dd>
-  <dt>CSS</dt>
+    <dt>CSS</dt>
     <dd>Cascading Style Sheets</dd>
 </dl>
 ```
 
-### Élements sémantiques et élément neutre
+## 3.4. Emphases et enrichissements du texte
+- `<em>` : emphase (rendue en italique par défaut) — le sens : « ce mot est important dans la phrase ».
+- `<strong>` : emphase forte (rendue en gras par défaut) — le sens : « ceci est important dans le document ».
+- `<i>` et `<b>` : italique et gras purement visuels, sans valeur sémantique (terme étranger, nom d'œuvre…). À réserver aux cas où `<em>`/`<strong>` seraient trompeurs.
+- `<sup>` et `<sub>` : exposant (m`<sup>`2`</sup>`) et indice (H`<sub>`2`</sub>`O).
+- `<mark>` : passage surligné (résultat de recherche, par exemple).
+- `<time datetime="2026-07-20">` : date ou heure, avec sa valeur normalisée en attribut.
 
-Les éléments sémantiques (présentés dans le chapitre précédent) sont des éléments de type bloc : `<main>`, `<section>`, `<article>`, `<aside>`, `<nav>`, `<menu>`, `<header>`, `<footer>`
+## 3.5. Liens hypertextes
+Un lien se déclare avec la balise `<a>` et son attribut obligatoire `href=`, qui désigne la cible : une autre page (`href="contact.html"`, `href="https://exemple.fr"`), une ancre dans la même page (`href="#partie-1"`, pointant vers l'élément portant `id="partie-1"`), une adresse de courriel (`href="mailto:…"`).
 
-Enfin, HTML 5 propose un élément neutre de type bloc : `<div>`. Il est très utile pour pouvoir délimiter des blocs qui n'ont pas de sens sémantique, mais auxquels doivent s'appliquer des règles différentes de mise en forme. Dans l'idéal, il convient de n'utiliser `div` que lorsqu'il n'existe pas de balise permettant de décrire correctement le sens d'un bloc.
-
-{{< alert type="info" >}} Les tableaux et formulaires, qui sont également des balises de type bloc, sont traités dans un chapitre dédié. {{< /alert >}}
-
-## Éléments usuels de type en ligne
-
-### Emphases
-
-- L'emphase faible se déclare au moyen d'une balise `<em>`. Par défaut, cette emphase est représentée par l'italique.
-- L'emphase forte se déclare au moyen d'une balise `<strong>`. Par défaut, cette emphase est représentée par la mise en gras.
-
-À noter que ces balises ont avant tout un sens sémantique, car le comportement de mise en italique ou en gras peut être modifié par la feuille de style.
-Il existe également des balises `<i>` et `<b>` permettant de demander une mise en italique ou en gras (*bold*), sans sens sémantique.
-
-### Exposants et indices
-
-- Un exposant (caractères occupant uniquement la moitié supérieure de la ligne de texte) est déclaré par la balise `<sup>` (*superscript*).
-- Un indice (caractères occupant uniquement la moitié inférieure de la ligne de texte) est déclaré par la balise `<sub>` (*subscript*).
-
-### Liens hypertextes
-
-Un lien hypertexte est délimité au moyen d'une balise `<a>`.
-
-L'attribut `href=` permet de définir la cible du lien, qu'il s'agisse d'une autre page web, ou d'un autre emplacement de la même page. Il est obligatoire.
-
-Pour cibler un élément de la même page (une ancre), cet élément doit avoir un attribut `id=`, ayant pour valeur un nom qui doit être unique. Ce nom est ensuite utilisé dans l'attribut `href`, précédé d'un dièse (`# `).
-
-#### Exemple
 ```html
-<section id="partie-1"></section>
+<section id="partie-1">…</section>
 <section id="partie-2">
-  <p>Voir la <a href="#partie-1">première partie</a> pour en savoir plus.</p>
+    <p>Voir la <a href="#partie-1">première partie</a> pour en savoir plus.</p>
 </section>
 ```
 
-D'autres attributs peuvent églement être précisés, notamment pour améliorer l'accessibilité des liens :
+L'attribut `target="_blank"` ouvre le lien dans un nouvel onglet. À utiliser avec parcimonie : il retire à l'utilisateur le contrôle de sa navigation.
 
-- `title=` permet de donner un titre au lien, qui sera généralement affiché sous forme d'infobulle
-- `accesskey=` permet d'associer un lien à un raccourci clavier de la forme Alt+`accesskey`, sous réserve que cette combinaison ne soit pas déjà utilisée par le navigateur.
-- `target=` permet de préciser comment le navigateur doit ouvrir le lien. Les valeurs les plus usuelles sont `_self` pour une ouverture dans le même onglet et `_blank` pour une ouverture dans un nouvel onglet.
+{{< alert type="a11y" >}}
+L'intitulé du lien doit être explicite **hors contexte** : les utilisateurs de lecteurs d'écran naviguent souvent de lien en lien. « Cliquez ici » ou « En savoir plus » répétés dix fois sont inutilisables ; préférer « Consulter les horaires d'ouverture ». Deux attributs historiques sont par ailleurs à éviter : `accesskey` (raccourcis clavier qui entrent en conflit avec ceux des navigateurs et des lecteurs d'écran) et `title` comme unique porteur d'information (l'infobulle n'est accessible ni au clavier ni au tactile).
+{{< /alert >}}
 
-### Images
+## 3.6. Images
+Une image s'insère avec la balise vide `<img>` et deux attributs obligatoires :
 
-L'insertion d'une image s'effectue au moyen de la balise `<img>`. Cette balise a deux attributs obligatoires :
+- `src=` : chemin du fichier image. Formats universellement supportés : JPEG (photos), PNG (transparence), GIF, SVG (dessins vectoriels, icônes) et **WebP/AVIF**, formats modernes plus légers, aujourd'hui supportés par tous les navigateurs. Le poids des images étant le premier facteur de lenteur d'une page, il doit être minimisé.
+- `alt=` : **alternative textuelle**, lue par les lecteurs d'écran et affichée si l'image ne charge pas.
 
-- `src=` pour renseigner la source de l'image à afficher. Le support des différents formats d'image dépend des navigateurs, mais en général, les formats JPEG, PNG et GIF sont supportés.
-Les images devant être chargées pour permettre l'affichage de la page, il est déterminant de minimiser le poids des fichiers.
-- `alt=` permet de fournir une description de l'image, à destination des publics utilisant des outils d'accessibilité tels que des lecteurs d'écran. Il doit rester vide pour une image purement décorative, n'ayant aucun sens sémantique.
+{{< alert type="a11y" >}}
+Règle d'or de l'attribut `alt` : décrire la **fonction** de l'image, pas son apparence. Une image porteuse d'information reçoit une description utile (`alt="Plan d'accès : l'office de tourisme est face à la mairie"`) ; une image purement décorative reçoit un `alt` **vide** (`alt=""`) — et non pas d'attribut du tout, ce qui conduirait le lecteur d'écran à lire le nom du fichier.
+{{< /alert >}}
 
-Comme pour les liens, l'attribut `title=` permet d'ajouter un titre, affiché sous forme d'infobulle.
+Les attributs `width=` et `height=` (en pixels, sans unité) réservent l'espace de l'image avant son chargement et évitent les « sauts » de mise en page. Pour associer une légende visible à une image, on utilise `<figure>` et `<figcaption>` :
 
-### Élément neutre
+```html
+<figure>
+    <img src="vieux-port.jpg" alt="Le vieux port et ses façades colorées" width="800" height="450">
+    <figcaption>Le vieux port, cœur historique de Bellerive-sur-Mer.</figcaption>
+</figure>
+```
 
-A l'instar des éléments de type bloc, les éléments de type en ligne admettent un élément neutre, permettant d'effectuer des mises en forme particulières, indépendamment de toute notion sémantique. Il s'agit de l'élément `<span>`.
+## 3.7. Audio et vidéo
+HTML 5 intègre nativement les contenus multimédias, sans greffon externe :
+
+```html
+<video src="visite.mp4" controls width="640" height="360">
+    Votre navigateur ne prend pas en charge la vidéo.
+</video>
+ 
+<audio src="podcast.mp3" controls></audio>
+```
+
+L'attribut `controls` affiche les commandes de lecture du navigateur. Le texte placé entre les balises n'est affiché que si le navigateur ne sait pas lire le média.
+
+{{< alert type="a11y" >}}
+Une vidéo doit proposer des **sous-titres** (balise `<track kind="subtitles">` pointant vers un fichier `.vtt`) et un contenu audio une **transcription** textuelle. Éviter absolument `autoplay` : un média qui se déclenche seul perturbe fortement les utilisateurs de lecteurs d'écran (et agace tous les autres).
+{{< /alert >}}
+
+## 3.8. Les éléments neutres : &lt;div&gt; et &lt;span&gt;
+Quand aucune balise sémantique ne convient, deux éléments « neutres » permettent de regrouper du contenu, notamment pour lui appliquer des styles CSS : `<div>` (bloc) et `<span>` (en ligne). Ils n'ont aucun sens propre : la bonne pratique est de n'y recourir **qu'en dernier ressort**, après avoir vérifié qu'aucune balise sémantique ne décrit mieux le contenu.
+
+{{< alert type="practice" >}}
+L'exercice 3 du [TP HTML]({{< relref "tp-html" >}}) met en œuvre titres, listes, emphases, images et liens.
+{{< /alert >}}

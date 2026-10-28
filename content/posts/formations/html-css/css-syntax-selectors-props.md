@@ -1,315 +1,232 @@
 ---
 title: "Syntaxe CSS 3, sélecteurs et propriétés usuelles"
+description: "Anatomie d'une feuille de style, sélecteurs, cascade, variables CSS, modèle de boîte, texte et arrière-plans."
 date: 2024-05-12T21:00:00+01:00
-tags: ["CSS 3"]
+lastmod: 2026-07-21T12:00:00+02:00
+tags: ["CSS"]
 categories: ["Formation"]
 menu:
   sidebar:
-    name: CSS - Syntaxe, sélecteurs, propriétés
+    name: "CSS - Syntaxe, sélecteurs, propriétés"
     identifier: css-syntax-selectors-props
     parent: html-css
     weight: 50
 ---
 
-## Syntaxe de CSS 3
+## 6.1. Anatomie d'une feuille de style
+Une **feuille de style** CSS se compose de **règles**. Chaque règle est introduite par un **sélecteur**, qui désigne les éléments HTML concernés, suivi d'un bloc de **déclarations** entre accolades. Une déclaration associe une **propriété** à une **valeur** et se termine par un point-virgule :
 
-Une **feuille de style** CSS 3 se compose d'un ensemble de **blocs**.
-Ces blocs sont introduits par un **sélecteur** qui précise à quels éléments HTML il s'applique, puis d'une ou plusieurs **déclarations**.
-Une déclaration est une **propriété** choisie parmi celles de la norme CSS 3, suivie d'une **valeur** :
 ```css
 selecteur-1 {
     propriete-1: valeur;
     propriete-2: valeur;
 }
-
+ 
 selecteur-2 {
     propriete-3: valeur;
 }
 ```
 
-De manière générale, CSS fonctionne avec une notion d'**héritage** : si un élément est inclus dans un autre, il hérite de toutes les règles de style qui l'affecte.
+Les commentaires s'écrivent `/* commentaire */`. CSS repose sur deux mécanismes fondamentaux : l'**héritage** (un élément hérite de nombreuses propriétés de ses ancêtres, notamment celles liées au texte) et la **cascade** (des règles concurrentes sont départagées selon des critères de priorité, présentés en 6.4).
 
-### Liaison entre un style CSS et un document HTML
+## 6.2. Lier une feuille de style à un document HTML
+- **Fichier externe** (méthode recommandée) : la feuille est enregistrée dans un fichier `.css` et liée dans le `<head>` par `<link rel="stylesheet" href="style.css">`. Elle est ainsi mutualisée entre toutes les pages du site et mise en cache par le navigateur.
+- **Balise `&lt;style&gt;`** dans le `<head>` : à réserver aux cas très particuliers (page unique autonome), car elle empêche toute mutualisation.
+- **Attribut `style=`** directement sur un élément : à éviter — il mélange contenu et présentation, ne se mutualise pas, et complique la maintenance.
 
-La façon la plus commune de lier une feuille de style CSS avec un document HTML est de l'enregistrer sous la forme d'un fichier texte avec l'extension `.css`, puis de le lier au document HTML grâce à une balise `<link>`.
+## 6.3. Les sélecteurs
+Plusieurs sélecteurs peuvent partager un même bloc en les séparant par des virgules (`h1, h2 { … }`).
 
-Il est également possible d'écrire la feuille de style CSS directement dans le document HTML au moyen d'une balise `<style>`  incluse dans le `<head>`. Cette pratique est cependant à éviter, en particulier pour un site multi-pages, car elle ne permet pas de mutualiser les règles de style entre plusieurs pages, et oblige à faire des duplications.
+### Sélecteurs de base
+| **Sélecteur** | **Cible** | **Exemple** |
+|---|---|---|
+| `*` | Tous les éléments | `* { box-sizing: border-box; }` |
+| `balise` | Tous les éléments de ce type | `a { text-decoration: none; }` |
+| `.classe` | Éléments portant `class="classe"` | `.important { color: red; }` |
+| `#identifiant` | L'élément portant `id="identifiant"` | `#menu { … }` |
 
-Enfin, les éléments HTML admettent un attribut `style=` qui permet de préciser directement des déclarations pour un élément. Cette pratique est également déconseillée, car il est souvent possible d'obtenir le même résultat grâce à la diversité des sélecteurs HTML disponibles.
+Un `id` doit être **unique** dans la page ; une `class` peut être portée par plusieurs éléments, et un élément peut porter plusieurs classes séparées par des espaces (`class="carte nouveaute"`). Balise et classe se combinent : `a.externe` cible les seuls liens portant la classe `externe`.
 
-## Sélecteurs
-
-Les sélecteurs introduisent les blocs d'instructions CSS. Ils permettent de préciser à quels éléments HTML d'une page les déclarations du bloc doivent s'appliquer.
-Il est possible d'utiliser plusieurs sélecteurs sur un même bloc en les séparant par des virgules (`,`).
-
-### Sélecteur universel
-
-Le sélecteur `*` permet d'appliquer un bloc à l'ensemble des éléments d'une page HTML. 
-
-### Balises HTML
-
-Les sélecteurs les plus simples reprennent le nom des balises HTML. Ils permettent d'appliquer un bloc à tous les éléments HTML définis par cette balise.
-
-#### Exemple
-
-```css
-a {
-    text-decoration: none;
-}
-```
-
-Ce bloc CSS s'applique à tous les liens d'une page (balise `<a>`), et permet d'éviter leur affichage souligné.
-
-### Identifiants et classes
-
-Tous les éléments HTML peuvent être associés à un identifiant grâce à un attribut `id=` et à une ou plusieurs classes grâce à l'attribut `class=`.
-
-Un identifiant doit être unique à l'échelle d'un document HTML, alors qu'une classe peut être attribuée à plusieurs éléments. Pour donner plusieurs classes à un même élément, il convient de les séparer par un espace.
-
-Ces identifiants et classes peuvent ensuite être utilisés comme des sélecteurs CSS, en les préfixant d'un dièse (`#`) pour les identifiants, et d'un point (`.`) pour les classes :
-
-```css
-#identifiant {
-    ...
-}
-
-.classe {
-    ...
-}
-```
-
-Il est possible de combiner une balise HTML et un identifiant ou une classe :
-
-```css
-a.non-souligne {
-    text-decoration: none;
-}
-```
-
-Dans cet exemple, seules les balises `<a>` ayant un attribut `class="non-souligne"` se veront privés de leur trait de soulignement.
 
 ### Pseudo-classes
+Les pseudo-classes, préfixées par deux-points (`:`), ciblent des états ou des positions générés dynamiquement :
 
-Les pseudo-classes ne sont pas définies par un attribut `class=`, mais sont générées dynamiquement et automatiquement. Elles sont utilisables en tant que sélecteur CSS en les préfixant par deux-points (`:`).
-Parmi les pseudo-classes usuelles, on trouve :
-
-- `:first-child` : premier élément enfant d'un conteneur parent.
-- `:nth-child(n)` : n-ième élément enfant d'un conteneur parent.
-- `:last-child` : dernier élément enfant d'un conteneur parent.
-- `:not(selecteur)` : tous les éléments qui ne sont pas compatibles avec le sélecteur indiqué.
-- `:link` : liens hypertextes non visités.
-- `:visited` : liens hypertextes déjà visités.
-- `:hover` : élément actuellement survolé par le curseur.
-- `:active` : élement actuellement actif (cliqué).
-
-Les pseudo-classes peuvent également être utilisées en combinaison avec une balise HTML, un identifiant ou une classe.
+- `:hover` : élément survolé par le pointeur ; `:active` : élément en cours de clic ;
+- `:focus` : élément qui a le focus (clavier ou clic) ; `:focus-visible` : focus obtenu au clavier — la pseudo-classe à privilégier pour styler le contour de focus ;
+- `:link` et `:visited` : liens non visités / visités ;
+- `:first-child`, `:last-child`, `:nth-child(n)` : position parmi les enfants d'un parent (`:nth-child(odd)` ou `(even)` pour un élément sur deux, très utilisé pour zébrer les tableaux) ;
+- `:not(sélecteur)` : négation ;
+- `:required`, `:disabled`, `:checked` : états des contrôles de formulaire.
 
 ### Pseudo-éléments
+Préfixés par deux fois deux-points (`::`), ils désignent des fragments implicites du document : `::first-letter` (première lettre), `::first-line` (première ligne), `::selection` (texte sélectionné), `::marker` (puce ou numéro de liste), et `::before` / `::after`, qui insèrent un pseudo-élément avant/après le contenu d'un élément (utilisé avec la propriété `content`).
 
-Les pseudo-éléments sont également générés de manière dynamique, et permettent de manipuler des éléments qui existent de manière implicite dans le document HTML. Ils se préfixent par deux deux-points (`::`).
-Moins nombreux que les pseudo-classes, les 6 plus usuels sont :
+### Combinateurs
+| **Écriture** | **Signification** |
+|---|---|
+| `A B` | Tout `B` descendant (à n'importe quelle profondeur) d'un `A` |
+| `A > B` | Tout `B` enfant **direct** d'un `A` |
+| `A + B` | Tout `B` frère **immédiatement** suivant d'un `A` |
+| `A ~ B` | Tout `B` frère suivant (pas nécessairement immédiat) d'un `A` |
 
-- `::first-letter` : premier caractère d'un élément.
-- `::first-line` : première ligne d'un élément.
-- `::selection` : texte surligné/sélectionné par l'utilisateur.
-- `::marker` : puces d'une liste non ordonnée.
-- `::before` : S'utilise en combinaison avec un autre sélecteur et représente un pseudo-élément s'insérant juste avant.
-- `::after` : S'utilise en combinaison avec un autre sélecteur et représente un pseudo-élément s'insérant juste après.
+## 6.4. Cascade, spécificité et !important
+Quand plusieurs règles fixent la même propriété sur le même élément, le navigateur les départage ainsi :
 
-### Inclusion et juxtaposition
+- **Spécificité** du sélecteur, par ordre décroissant : styles en ligne (`style=`), puis identifiants (`#`), puis classes / pseudo-classes / attributs, puis balises et pseudo-éléments. Un sélecteur composé cumule les niveaux de ses composants : `nav a.actif` (1 balise + 1 balise + 1 classe) l'emporte sur `nav a`.
+- **Ordre d'apparition** : à spécificité égale, la dernière règle déclarée l'emporte.
 
-Il est également possible de construire des sélecteurs s'attachant aux relations d'inclusion ou de juxtaposition entre deux éléments.
+Le suffixe `!important` (`text-decoration: none !important;`) court-circuite toute la cascade. Il doit rester exceptionnel : chaque `!important` rend la feuille de style plus difficile à maintenir, car il ne peut être surchargé que par… un autre `!important`.
 
-- `element1 element2` permet de sélectionner tous les `element2` qui sont un enfant d'un `element1`, quel que soit le nombre d'éléments intermédiaires imbriqués.
-- `element1 > element2` permet de sélectionner tous les `element2` qui sont des enfants directs d'un `element1`, sans aucun autre élément intermédiaire imbriqué.
-- `element1 + element2` permet de sélectionner tous les `element2` qui sont directement juxtaposés à un `element1`.
-Concrètement, cela signifie que la balise ouvrante de `element2` suit immédiatement la balise fermante de `element1`.
+{{< alert type="tip" >}}
+Pour retenir l'ordre de priorité, une analogie : un sélecteur de balise est comme un prénom (beaucoup de personnes le portent), une classe comme un nom de famille (déjà plus précis), et un identifiant comme un numéro de sécurité sociale (il ne désigne qu'une seule personne). Plus c'est précis, plus ça l'emporte.
+{{< /alert >}}
 
-### Priorité entre les sélecteurs
+## 6.5. Les variables CSS (propriétés personnalisées)
+CSS permet de définir ses propres variables, dites **propriétés personnalisées**. Déclarées sur la pseudo-classe `:root` (l'élément `<html>`), elles sont utilisables partout via la fonction `var()` :
 
-Il existe plusieurs logiques de priorité entre les sélecteurs : d'une part, si deux blocs portent sur le même sélecteur et spécifient une valeur différente pour la même propriété, celui qui est décrit en second dans l'ordre de la feuille de style prime sur celui qui est écrit en premier.
-De plus, un sélecteur portant sur un identifiant primera sur un autre portant sur une classe, qui primera lui-même sur un sélecteur simple.
+```css
+:root {
+    --couleur-principale: #1f4e79;
+    --espacement: 1.5rem;
+}
+ 
+h1 {
+    color: var(--couleur-principale);
+    margin-bottom: var(--espacement);
+}
+```
 
-Il est cependant possible de rendre une propriété prioritaire sur toutes les autres en y ajoutant `!important` après sa valeur, par exemple `text-decoration: none !important;`
+Les variables centralisent la charte graphique (couleurs, espacements, polices) : une modification en un seul point se propage à tout le site. Elles sont aujourd'hui supportées par tous les navigateurs et constituent une bonne pratique standard.
 
-## Propriétés usuelles
+## 7.1. Les unités de mesure
+Les valeurs numériques utilisent le point (`.`) comme séparateur décimal. Unités les plus usuelles :
 
-Il existe actuellement 520 propriétés CSS différentes, mais certaines sont plus usuelles que d'autres.
+| **Unité** | **Signification** |
+|---|---|
+| `px` | Pixel CSS. Unité absolue de référence à l'écran. |
+| `rem` | Taille de police de l'élément racine `<html>` (16 px par défaut). L'unité à privilégier pour les tailles de texte et les espacements. |
+| `em` | Taille de police de l'élément courant (héritée du parent). Attention aux effets de composition en cas d'imbrication. |
+| `%` | Pourcentage d'une valeur de référence, en général la dimension correspondante de l'élément parent. |
+| `vw` / `vh` | 1 % de la largeur / hauteur de la fenêtre du navigateur (viewport). |
+| `fr` | Fraction de l'espace disponible — spécifique aux grilles CSS (chapitre 8). |
+| `cm`, `mm` | Unités physiques, utiles pour les feuilles de style d'impression. |
 
-{{< alert type="info" >}} Les propriétés relatives au positionnement des blocs feront l'objet d'un chapitre spécifique. {{< /alert >}}
+{{< alert type="a11y" >}}
+Définir les tailles de texte en `rem` plutôt qu'en `px` respecte le réglage de taille de police choisi par l'utilisateur dans son navigateur — un besoin réel pour les personnes malvoyantes. C'est l'une des raisons pour lesquelles `rem` est devenu l'unité de référence.
+{{< /alert >}}
 
-### Dimensions, bordures et marges
+## 7.2. Le modèle de boîte
+Chaque élément HTML est rendu comme une **boîte** composée de quatre couches concentriques : le **contenu**, le **padding** (marge interne), la **bordure** et la **marge externe**.
 
-CSS est construit autour d'un modèle de "boîtes", qui définit la dimension totale d'un élément HTML. Cette boîte se compose de 4 éléments concentriques : le contenu, le padding (littéralement "rembourrage"), la bordure et la marge.
+### Contenu
+`width` et `height` fixent les dimensions du contenu. La valeur `auto` (par défaut) laisse le navigateur calculer : pour un bloc, la largeur disponible du parent et la hauteur du contenu. Les propriétés `min-width`, `max-width`, `min-height` et `max-height` bornent ces dimensions — `max-width` est très utilisée en responsive.
 
-Plusieurs unités peuvent être utilisées pour définir ces dimensions. Les valeurs peuvent être entières ou décimales, le séparateur décimal étant le point (`.`).
-Les unités les plus usuelles sont :
+Seuls les éléments de type bloc et les éléments en ligne « dimensionnables » (comme `<img>`, ou tout élément passé en `display: inline-block`) acceptent `width` et `height`.
 
-- `rem` : hauteur d'un caractère majuscule dans le nœud racine de la page (par défaut, 16 pixels)
-- `em` : hauteur d'un caractère majuscule dans l'élément parent
-- `px` : pixel
-- `%` : taille relative soit à celle de l'élément parent (pour les éléments bloc), soit à la relation d'équivalence 1`em` = 100 % (pour les éléments en ligne)
-- `vw` :  1 % de la largeur de la fenêtre du navigateur de l'utilisateur
-- `vh` : 1 % de la hauteur de la fenêtre du navigateur de l'utilisateur
-- `cm`, `mm` : centimètres et millimètres, utiles notamment pour des pages ayant vocation à être imprimées
+### Padding, bordure, marge
+Chaque couche se règle côté par côté (`padding-top`, `border-left`, `margin-bottom`…) ou via des raccourcis acceptant de 1 à 4 valeurs :
 
-#### Contenu
+- **1 valeur** : les quatre côtés ;
+- **2 valeurs** : haut/bas, puis gauche/droite ;
+- **3 valeurs** : haut, gauche/droite, bas ;
+- **4 valeurs** : haut, droite, bas, gauche (sens horaire).
 
-Le contenu étant au cœur de la boîte, sa dimension se définie simplement à partir de sa hauteur et de sa largeur :
+Pour les bordures, il faut préciser dimension, style et couleur. Le raccourci `border` regroupe les trois : `border: 1px solid #1f4e79;`. Les styles usuels sont `solid` (trait plein), `double`, `dotted` (points) et `dashed` (tirets). La propriété `border-radius` arrondit les angles (`border-radius: 8px;`).
 
-- `width` : largeur du contenu
-- `height` : hauteur du contenu
+{{< alert type="note" >}}
+Les marges externes verticales de deux blocs qui se suivent **fusionnent** (margin collapsing) : entre un paragraphe avec `margin-bottom: 20px` et le suivant avec `margin-top: 10px`, l'espace est de 20 px, pas 30. Ce comportement disparaît dans les conteneurs Flexbox et Grid.
+{{< /alert >}}
 
-La valeur `auto` permet de conserver la valeur automatiquement calculée par défaut. Pour les éléments en ligne, seuls ceux dits dimensionnables (tels que `<img>`) peuvent avoir des valeurs fixées pour `width`et `height`.
+### box-sizing : redéfinir ce que mesurent width et height
+Par défaut (`box-sizing: content-box`), `width` ne mesure que le contenu : une boîte de `width: 300px` avec `padding: 20px` et une bordure de 2 px occupe en réalité 344 px. La valeur `border-box` fait englober padding et bordure dans `width`/`height`, ce qui simplifie énormément les calculs de mise en page. La règle suivante est devenue un standard de facto en début de feuille de style :
 
-#### Padding (marge interne)
+```css
+* {
+    box-sizing: border-box;
+}
+```
 
-La marge interne (padding) est la 2ᵉ couche du modèle de boîte. Par défaut, sa valeur est nulle. Les propriétés qui permettent de la définir sont les suivantes :
+{{< alert type="warning" >}}
+Une valeur `padding-box` a existé dans d'anciennes versions de la spécification, mais elle a été **retirée** : seules `content-box` et `border-box` sont valides aujourd'hui.
+{{< /alert >}}
 
-- `padding-top` : Marge interne supérieure
-- `padding-bottom` Marge interne inférieure
-- `padding-left` : Marge interne gauche
-- `padding-right` : Marge interne droite
+### Dépassement : overflow
+Quand un contenu ne tient pas dans une boîte aux dimensions fixées, `overflow` règle le comportement : `visible` (défaut, le contenu déborde), `hidden` (masqué), `scroll` (barres de défilement permanentes) ou `auto` (barres uniquement si nécessaire).
 
-#### Bordure
+### Mode d'affichage : display
+`display` modifie le comportement d'un élément : `block`, `inline`, `inline-block` (en ligne mais dimensionnable), `none` (retiré de l'affichage **et** de l'arbre d'accessibilité), et les valeurs `flex` et `grid` présentées au chapitre 8.
 
-Les bordures sont la 3ᵉ couche du modèle de boîte. Par défaut, les bordures sont désactivées et de taille nulle. Il convient donc de préciser à la fois la taille et le style des bordures. Ainsi, la valeur des propriétés liées aux bordures se décompose en 3 parties : dimension, style et couleur.
+## 7.3. Mise en forme du texte
+### Police de caractères
+`font-family` accepte une liste de polices par ordre de préférence, terminée par une famille générique (`serif`, `sans-serif`, `monospace`) : le navigateur utilise la première police disponible sur la machine de l'utilisateur.
 
-Sur le même modèle que la marge interne, les propriétés permettant de fixer les bordures sont `border-top`, `border-bottom`, `border-left` et `border-right`.
+```css
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+```
 
-Le style de la bordure peut être précisé au moyen de plusieurs valeurs, les plus usuelles étant :
-
-- `solid` : bordure pleine
-- `double` : double bordure
-- `dotted` : bordure en pointillés à base de points
-- `dashed` : bordure en pointillés à base de tirets
-
-#### Marge externe
-
-La marge externe est la 4ᵉ et dernière couche du modèle de boîte. Elle se définit de la même manière que la marge interne, avec les propriétés `margin-top`, `margin-bottom`, `margin-left` et `margin-right`.
-
-#### Raccourcis
-
-Les propriétés sur le padding, la bordure et la marge admettent une version raccourcie, qui sont respectivement `padding`, `border-width` et `margin`. Elles peuvent être suivies de 1 à 4 valeurs permettant de préciser les dimensions :
-
-- **1 valeur** : S'applique uniformément aux 4 côtés de la boîte.
-- **2 valeurs** : la première valeur s'applique aux côtés supérieur et inférieur, la seconde aux côtés latéraux.
-- **3 valeurs** : la première valeur s'applique au côté supérieur, la deuxième aux côtés latéraux et la troisième au côté inférieur.
-- **4 valeurs** : la première valeur s'applique au côté supérieur, la deuxième au côté droit, la troisième au côté inférieur et la quatrième au côté gauche.
-
-Pour les bordures, la propriété `border-width` est à compléter par la propriété `border-style` qui prend également de 1 à 4 valeurs de style. Si l'on souhaite utiliser la même valeur de dimension et de style pour les 4 côtés, il existe aussi la propriété `border`.
-
-#### Dépassement
-
-Lorsque l'on fixe les dimensions d'un bloc, il est possible que son contenu ne puisse pas y loger intégralement. La propriété CSS `overflow` permet de régler le comportement à adopter dans ce cas de figure :
-
-- `visible` (par défaut) : le contenu déborde en dehors du bloc, jusqu'à occuper l'espace qui lui est nécessaire.
-- `hidden`: le contenu qui ne peut pas tenir dans le bloc est masqué
-- `scroll` : une barre de navigation s'affiche pour permettre de consulter le contenu qui dépasse du bloc
-- `auto` : le client est autorisé à gérer automatiquement le dépassement. Pour les navigateurs, cela implique généralement de n'afficher une barre de défilement que si nécessaire.
-
-#### Box-sizing
-
-La propriété `box-sizing` permet de modifier le comportement du modèle de boîte. Grâce à elle, il est possible de faire en sorte que les propriétés `width` et `height` englobent des couches en plus de celle du contenu principal, ce qui permet de simplifier la mise en page. Elle peut prendre 3 valeurs :
-
-- `content-box` : comportement par défaut, `width` et `height` définissent les dimensions du contenu.
-- `padding-box` : `width` et `height` définissent les dimensions du contenu et du padding.
-- `border-box` : `width` et `height` définissent les dimensions du contenu, du padding et de la bordure.
-Cette valeur est souvent utilisée, car elle permet de n'avoir ensuite à gérer que les marges extérieures.
-
-#### Mode d'affichage
-
-La propriété `display` permet de modifier le comportement d'un élément HTML. Elle est à utiliser avec précaution car elle peut parfois créer des résultats complexes à maintenir, mais permet de donner davantage de souplesse.
-Ses principales valeurs sont :
-
-- `block` : l'élément se comporte comme un élément bloc
-- `inline` : l'élément se comporte comme un élément en ligne non dimensionnable
-- `inline-block` : l'élément se comporte comme un élément en ligne dimensionnable
-
-### Mise en forme du texte
-
-Dans les éléments HTML contenant du texte, il est possible d'utiliser de nombreuses propriétés pour le mettre en forme.
-
-#### Police
-
-La police de caractères est fixée grâce à la propriété `font-family`.
-Pour pouvoir être affichée, la police doit être installée sur l'ordinateur du client qui consulte la page web.
-
-Il est donc possible et même recommandé de proposer une liste de plusieurs polices, séparées par une virgule.
-Enfin, la liste de polices devrait se terminer par une police générique, proposée sur la plupart des systèmes.
-Les plus usuelles sont `serif` (police à empattement, comme Times New Roman), `sans-serif` (police sans empattement, comme Arial) et `monospace` (police à largeur fixe, comme Courier).
-
-Pour pouvoir utiliser des polices moins usuelles, il est également possible de les fournir directement au moyen d'un bloc `@font-face`. Il est nécessaire de disposer de la police dans un ou plusieurs des formats suivants : `woff2` (`.woff2`), `woff` (`.woff`), `opentype` (`.otf`, `.ttf`), `collection` (`.otc`, `.ttc`), `embedded-opentype` (`.eot`) ou `svg` (`.svg`, `.svgz`). 
-
-Le bloc `@font-face` doit se composer de deux déclarations : `font-family` pour indiquer de la police, tel qu'il pourra être ensuite utilisé ailleurs dans la feuille de style, et `src` pour donner le chemin d'accès aux fichiers de la police :
+Pour utiliser une police non installée chez l'utilisateur, on la fournit avec un bloc `@font-face`. Le format **WOFF2**, compressé et universellement supporté, est aujourd'hui le seul nécessaire :
 
 ```css
 @font-face {
-    font-family: "Police";
-    src: local("Police"),
-         url("police.woff2") format("woff2"),
-         url("police.otf") format("opentype"),
-         url("police.ttf") format("opentype");
+    font-family: "MaPolice";
+    src: local("MaPolice"),
+         url("mapolice.woff2") format("woff2");
+    font-display: swap;
 }
 ```
 
-La première ligne de `src` permet d'utiliser en priorité une version installée sur l'ordinateur du client si jamais il possède déjà cette police. Cela permet d'éviter des flux réseaux inutiles, car la police doit sinon être téléchargée par le client.
+La ligne `local()` évite un téléchargement si la police est déjà installée ; `font-display: swap` affiche le texte avec une police de substitution pendant le chargement plutôt qu'un texte invisible.
 
-#### Taille et interligne
+### Taille, interligne, alignement
+- `font-size` : taille de police, de préférence en `rem`.
+- `line-height` : interligne. La bonne pratique est une valeur **sans unité**, multiplicateur de la taille de police (`line-height: 1.5`). Les WCAG recommandent au moins 1,5 pour les paragraphes.
+- `text-align` : `left`, `right`, `center`, `justify`. La justification est déconseillée à l'écran : les « rivières » d'espaces gênent les lecteurs dyslexiques.
+- `text-indent` : retrait de première ligne.
 
-La taille de la police de caractères est fixée grâce à la propriété `font-size`. Les mêmes unités de mesure que pour le dimensionnement des éléments sont utilisables.
+### Graisse, style, décorations, casse
+- `font-weight` : graisse, de `100` à `900` ou par mots-clés (`normal`, `bold`).
+- `font-style` : `normal` ou `italic`.
+- `text-decoration` : `none`, `underline`, `line-through`.
+- `text-transform` : `lowercase`, `uppercase`, `capitalize` — la mise en capitales se fait en CSS, pas en tapant le texte en majuscules dans le HTML (les lecteurs d'écran risqueraient d'épeler les sigles).
 
-L'interligne est pour sa part fixé par la propriété `line-height`. Outre les unités de mesure habituelles, il est également possible de fixer une valeur sans unité (sur le modèle de celle des traitements de texte), `1` étant l'interligne minimal et `1.15` l'interligne standard.
+{{< alert type="a11y" >}}
+Ne jamais supprimer le soulignement des liens (`text-decoration: none`) sans fournir un autre indice visuel que la couleur seule : environ 8 % des hommes sont daltoniens et ne distingueront pas un lien bleu d'un texte noir. Le critère WCAG « Utilisation de la couleur » impose un second indicateur (soulignement, graisse, icône…).
+{{< /alert >}}
 
-#### Couleur
+### Couleurs
+La propriété `color` (couleur du texte) accepte plusieurs notations :
 
-La couleur du texte est réglée par la propriété `color`. Elle admet plusieurs types de valeurs :
+- un **nom de couleur** parmi les 140 noms normalisés : `red`, `steelblue`… ;
+- une valeur **hexadécimale** : `#rrggbb`, ou `#rrggbbaa` avec transparence ;
+- les fonctions `rgb()` et `hsl()`. La syntaxe moderne sépare les composantes par des espaces et introduit la transparence par une barre oblique : `rgb(31 78 121)`, `rgb(31 78 121 / 0.5)`, `hsl(210 60% 30%)`. Les anciennes écritures `rgb(31, 78, 121)` et les fonctions `rgba()`/`hsla()` restent valides.
 
-- un nom de couleur (en anglais), parmi les [140 noms actuellement disponibles](https://www.w3schools.com/colors/colors_names.asp) : `red`, `green`, `blue`...
-- une valeur hexadécimale, au format `#aabbcc` (pour les valeurs de rouge, vert et bleu) ou `#aabbccdd` (rouge, vert, bleu, avec la transparence)
-- une combinaison de couleurs rouge, vert, bleu avec des valeurs entre 0 et 255 ou en pourcentage : `rgb(rouge, vert, bleu)` ; ou `rgba(rouge, vert, bleu, alpha)` pour rajouter la transparence
-- une combinaison teinte, saturation, luminosité : `hsl(teinte, saturation, luminosite)` ; ou `hsla(teinte, saturation, luminosite, alpha)` pour rajouter la transparence
+{{< alert type="a11y" >}}
+Le **contraste** entre texte et fond est mesurable : les WCAG exigent un ratio d'au moins **4,5:1** pour le texte courant et 3:1 pour les grands textes (niveau AA). Des outils gratuits le vérifient en deux clics : le « Contrast Checker » de WebAIM, ou directement l'inspecteur des navigateurs (le sélecteur de couleur affiche le ratio).
+{{< /alert >}}
 
-#### Gras, italique, souligné
+## 7.4. Arrière-plans
+`background-color` fixe une couleur de fond. Pour une image de fond :
 
-Trois propriétés permettent de gérer ces différents aspects de l'apparence du texte :
+- `background-image: url(chemin/vers/image);`
+- `background-repeat` : `repeat` (défaut), `repeat-x`, `repeat-y`, `no-repeat` ;
+- `background-position` : position de l'image (`center`, `top right`, valeurs numériques…) ;
+- `background-size` : `cover` (couvre toute la boîte, quitte à rogner) ou `contain` (entièrement visible) ;
+- `background-attachment` : `scroll` (défaut, l'image défile avec la page), `fixed` (fixe par rapport à la fenêtre), `local` (défile avec le contenu de l'élément).
 
-- `font-weight` : permet de modifier l'épaisseur de la police, la valeur `bold` étant la mise en gras.
-- `font-style` : permet de modifier le style de la police, la valeur `italic` étant l'italique.
-- `text-decoration` : permet d'appliquer des effets au texte, les valeurs usuelles étant `none` pour l'absence d'effet, `underline` pour le souligné ou `line-through` pour le texte barré.
+Les propriétés d'arrière-plan ne sont pas héritées par les éléments enfants. `background-image` accepte aussi des dégradés générés par le navigateur : `background-image: linear-gradient(#1f4e79, #2e74b5);`.
 
-#### Alignement et retrait
+{{< alert type="a11y" >}}
+Une image de fond CSS est invisible pour les lecteurs d'écran et n'accepte pas d'attribut `alt`. Règle simple : une image **porteuse d'information** passe par `<img>` avec son `alt` ; une image **décorative** peut passer par `background-image`. Et tout texte posé sur une image doit conserver un contraste suffisant, par exemple via un voile semi-transparent.
+{{< /alert >}}
 
-L'alignement du texte est paramétré par la propriété `text-align`. Ses valeurs sont semblables à celle d'un traitement de texte :
+## 7.5. Personnalisation des listes
+- `list-style-type` : style de puce ou de numérotation (`disc`, `square`, `decimal`, ou tout caractère avec `list-style-type: "▶"`) ;
+- `list-style-position` : puces à l'intérieur (`inside`) ou à l'extérieur (`outside`, défaut) de la boîte de la liste ;
+- `list-style-image: url(…)` : image en guise de puce ;
+- `list-style: none` supprime puces et numéros — l'usage standard pour les menus de navigation construits sur `<ul>`.
 
-- `left` : aligné à gauche
-- `right` : aligné à droite
-- `center` : centré
-- `justify` : justifié
-
-Un retrait peut être fixé par la propriété `text-indent`, suivi d'une dimension (positive ou négative).
-
-#### Casse
-
-Il est également possible de modifier la casse d'un texte directement en CSS grâce à la propriété `text-transform`. Trois valeurs sont souvent utilisées : `lowercase` pour mettre le texte en minuscule, `uppercase` pour mettre le texte en majuscule et `capitalize` pour mettre la 1ʳᵉ lettre de chaque mot en majuscule.
-
-### Arrière-plan
-
-Deux approches sont possibles pour donner un arrière-plan à un élément : fixer une couleur de fond grâce à la propriété `background-color`, ou utiliser une image de fond.
-Pour cette solution, plusieurs propriétés sont à utiliser :
-
-- `background-image` : permet d'indiquer l'image à utiliser comme arrière-plan, avec une valeur au format `url(chemin/vers/image)`
-- `background-repeat` : par défaut, l'image de fond se répète horizontalement et verticalement. Il est possible d'utiliser une répétition uniquement horizontale avec `repeat-x`, uniquement verticale avec `repeat-y` ou de désactiver la répétition avec `no-repeat`.
-- `background-position` : permet de fixer la position de l'image de fond par rapport à l'élément auquel la propriété s'applique. La première valeur donne l'alignement horizontal et la seconde l'alignement vertical.
-- `background-attachement` : permet de définir si l'image de fond doit défiler en même temps que l'élément auquel elle est liée (`local`), ou si elle doit rester fixe sur la page (`fixed`). 
-
-Les images d'arrière-plan sont souvent utilisées aujourd'hui pour créer des fonds non unis, avec des motifs géométriques répétables.
-Contrairement aux autres propriétés CSS, ces propriétés ne sont pas héritées par les éléments enfants.
-
-### Listes
-
-Des propriétés CSS permettent également de personnaliser les listes, notamment non ordonnées :
-
-- `list-style-type` : permet de définir le style de puce. Les valeurs possibles sont `disc` pour des ronds pleins, `square` pour des carrés, ou alors tout caractère unique, y compris un emoji, comme `▶️`.
-- `list-style-position` : permet de choisir si les puces sont à l'intérieur (`inside`) ou à l'extérieur (`outside`) de la boîte englobant la liste.
-- `list-style-image` : permet d'utiliser une image comme puce, en précisant son url (`url(lien/vers/la/puce`))
+{{< alert type="practice" >}}
+Les exercices 8 et 9 du [TP CSS]({{< relref "tp-css" >}}) font poser une charte graphique avec variables, puis travailler le modèle de boîte.
+{{< /alert >}}
