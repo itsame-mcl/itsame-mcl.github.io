@@ -223,7 +223,7 @@ Cette icône indique le résultat du pipeline :
 
 ### Détails d'un pipeline
 
-{{< img src="/images/posts/formations/git/gitlab-ci/pipeline.png" title="Détail d'un pipeline GitLab" >}}
+{{< img src="/images/posts/formations/git/gitlab-ci/pipeline.png" title="Détail d'un pipeline GitLab" alt="Onglet Pipeline de GitLab : un pipeline à une seule étape, nommée « pdf », contient le job « job:to-pdf », marqué d'une coche verte (réussi) et d'un bouton pour le relancer. Les onglets indiquent 1 job et 0 test." >}}
 
 En cliquant sur l'icône, on peut accéder à l'interface détaillée du pipeline :
 - Chaque colonne correspond à une étape
@@ -231,7 +231,7 @@ En cliquant sur l'icône, on peut accéder à l'interface détaillée du pipelin
 
 ### Détails d'un job
 
-{{< img src="/images/posts/formations/git/gitlab-ci/job.png" title="Détail d'un job GitLab" >}}
+{{< img src="/images/posts/formations/git/gitlab-ci/job.png" title="Détail d'un job GitLab" alt="Journal d'exécution du job « job:to-pdf » dans GitLab, marqué « réussi » : le runner prépare un exécuteur Docker avec l'image pandoc/latex, récupère le dépôt, exécute mkdir output puis pandoc --output=output/result.pdf *.md, puis envoie l'archive d'artefacts. Le panneau de droite indique une durée de 29 secondes et propose de conserver, télécharger ou parcourir les artefacts." >}}
 
 GitLab permet d'accéder aux détails d'exécution d'un job, et notamment aux logs du runner.
   - Cette interface permet également de télécharger les artefacts.

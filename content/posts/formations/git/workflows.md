@@ -30,7 +30,7 @@ GitFlow s'appuie sur 5 familles de branches :
 
 ### Exemple
 
-{{< mermaid align="left" >}}
+{{< mermaid align="left" alt="Exemple de GitFlow : main porte les versions v1.0.0, v1.0.1 (hotfix) et v1.1.0 (release). develop reçoit les fusions du correctif hotfix/1.0.1, des fonctionnalités feature/US1 et feature/US2 et de la release release/1.1.0, qui est aussi fusionnée dans main." >}}
     gitGraph
         commit tag: "v1.0.0"
         branch develop order: 3
@@ -139,7 +139,7 @@ Les branches `release` et `hotfix` s'achèvent par un tag qui permet d'identifie
 
 ### Exemple
 
-{{< mermaid align="left" >}}
+{{< mermaid align="left" alt="Exemple de OneFlow : une seule branche principale, main. Le correctif hotfix/1.0.1, les fonctionnalités feature/US1 et feature/US2 et la release release/1.1.0 en partent et y sont fusionnés, avec les tags v1.0.1 et v1.1.0." >}}
     gitGraph
         commit tag: "v1.0.0"
         branch hotfix/1.0.1 order: 1
@@ -169,7 +169,7 @@ Les branches `release` et `hotfix` s'achèvent par un tag qui permet d'identifie
 
 Pour améliorer encore la lisibilité de l'historique, il est conseillé de rebase les branches de fonctionnalité sur la dernière version étiquetée de `main` avant de les fusionner :
 
-{{< mermaid align="left" >}}
+{{< mermaid align="left" alt="Variante de OneFlow où chaque branche de fonctionnalité est rebasée sur la dernière version étiquetée de main avant sa fusion : l'historique de main reste plus lisible, avec les tags v1.0.1 et v1.1.0." >}}
     gitGraph
         commit tag: "v1.0.0"
         branch hotfix/1.0.1 order: 1
@@ -209,7 +209,7 @@ Il existe également autant de branches permanentes que d'environnements de dép
 
 ### Exemple
 
-{{< mermaid align="left" >}}
+{{< mermaid align="left" alt="Exemple de GitLab Flow : la branche main sert au développement, et deux branches permanentes, qualification et production, correspondent aux environnements de déploiement. Les fonctionnalités passent de main à qualification puis à production, où sont posés les tags v1.0.0, v1.0.1 et v1.1.0. Le correctif hotfix/1.0.1 est fusionné dans production, puis reporté vers qualification et main." >}}
     gitGraph
         commit
         branch qualification order: 3
@@ -263,3 +263,7 @@ Il existe bien d'autres flux de travail pour Git et aucun n'a vocation à être 
 
 Il est même tout à fait possible de concevoir un flux "sur mesure" pour répondre à un besoin spécifique. 
 Le plus important est surtout que toute l'équipe qui travaille sur un projet ait connaissance du flux en vigueur et l'applique.
+
+{{< alert type="practice" >}}
+L'exercice 7 du [TP Git]({{< relref "tp-git" >}}) simule un workflow d'équipe complet : ticket, branche, merge request et fusion.
+{{< /alert >}}

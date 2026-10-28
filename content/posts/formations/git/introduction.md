@@ -1,6 +1,7 @@
 ---
 title: "Introduction"
 date: 2023-04-16T19:00:00+01:00
+lastmod: 2026-10-28T12:00:00+01:00
 tags: ["Git", "GitLab"]
 categories: ["Formation"]
 menu:
@@ -45,3 +46,11 @@ modifications apportées au code source d'un projet au fil du temps.
 - **Documentation**
   - **Historique des modifications** : les développeurs peuvent facilement accéder à des versions antérieures du code et voir qui a effectué quelles modifications, quand et pourquoi.
   - **Commentaires** : lorsqu'un développeur effectue des modifications avec un VCS, il peut ajouter un message pour décrire les modifications apportées au code.
+
+## Et après ?
+
+Git évolue au rythme d'environ une version tous les trimestres. Les nouveautés les plus utiles, ainsi que les changements annoncés pour Git 3.0, sont recensées dans la page [Quoi de neuf côté Git ?]({{< relref "nouveautes" >}}).
+
+{{< alert type="practice" >}}
+Les [travaux pratiques]({{< relref "tp-git" >}}) font manipuler Git et GitLab sur un mini-projet, du premier commit jusqu'aux merge requests. Gardez-les pour la fin de la lecture des pages de cours, ou faites-les bloc par bloc.
+{{< /alert >}}
