@@ -54,5 +54,7 @@ params:
   email: hello@itsame-mcl.eu
   linkedin: https://www.linkedin.com/in/itsamemcl/
   github: https://github.com/itsame-mcl
+  gpgFingerprint: "1350 C635 4468 6468 32DF F01E 8F91 890F 26BE 628F"
+  gpgFile: files/maxence-lagalle-gpg-public.asc
   repo: https://github.com/itsame-mcl/itsame-mcl.github.io
   counterDevId: 1c78cebc-b650-4a21-9910-330b02cbb999

@@ -185,3 +185,5 @@ main h2::after { content: ""; display: block; width: 2.5rem; height: 4px; border
   a { color: inherit; text-decoration: none; }
   .card { break-inside: avoid; box-shadow: none; }
 }
+.gpg { font-size: .92rem; }
+.gpg code { font-size: .85em; overflow-wrap: anywhere; }

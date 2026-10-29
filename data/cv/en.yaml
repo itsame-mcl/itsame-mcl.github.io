@@ -2,6 +2,9 @@ ui:
   skip: Skip to content
   cta_title: A chat, a question, a talk?
   cta_text: Drop me a line, I'm happy to reply.
+  cta_gpg: "For an exchange that needs confidentiality, you can encrypt your message with my GPG public key:"
+  cta_gpg_link: download the key
+  cta_gpg_fpr: fingerprint
   made_with: Handmade with Hugo
   menu: Main navigation
   language: Language
@@ -53,8 +56,9 @@ ui:
 person:
   display: Maxence (Collard) Lagalle
   title: Deputy Chief Information Security Officer, accreditation
+  headline: Statistician-administrator
   org: Insee
-  tagline: Statistician-administrator at Insee, working across information security, software development and teaching.
+  tagline: As deputy to the Chief Information Security Officer (CISO), I am in charge of accreditation, with a taste for software development and teaching.
   description: Maxence Lagalle, statistician-administrator at Insee, deputy CISO in charge of security accreditation. Former project manager of the insee.fr overhaul, trainer and lecturer.
   portrait_alt: Portrait of Maxence Lagalle
   greeting: Hello, I'm
@@ -101,7 +105,7 @@ experience:
       - "Custom-built router letting the old and new sites coexist and migrate page by page: definitions in March 2026, the franc-to-euro converter in April."
       - "New search based on Elasticsearch, demonstrable on most publications when I left, paving the way for natural-language queries and AI assistants."
       - "Agile coordination of developers without hierarchical authority, hands-on development, technical recruitment interviews."
-      - "Prototype of the personalised inflation simulator built with a generative AI agent, then handed to a developer and published on insee.fr in September 2026."
+      - "Prototype of the [personalised inflation simulator](https://www.insee.fr/fr/statistiques/2418131) (in French) built with a generative AI agent, then handed to a developer and published on insee.fr in September 2026."
   - role: Analyst-developer
     org: Insee, SNDIP
     place: Montrouge
@@ -202,7 +206,7 @@ teaching:
     - title: Juries and examinations
       items:
         - period: 2026
-          text: Member of the jury of the Ministry of Economy and Finance's programmer professional examination and author of the written admission test, with IGPDE and colleagues from other directorates.
+          text: Member of the jury of the Ministry of Economy and Finance's programmer professional examination, with colleagues from other directorates, after jury training provided by IGPDE. Author of the initial proposal for the written admission test, which the whole jury then enriched and amended.
     - title: Internal training
       items:
         - period: Since 2022

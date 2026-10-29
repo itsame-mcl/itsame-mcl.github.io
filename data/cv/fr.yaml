@@ -2,6 +2,9 @@ ui:
   skip: Aller au contenu
   cta_title: Un échange, une question, une intervention ?
   cta_text: Écrivez-moi, je réponds volontiers.
+  cta_gpg: "Pour un échange qui demande de la confidentialité, vous pouvez chiffrer votre message avec ma clé publique GPG :"
+  cta_gpg_link: télécharger la clé
+  cta_gpg_fpr: empreinte
   made_with: Fait main avec Hugo
   menu: Navigation principale
   language: Langue
@@ -53,8 +56,9 @@ ui:
 person:
   display: Maxence (Collard) Lagalle
   title: RSSI adjoint, composante homologation
+  headline: Attaché statisticien
   org: Insee
-  tagline: Attaché statisticien de l'Insee, entre sécurité des systèmes d'information, développement et pédagogie.
+  tagline: Adjoint au responsable de la sécurité des systèmes d'information (RSSI), je m'occupe de l'homologation, avec un goût pour le développement et la pédagogie.
   description: Maxence Lagalle, attaché statisticien à l'Insee, RSSI adjoint chargé de l'homologation. Ancien chef de projet de la refonte d'insee.fr, formateur et enseignant.
   portrait_alt: Portrait de Maxence Lagalle
   greeting: Bonjour, je suis
@@ -101,7 +105,7 @@ experience:
       - "Aiguillage développé sur mesure pour faire cohabiter ancien et nouveau site et basculer les pages une à une : définitions en mars 2026, convertisseur franc-euro en avril."
       - "Nouvelle recherche fondée sur Elasticsearch, démontrable sur l'essentiel des publications à mon départ, ouvrant la voie aux requêtes en langage naturel et aux assistants d'IA."
       - "Coordination agile des développeurs sans lien hiérarchique, participation aux développements, entretiens techniques de recrutement."
-      - "Prototype du simulateur d'inflation personnalisé développé avec un agent d'IA générative, puis transmis à un développeur et publié sur insee.fr en septembre 2026."
+      - "Prototype du [simulateur d'inflation personnalisé](https://www.insee.fr/fr/statistiques/2418131) développé avec un agent d'IA générative, puis transmis à un développeur et publié sur insee.fr en septembre 2026."
   - role: Analyste-développeur
     org: Insee, SNDIP
     place: Montrouge
@@ -202,7 +206,7 @@ teaching:
     - title: Jurys et examens
       items:
         - period: 2026
-          text: Membre du jury de l'examen professionnel de programmeur du ministère de l'Économie et des Finances et auteur du sujet de l'épreuve écrite d'admissibilité, avec l'IGPDE et des collègues d'autres directions.
+          text: Membre du jury de l'examen professionnel de programmeur du ministère de l'Économie et des Finances, avec des collègues d'autres directions, après une formation de jury dispensée par l'IGPDE. Auteur de la proposition initiale du sujet de l'épreuve écrite d'admissibilité, enrichie et amendée par l'ensemble du jury.
     - title: Formation interne à la DSI
       items:
         - period: Depuis 2022

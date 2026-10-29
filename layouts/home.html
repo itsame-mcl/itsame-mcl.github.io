@@ -6,7 +6,7 @@
       <div>
         <p class="greeting">{{ $d.person.greeting }}</p>
         <h1 id="hero-title">{{ $d.person.display }}</h1>
-        <p class="role">{{ $d.person.title }}, <a href="https://www.insee.fr">{{ $d.person.org }}</a></p>
+        <p class="role">{{ $d.person.headline }}, <a href="https://www.insee.fr">{{ $d.person.org }}</a></p>
         <p class="lead">{{ $d.person.tagline }}</p>
         <p class="values">{{ $d.person.values }}</p>
         <ul class="actions">
@@ -47,6 +47,7 @@
     <div>
       <h2 id="cta-title">{{ $d.ui.cta_title }}</h2>
       <p>{{ $d.ui.cta_text }}</p>
+      <p class="gpg">{{ $d.ui.cta_gpg }} <a href="{{ site.Params.gpgFile | relURL }}" download>{{ $d.ui.cta_gpg_link }}</a> · <span class="fpr">{{ $d.ui.cta_gpg_fpr }} <code>{{ site.Params.gpgFingerprint }}</code></span></p>
     </div>
     <a class="button" href="mailto:{{ site.Params.email }}">{{ $d.ui.email }}</a>
   </section>
