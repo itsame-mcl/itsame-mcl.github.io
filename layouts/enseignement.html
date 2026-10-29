@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{- $d := partial "cv.html" . }}
+<div class="wrap prose-wide">
+  <h1>{{ .Title }}</h1>
+  <p class="lead">{{ $d.teaching.intro }}</p>
+  <section aria-labelledby="teach"><h2 id="teach">{{ $d.ui.teaching }}</h2>
+    {{- range $d.teaching.sections }}
+    <h3>{{ .title }}</h3>
+    <ul class="plain">{{ range .items }}<li><strong>{{ .period }}</strong> · {{ .text }}</li>{{ end }}</ul>
+    {{- end }}
+  </section>
+  <section aria-labelledby="talks"><h2 id="talks">{{ $d.ui.talks }}</h2>
+    <p>{{ $d.teaching.talks_intro }}</p>
+    <ul class="plain">{{ range $d.teaching.talks }}{{ $t := . }}<li><strong>{{ .period }}{{ with .place }}, {{ . }}{{ end }}</strong> · {{ .text }}{{ with .url }} <a href="{{ . }}">{{ $t.link }}</a>{{ end }}</li>{{ end }}</ul>
+  </section>
+</div>
+{{ end }}

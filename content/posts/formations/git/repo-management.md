@@ -2,6 +2,7 @@
 title: "Gérer un dépôt Git"
 description: Créer un dépôt, écrire des commits, gérer des multiples branches, consulter et manipuler l'historique
 date: 2023-04-16T19:00:00+01:00
+lastmod: 2026-10-28T12:00:00+01:00
 tags: ["Git"]
 categories: ["Formation"]
 mermaid: true
@@ -67,7 +68,7 @@ Par défaut, aucun fichier n'est suivi par Git. Par exemple, après la création
     nothing added to commit but untracked files present (use "git add" to track)
   ```
 
-{{< mermaid align="left" >}}
+{{< mermaid align="left" alt="Les trois zones de Git : le répertoire de travail contient le fichier exemple.txt (empreinte a4d584), tandis que l'index et le dépôt sont vides." >}}
     classDiagram
       direction RL
       Index..Répertoire
@@ -122,7 +123,7 @@ On branch main
   modified:   exemple.txt
   ```
 
-{{< mermaid align="left" >}}
+{{< mermaid align="left" alt="Après git add : le fichier exemple.txt (a4d584) est présent dans le répertoire de travail et dans l'index, relié par une flèche étiquetée git add. Le dépôt est encore vide." >}}
     classDiagram
       direction RL
       Index<|--Répertoire : git add
@@ -145,6 +146,7 @@ Un **commit** représente une version spécifique d'un projet à un moment donn�
 Il contient une copie des fichiers du projet, ainsi qu'un message décrivant les modifications apportées depuis la version précédente.
 
 Un commit est identifié par un **hash** (SHA-1) calculé par Git sur la base du hash de l'ensemble des fichiers du projet.
+Git sait aussi utiliser SHA-256, une empreinte plus robuste, qui doit devenir la valeur par défaut des nouveaux dépôts dans Git 3.0.
 On l'abrège souvent à ses premiers caractères (par exemple, `1d0703d3`).
 
 Un commit est composé de l'ensemble des fichiers du dernier commit de la branche actuelle (HEAD) auxquels sont appliquées les modifications de l'index.
@@ -161,7 +163,7 @@ Quand une modification a été incluse dans un commit, elle sort de l'index, com
   nothing to commit, working tree clean
   ```
 
-{{< mermaid align="left" >}}
+{{< mermaid align="left" alt="Après git commit : le fichier exemple.txt (a4d584) est présent dans le répertoire de travail et dans le dépôt, relié par une flèche étiquetée git commit. L'index est vide." >}}
     classDiagram
       direction RL
       Index..Répertoire
@@ -207,6 +209,24 @@ Git propose des commandes permettant de retranscrire d'autres manipulations usue
 
 Ces modifications seront ajoutées à l'index et devront être commitées pour être retranscrites dans le dépôt.
 
+### Annuler des modifications locales
+
+Deux commandes permettent de défaire un travail non commité, sans toucher à l'historique :
+  - Abandonner les modifications d'un fichier dans le répertoire de travail, pour le remettre dans l'état de l'index (ou du dernier commit) :
+    ```bash
+    git restore <fichier>
+    ```
+  - Retirer un fichier de l'index, sans perdre ses modifications (opération inverse de `git add`) :
+    ```bash
+    git restore --staged <fichier>
+    ```
+
+{{< alert type="warning" >}}
+`git restore <fichier>` écrase définitivement les modifications non commitées : elles ne pourront pas être récupérées.
+{{< /alert >}}
+
+`git restore` (avec `git switch`, présenté plus loin) a été introduit en Git 2.23 pour remplacer les multiples usages de `git checkout`, jugé trop polyvalent et source de confusion. `git checkout` reste toutefois valide.
+
 ### Ignorer des fichiers
 
 Il est également possible de demander à Git d'ignorer de manière permanente des fichiers :
@@ -218,7 +238,7 @@ Il existe des outils en ligne comme [gitignore.io](https://www.toptal.com/develo
 
 ## Consulter l'historique d'un dépôt
 
-{{< mermaid align="left" >}}
+{{< mermaid align="left" alt="Historique linéaire de cinq commits successifs (3b1d805, 6a2b687, 49eb5d0, 8f7308f, 30d524c) sur une seule branche ; le dernier est repéré par HEAD." >}}
     gitGraph
       commit id: "3b1d805"
       commit id: "6a2b687"
@@ -233,31 +253,31 @@ La commande `git log` permet d'obtenir l'historique complet des commits d'un dé
   ```
   ```console
   commit 30d524c6603ed1982bdf82eb54d7215a00b22328 (HEAD -> main)
-  Author: Maxence Collard-Lagalle <maxence@collard-lagalle.me>
+  Author: Prénom Nom <utilisateur@domaine.tld>
   Date:   Fri Apr 14 12:31:00 2023 +0200
   
       Suppression du fichier exemple.txt devenu inutile
   
   commit 8f7308fc1099a44fb25af05c3ee7c6a7ca17f111
-  Author: Maxence Collard-Lagalle <maxence@collard-lagalle.me>
+  Author: Prénom Nom <utilisateur@domaine.tld>
   Date:   Fri Apr 14 12:30:31 2023 +0200
   
       Correction d'une coquille dans le poème
   
   commit 49eb5d06716e1f0668681b417a884b3d808bacda
-  Author: Maxence Collard-Lagalle <maxence@collard-lagalle.me>
+  Author: Prénom Nom <utilisateur@domaine.tld>
   Date:   Fri Apr 14 12:30:02 2023 +0200
   
       Le poème est plutôt un haiku
   
   commit 6a2b687e994b4c8341adc6542c313cb860dad452
-  Author: Maxence Collard-Lagalle <maxence@collard-lagalle.me>
+  Author: Prénom Nom <utilisateur@domaine.tld>
   Date:   Fri Apr 14 12:29:24 2023 +0200
   
       Ajout d'un poème sur l'informatique
   
   commit 3b1d805510f43af8e7b9da97d0bf44dca127a9d1
-  Author: Maxence Collard-Lagalle <maxence@collard-lagalle.me>
+  Author: Prénom Nom <utilisateur@domaine.tld>
   Date:   Thu Apr 13 16:56:41 2023 +0200
   
       Exemple de commit avec un fichier unique
@@ -281,7 +301,7 @@ La commande `git log` permet d'obtenir l'historique complet des commits d'un dé
   ```
   ```console
   commit 30d524c6603ed1982bdf82eb54d7215a00b22328 (HEAD -> main)
-  Author: Maxence Collard-Lagalle <maxence@collard-lagalle.me>
+  Author: Prénom Nom <utilisateur@domaine.tld>
   Date:   Fri Apr 14 12:31:00 2023 +0200
   
       Suppression du fichier exemple.txt devenu inutile
@@ -290,7 +310,7 @@ La commande `git log` permet d'obtenir l'historique complet des commits d'un dé
   1 file changed, 0 insertions(+), 0 deletions(-)
   
   commit 8f7308fc1099a44fb25af05c3ee7c6a7ca17f111
-  Author: Maxence Collard-Lagalle <maxence@collard-lagalle.me>
+  Author: Prénom Nom <utilisateur@domaine.tld>
   Date:   Fri Apr 14 12:30:31 2023 +0200
   
       Correction d'une coquille dans le poème
@@ -299,7 +319,7 @@ La commande `git log` permet d'obtenir l'historique complet des commits d'un dé
   1 file changed, 1 insertion(+), 1 deletion(-)
   
   commit 49eb5d06716e1f0668681b417a884b3d808bacda
-  Author: Maxence Collard-Lagalle <maxence@collard-lagalle.me>
+  Author: Prénom Nom <utilisateur@domaine.tld>
   Date:   Fri Apr 14 12:30:02 2023 +0200
   
       Le poème est plutôt un haiku
@@ -308,7 +328,7 @@ La commande `git log` permet d'obtenir l'historique complet des commits d'un dé
   1 file changed, 0 insertions(+), 0 deletions(-)
   
   commit 6a2b687e994b4c8341adc6542c313cb860dad452
-  Author: Maxence Collard-Lagalle <maxence@collard-lagalle.me>
+  Author: Prénom Nom <utilisateur@domaine.tld>
   Date:   Fri Apr 14 12:29:24 2023 +0200
   
       Ajout d'un poème sur l'informatique
@@ -317,7 +337,7 @@ La commande `git log` permet d'obtenir l'historique complet des commits d'un dé
   1 file changed, 3 insertions(+)
   
   commit 3b1d805510f43af8e7b9da97d0bf44dca127a9d1
-  Author: Maxence Collard-Lagalle <maxence@collard-lagalle.me>
+  Author: Prénom Nom <utilisateur@domaine.tld>
   Date:   Thu Apr 13 16:56:41 2023 +0200
   
       Exemple de commit avec un fichier unique
@@ -355,9 +375,9 @@ La commande `git blame` permet de connaître l'historique détaillé d'un fichie
   git blame haiku.txt
   ```
   ```console
-  6a2b687e poeme.txt (Maxence Collard-Lagalle 2023-04-14 12:29:24 +0200 1) Un clic malencontreux
-  8f7308fc haiku.txt (Maxence Collard-Lagalle 2023-04-14 12:30:31 +0200 2) Fichier important supprimé
-  6a2b687e poeme.txt (Maxence Collard-Lagalle 2023-04-14 12:29:24 +0200 3) Sauvegarde ? Jamais fait.
+  6a2b687e poeme.txt (Prénom Nom 2023-04-14 12:29:24 +0200 1) Un clic malencontreux
+  8f7308fc haiku.txt (Prénom Nom 2023-04-14 12:30:31 +0200 2) Fichier important supprimé
+  6a2b687e poeme.txt (Prénom Nom 2023-04-14 12:29:24 +0200 3) Sauvegarde ? Jamais fait.
   ```
 
 ### Comparer deux commits
@@ -426,6 +446,7 @@ Git propose un mécanisme de `revert` permettant d'annuler les modifications d'u
   git revert <commit_a_annuler>
   ```
   - Ce nouveau commit s'inscrit dans l'historique au moment où il est créé, comme n'importe quel autre commit.
+  - C'est la solution à privilégier lorsque le commit problématique a déjà été partagé avec d'autres personnes (`git push`), puisqu'elle n'altère pas l'historique et garde la trace de l'annulation.
 
 ### Revenir à un état antérieur de l'historique
 
@@ -436,6 +457,10 @@ Git propose un mécanisme de `revert` permettant d'annuler les modifications d'u
   - Avec `--soft`, le répertoire de travail est remis à l'état du commit ciblé et les modifications réalisées depuis sont remises dans l'index.
   - Sans option, les modifications restent dans le répertoire de travail, mais pas dans l'index.
   - `--hard` réinitialise **définitivement** le répertoire de travail et l'index.
+
+{{< alert type="warning" >}}
+`git reset` réécrit l'historique : à n'utiliser que sur des commits qui n'ont pas encore été partagés. Pour annuler un commit déjà envoyé, préférez `git revert`.
+{{< /alert >}}
 
 ### Supprimer totalement un fichier de l'historique
 
@@ -491,7 +516,7 @@ Par convention, la version principale est la branche `main` (anciennement `maste
 Techniquement, une branche est un tag dynamique qui se déplace automatiquement sur le dernier commit en date de sa lignée.
 
 `HEAD` est le tag du dernier commit de la branche actuellement active.
-{{< mermaid align="left" >}}
+{{< mermaid align="left" alt="Deux branches : après deux commits communs, la branche feature s'écarte avec deux commits, tandis que main reçoit un commit de son côté. HEAD pointe sur le dernier commit de feature." >}}
     gitGraph
       commit
       commit
@@ -526,6 +551,8 @@ La création de branche s'effectue également grâce à `git branch` :
   git branch <nom_de_la_branche> <commit_initial>
   ```
   - Si aucun commit initial n'est précisé, `HEAD` sera le point de départ de la nouvelle branche.
+
+Par convention, un préfixe indique la nature du travail réalisé dans la branche : `feature/` pour une nouvelle fonctionnalité, `bugfix/` pour une correction, `hotfix/` pour une correction urgente en production (par exemple `feature/multiplication`).
 
 Le nom d'une branche :
   - ne peut contenir que des caractères ASCII
@@ -582,7 +609,7 @@ La fusion s'effectue avec la commande `git merge`, en précisant la branche sour
   git merge <branche_source>
   ```
 
-{{< mermaid align="left" >}}
+{{< mermaid align="left" alt="Fusion de deux branches avec commit de fusion : main et feature divergent après le commit 1-8a4f40a, puis main intègre feature par le commit de fusion 6-1a59d24, repéré par main et HEAD." >}}
   gitGraph
     commit
     commit id: "1-8a4f40a"
@@ -600,7 +627,7 @@ La fusion s'effectue avec la commande `git merge`, en précisant la branche sour
 - Git recherche l'ancêtre commun des branches à fusionner (ici, `1-8a4f40a`) et y injecte les modifications issues de chaque branche, pour créer un nouveau commit dans la branche active, dit commit de merge.
   - Ici, le commit de merge a l'identifiant `6-1a59d24`.
 
-{{< mermaid align="left" >}}
+{{< mermaid align="left" alt="Quatre commits liés : le commit 1 (fichier1 41ad58, fichier2 1efc25, fichier3 690a41) donne le commit 4, où fichier1 devient 914da0, et le commit 5, où fichier2 devient ea451d. Le commit 6 de fusion combine les deux modifications (914da0 et ea451d) et conserve fichier3 inchangé." >}}
   classDiagram
     direction LR
     Commit1..Commit4
@@ -634,7 +661,7 @@ La fusion s'effectue avec la commande `git merge`, en précisant la branche sour
 Si le commit de merge calculé par Git est égal au dernier commit de la branche source (il a le même hash), alors Git évite de créer un doublon.
 À la place, il procède à une fusion *fast-forward* en déplaçant l'étiquette de la branche cible sur le commit de la branche source.
 
-{{< mermaid align="left" >}}
+{{< mermaid align="left" alt="Fusion fast-forward : feature compte deux commits de plus que main ; main est simplement déplacée au sommet de feature, sans commit de fusion. main, feature et HEAD désignent le même commit." >}}
     gitGraph
       commit
       commit
@@ -790,7 +817,7 @@ Git permet de récupérer dans une branche les modifications apportées par un c
   - En cas de conflit, la même mécanique de résolution des conflits que pour la fusion de branches sera déclenchée 
 
 
-{{< mermaid align="left" >}}
+{{< mermaid align="left" alt="Cherry-pick : le commit 2-7ed128b, présent sur la branche feature, est recopié sur main entre d'autres commits, sans que le reste de la branche feature soit fusionné." >}}
     gitGraph
       commit
       commit
@@ -814,6 +841,10 @@ Une fois positionné dans la branche cible, la commande `git rebase` permet d'ef
   git rebase <branche_source>
   ```
 
+{{< alert type="warning" >}}
+Règle d'or : ne jamais effectuer de rebase sur une branche déjà partagée avec d'autres personnes. Le rebase réécrit l'historique : ses collègues se retrouveraient avec des commits qui n'existent plus de leur côté.
+{{< /alert >}}
+
 Les commits de la branche source seront réécrits dans la branche cible dans le même ordre, immédiatement après l'ancêtre commun.
 
 Les conflits devront être résolus après chaque commit, pour permettre à l'opération de continuer :
@@ -826,7 +857,7 @@ Les conflits devront être résolus après chaque commit, pour permettre à l'op
 ##### Comparaison entre merge et rebase
 
 - Exemple d'historique après un `git merge` :
-  {{< mermaid align="left" >}}
+  {{< mermaid align="left" alt="Historique après un git merge : feature et main divergent à partir du commit 1-8a4f40a, puis un commit de fusion 6-1a59d24 les réunit, suivi du commit 7-46ccbcb repéré par main et HEAD. L'historique comporte donc deux lignes parallèles." >}}
       gitGraph
         commit id: "0-71af11d"
         commit id: "1-8a4f40a"
@@ -843,7 +874,7 @@ Les conflits devront être résolus après chaque commit, pour permettre à l'op
   {{< /mermaid >}}
 
   - Le même historique après un `git rebase`:
-  {{< mermaid align="left" >}}
+  {{< mermaid align="left" alt="Le même historique après un git rebase : les commits 0 à 7 se suivent sur une seule ligne, sans branche parallèle. Les commits de feature sont rejoués au-dessus de ceux de main." >}}
       gitGraph
         commit id: "0-71af11d"
         commit id: "1-8a4f40a"
@@ -878,3 +909,7 @@ La suppression ne doit être effectuée que si la branche est devenue inutile :
   - Parce que ses modifications ont été abandonnées (l'option devient alors `-D` par sécurité)
 
 Une fois la branche supprimée, ses commits non fusionnés sont définitivement perdus
+
+{{< alert type="practice" >}}
+Les exercices 1 à 4 et 6 du [TP Git]({{< relref "tp-git" >}}) mettent en pratique cette page : premiers commits, historique, branches, fusions, conflits, puis `stash`, `rebase`, `cherry-pick` et `revert`.
+{{< /alert >}}

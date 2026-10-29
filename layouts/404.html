@@ -1,0 +1,7 @@
+{{ define "main" }}
+<div class="wrap prose-wide">
+  <h1>404</h1>
+  <p>{{ if eq site.Language.Lang "en" }}This page does not exist.{{ else }}Cette page n'existe pas.{{ end }}</p>
+  <p><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Back to the home page{{ else }}Retour à l'accueil{{ end }}</a></p>
+</div>
+{{ end }}

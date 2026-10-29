@@ -1,0 +1,9 @@
+{{ define "main" }}
+<div class="wrap prose-wide">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  <ul class="plain">
+    {{- range .Pages }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+  </ul>
+</div>
+{{ end }}

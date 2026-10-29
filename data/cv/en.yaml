@@ -1,0 +1,254 @@
+ui:
+  skip: Skip to content
+  cta_title: A chat, a question, a talk?
+  cta_text: Drop me a line, I'm happy to reply.
+  cta_gpg: "For an exchange that needs confidentiality, you can encrypt your message with my GPG public key:"
+  cta_gpg_link: download the key
+  cta_gpg_fpr: fingerprint
+  made_with: Handmade with Hugo
+  menu: Main navigation
+  language: Language
+  contact: Contact
+  email: Email
+  cv_pdf: CV (PDF)
+  cv_file: files/cv-maxence-lagalle-en.pdf
+  cv_print: Printable CV
+  current: Current
+  present: present
+  more_career: See the full career
+  highlights: At a glance
+  experience: Experience
+  earlier: Earlier career
+  education: Education
+  certifications: Certifications and qualifications
+  skills: Skills
+  languages: Languages
+  teaching: Teaching and juries
+  talks: Talks
+  projects: Projects
+  source: Site source code
+  license: Content licensed under
+  license_name: Creative Commons BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/deed.en
+  rss: RSS feed
+  toc: Contents
+  course_nav: Course navigation
+  prev: Previous
+  next: Next
+  courses_all: All courses
+  course_home: Course contents
+  untranslated: This content is only available in French.
+  tags: Tags
+  alert_info: Information
+  alert_note: Note
+  alert_warning: Warning
+  alert_danger: Danger
+  alert_success: Key point
+  alert_a11y: Accessibility
+  alert_check: Check
+  alert_tip: Tip
+  alert_pair: Pair variant
+  alert_pitfall: Common pitfalls
+  alert_try: Try it
+  alert_practice: Practice
+  corrige: Solution
+
+person:
+  display: Maxence (Collard) Lagalle
+  title: Deputy Chief Information Security Officer, accreditation
+  headline: Statistician-administrator
+  org: Insee
+  tagline: As deputy to the Chief Information Security Officer (CISO), I am in charge of accreditation, with a taste for software development and teaching.
+  description: Maxence Lagalle, statistician-administrator at Insee, deputy CISO in charge of security accreditation. Former project manager of the insee.fr overhaul, trainer and lecturer.
+  portrait_alt: Portrait of Maxence Lagalle
+  greeting: Hello, I'm
+  values: I like getting involved in projects that serve the public good.
+  summary:
+    - "I have been an *attaché statisticien* at Insee, the French national statistics institute, since 2020. Since September 2026, I have been in charge of the **accreditation of information systems**: I work with business and IT teams so that every system goes live with its risks understood and its security measures decided."
+    - "Before that, I led the IT delivery of the **modular overhaul of insee.fr**, after two years as a developer on the site. My background includes household surveys, econometrics research and running a small company."
+    - "I teach computer science at ENSAI, run internal training courses, notably on Git, and share what I learn in seminars and on this site."
+
+highlights:
+  - title: Security and accreditation
+    text: Leading accreditation processes for information systems, risk analysis following the French national cybersecurity agency (ANSSI) method, preparing accreditation boards.
+    link: /en/career/
+  - title: insee.fr overhaul
+    text: Modular architecture on containers, page-by-page migration through a custom-built router, new Elasticsearch search engine.
+    link: /en/career/
+  - title: Agility, quality and accessibility
+    text: Scrum Master, Heart of Agile, advanced Opquast certification, digital accessibility auditor (RGAA).
+    link: /en/career/
+  - title: Teaching and sharing
+    text: Tutorials and project supervision at ENSAI, exam juries, internal training, seminars, course material published on this site.
+    link: /en/teaching/
+
+experience:
+  - role: Deputy CISO, accreditation
+    org: Insee, Security and Risk Management Division (Information Systems Department)
+    place: Montrouge
+    start: September 2026
+    summary: "I make sure no Insee information system is put into or kept in service unless its risks have been analysed, security measures decided, and the responsible director has formally accepted the remaining risks."
+    points:
+      - Leading several accreditation processes each year, for applications or infrastructure, with project managers and business owners across directorates.
+      - Risk analysis following the ANSSI reference method, bringing together business, development, operations and architecture teams.
+      - Checking compliance with the State's security frameworks, preparing accreditation boards, steering audits with external providers and following remediation plans.
+      - Handling security incidents and raising staff awareness.
+      - "A generative AI assistant specialised in security and accreditation, available to colleagues on the internal AI platform, to help use the ANSSI guides."
+  - role: IT project manager, modular overhaul of the insee.fr ecosystem
+    org: Insee, SNDIP (Paris IT development service)
+    place: Montrouge
+    start: September 2024
+    end: August 2026
+    summary: "Led the IT delivery of the overhaul of insee.fr, the Institute's main publication channel, while the team moved to a product-based way of working."
+    points:
+      - "Target architecture built from an audit, challenged against the functional vision and approved by Insee's cross-cutting architecture team, including the move to a container infrastructure (Kubernetes)."
+      - "Custom-built router letting the old and new sites coexist and migrate page by page: definitions in March 2026, the franc-to-euro converter in April."
+      - "New search based on Elasticsearch, demonstrable on most publications when I left, paving the way for natural-language queries and AI assistants."
+      - "Agile coordination of developers without hierarchical authority, hands-on development, technical recruitment interviews."
+      - "Prototype of the [personalised inflation simulator](https://www.insee.fr/fr/statistiques/2418131) (in French) built with a generative AI agent, then handed to a developer and published on insee.fr in September 2026."
+  - role: Analyst-developer
+    org: Insee, SNDIP
+    place: Montrouge
+    start: September 2022
+    end: August 2024
+    summary: "Maintenance and evolution of insee.fr in a team of five developers (Java, Spring, JavaScript, SQL)."
+    points:
+      - "Designed the marking of general-public « Première approche » publications: a pictogram and a dedicated filter in the site search."
+      - "Team quality referent and member of the service's quality network."
+      - "Trainer in Git and web basics for the IT department's developers and production teams: rebuilt the course material and handed it over to other trainers."
+      - "Prototype of automatic publication layout, built with the person who prepared the overhaul."
+  - role: Trainee statistician-administrator
+    org: ENSAI, civil servant programme
+    place: Bruz
+    start: September 2020
+    end: August 2022
+    summary: "Elected student representative on the GENES board (2020-2021)."
+    points: []
+
+earlier:
+  - role: Insee controller, survey manager then managerial referent
+    org: Insee, Nouvelle-Aquitaine regional directorate
+    place: Poitiers
+    period: 2018 to 2020
+    summary: "Managed household surveys (Labour Force Survey, consumer confidence survey, Trajectories and Origins 2). Managerial referent for a network of four interviewers: annual reviews, coaching, R and Python quality-monitoring tools."
+  - role: Founder and manager of Castelambre
+    org: Audiovisual production and digital communication company
+    place: Poitiers
+    period: 2015 to 2017
+    summary: Websites, video production, crowdfunding advice, legal, tax and accounting management.
+  - role: Statistical analyst then contract PhD researcher
+    org: University of Poitiers
+    place: Poitiers
+    period: 2010, 2011 to 2014
+    summary: Analysis of a CROUS Orléans satisfaction survey in 2010, then, from 2011 to 2014, econometric research on the effects of the 2008 crisis in developing countries and tutorials in microeconomics and econometrics (thesis not defended).
+
+education:
+  - name: Statistician-administrator programme (internal route)
+    org: ENSAI
+    period: 2020 to 2022
+  - name: Initial training as controller, long cycle (B6)
+    org: Insee training centre in Libourne
+    period: 2017 to 2018
+  - name: Research Master's in Financial Markets, first-class honours
+    org: University of Poitiers
+    period: 2011
+  - name: Bachelor's in Applied Economics, first-class honours
+    org: University of Poitiers
+    period: 2009
+  - name: Scientific baccalauréat
+    org: CNED
+    period: 2006
+
+certifications:
+  - name: Opquast, web quality, advanced level (891 points)
+    period: 2025
+    url: https://directory.opquast.com/fr/certificat/PDQM47/
+  - name: Heart of Agile, advanced level
+    period: ""
+    url: "https://heartofagile.com/pdf_download.php?st=7008&f=A4&o=fr"
+  - name: Digital accessibility auditor (RGAA)
+    period: ""
+  - name: Professional examination, systems programmer and application designer
+    period: July 2023
+    url: https://www.economie.gouv.fr/recrutement/programmeur-systeme-dexploitation-concepteur-realisateur-dapplications-examen-professi-2
+  - name: Professional examination, analyst-developer
+    period: March 2023
+    url: https://www.economie.gouv.fr/recrutement/analyste-developpeur-examen-professionnel
+  - name: Professional examination, programmer
+    period: February 2019
+    url: https://www.economie.gouv.fr/recrutement/programmeur-examen-professionnel
+
+skills:
+  - group: Information security
+    items: Accreditation, risk analysis (ANSSI method), State security frameworks, audit steering, awareness
+  - group: Development
+    items: Java (Spring), JavaScript (React, Next.js), Python (FastAPI), R, SQL, HTML/CSS
+  - group: Infrastructure and tooling
+    items: Linux, Docker, Kubernetes, Elasticsearch, Git, GitLab CI
+  - group: Generative AI
+    items: Co-development with AI agents, specialised assistants
+  - group: Methods
+    items: Scrum, Kanban, Heart of Agile, web quality, accessibility (RGAA)
+
+languages:
+  - French, native
+  - English, fluent (TOEIC 970, 2021)
+
+teaching:
+  intro: I pass on what I practise, to ENSAI students as well as to colleagues in the IT department.
+  sections:
+    - title: ENSAI
+      items:
+        - period: 2023 and 2026
+          text: "Tutorial instructor in computer science and project tutor for second-year students. In 2026, 40 hours of teaching, including supervision of the « Anonymia » IT project: a tool to anonymise administrative documents built on the SSP Cloud AI platform, the official statistics service's data science offer."
+        - period: 2025
+          text: Member of the IT projects jury.
+    - title: Juries and examinations
+      items:
+        - period: 2026
+          text: Member of the jury of the Ministry of Economy and Finance's programmer professional examination, with colleagues from other directorates, after jury training provided by IGPDE. Author of the initial proposal for the written admission test, which the whole jury then enriched and amended.
+    - title: Internal training
+      items:
+        - period: Since 2022
+          text: Rebuilt and delivered the Git course for developers, including remotely for production teams, and the web basics course until 2024. The material is published on this site (in French).
+  talks_intro: "I take part every year since 2024 in the IT department's internal development seminar at Insee. My public talks:"
+  talks:
+    - period: 2024
+      place: Agile Secteur Public
+      text: "« Don't shoot the agile coach! », a case-study talk in theatrical form that recalls the basics of Scrum through short sketches, co-hosted with an Insee agile coach. Given on 18 October 2024, 1:30 pm to 3:20 pm, in the Solférino room, after a first version at the internal seminar."
+      url: https://agilesecteurpublic.wixsite.com/agile-secteur-public/programme-2024
+      link: Conference programme (in French)
+    - period: November 2023
+      place: YouTube
+      text: Testimonial on my path from controller to attaché, in a video promoting the controller competition on Insee's channel.
+      url: https://youtu.be/_CWR9EI-Pqs
+      link: Watch the video (in French)
+
+projects_intro: "Personal and open-source work. My work at Insee, which belongs to the State, is described in my career page."
+
+projects:
+  - name: Git and GitLab course
+    period: 2023
+    summary: Open-licensed course material, from installation to team workflows and GitLab CI, with practical exercises. Used to train the IT department's developers. In French.
+    url: /posts/formations/git/introduction/
+    tags: [Training, Git, GitLab]
+  - name: HTML 5 and CSS 3 course
+    period: 2023
+    summary: Open-licensed course material on web fundamentals, with digital accessibility as a common thread and corrected exercises. In French.
+    url: /posts/formations/html-css/
+    tags: [Training, HTML, CSS, Accessibility]
+  - name: PSyCoQuAC
+    period: 2021
+    summary: Collaborative system to qualify and geolocate batches of French postal addresses using the National Address Base. Second-year project at ENSAI.
+    repo: https://github.com/itsame-mcl/PSyCoQuAC
+    tags: [Python, API]
+  - name: data-pypeline
+    period: 2021
+    summary: Pure-Python data handling and processing library under the EUPL licence. First-year project at ENSAI.
+    repo: https://github.com/itsame-mcl/data-pypeline
+    tags: [Python, Data science]
+  - name: learnr-lubridate
+    period: 2021
+    summary: R package with a learnr tutorial on the basics of the lubridate date-handling package.
+    repo: https://github.com/itsame-mcl/learnr-lubridate
+    tags: [R, Training]

@@ -1,0 +1,29 @@
+{{ define "main" }}
+{{- $d := partial "cv.html" . }}
+<div class="wrap prose-wide">
+  <h1>{{ .Title }}</h1>
+  <p><a href="{{ $d.ui.cv_file | relURL }}">{{ $d.ui.cv_pdf }}</a></p>
+  <section aria-labelledby="exp"><h2 id="exp">{{ $d.ui.experience }}</h2>{{ partial "timeline.html" $d.experience }}</section>
+  <section aria-labelledby="earlier"><h2 id="earlier">{{ $d.ui.earlier }}</h2>{{ partial "timeline.html" $d.earlier }}</section>
+  <section aria-labelledby="edu"><h2 id="edu">{{ $d.ui.education }}</h2>
+    <ul class="plain">
+      {{- range $d.education }}<li><strong>{{ .name }}</strong>, {{ .org }} · {{ .period }}</li>{{ end }}
+    </ul>
+  </section>
+  <section aria-labelledby="certs"><h2 id="certs">{{ $d.ui.certifications }}</h2>
+    <ul class="plain">
+      {{- range $d.certifications }}
+      <li>{{ if .url }}<a href="{{ .url }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}{{ with .period }} · {{ . }}{{ end }}</li>
+      {{- end }}
+    </ul>
+  </section>
+  <section aria-labelledby="skills"><h2 id="skills">{{ $d.ui.skills }}</h2>
+    <dl class="skills">
+      {{- range $d.skills }}<dt>{{ .group }}</dt><dd>{{ .items }}</dd>{{ end }}
+    </dl>
+  </section>
+  <section aria-labelledby="langs"><h2 id="langs">{{ $d.ui.languages }}</h2>
+    <ul class="plain">{{ range $d.languages }}<li>{{ . }}</li>{{ end }}</ul>
+  </section>
+</div>
+{{ end }}

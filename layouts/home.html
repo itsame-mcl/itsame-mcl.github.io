@@ -1,0 +1,55 @@
+{{ define "main" }}
+{{- $d := partial "cv.html" . }}
+<div class="hero-band">
+  <div class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="greeting">{{ $d.person.greeting }}</p>
+        <h1 id="hero-title">{{ $d.person.display }}</h1>
+        <p class="role">{{ $d.person.headline }}, <a href="https://www.insee.fr">{{ $d.person.org }}</a></p>
+        <p class="lead">{{ $d.person.tagline }}</p>
+        <p class="values">{{ $d.person.values }}</p>
+        <ul class="actions">
+          <li><a class="button" href="mailto:{{ site.Params.email }}">{{ $d.ui.email }}</a></li>
+          <li><a class="button secondary" href="{{ $d.ui.cv_file | relURL }}">{{ $d.ui.cv_pdf }}</a></li>
+          <li><a class="button secondary" href="{{ site.Params.linkedin }}" rel="me">LinkedIn</a></li>
+          <li><a class="button secondary" href="{{ site.Params.github }}" rel="me">GitHub</a></li>
+        </ul>
+      </div>
+      {{- with resources.Get "images/author/portrait.jpg" }}
+      {{- $img := .Fill "480x600 Top q82" }}
+      <div class="portrait-wrap"><img class="portrait" src="{{ $img.RelPermalink }}" width="240" height="300" alt="{{ $d.person.portrait_alt }}"></div>
+      {{- end }}
+    </section>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="prose intro">
+    {{- range $d.person.summary }}
+    <p>{{ . | markdownify }}</p>
+    {{- end }}
+  </section>
+
+  <section aria-labelledby="highlights">
+    <h2 id="highlights">{{ $d.ui.highlights }}</h2>
+    <ul class="cards">
+      {{- range $d.highlights }}
+      <li class="card">
+        <h3><a href="{{ .link | relLangURL }}">{{ .title }}</a></h3>
+        <p>{{ .text }}</p>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+
+  <section class="cta" aria-labelledby="cta-title">
+    <div>
+      <h2 id="cta-title">{{ $d.ui.cta_title }}</h2>
+      <p>{{ $d.ui.cta_text }}</p>
+      <p class="gpg">{{ $d.ui.cta_gpg }} <a href="{{ site.Params.gpgFile | relURL }}" download>{{ $d.ui.cta_gpg_link }}</a> · <span class="fpr">{{ $d.ui.cta_gpg_fpr }} <code>{{ site.Params.gpgFingerprint }}</code></span></p>
+    </div>
+    <a class="button" href="mailto:{{ site.Params.email }}">{{ $d.ui.email }}</a>
+  </section>
+</div>
+{{ end }}

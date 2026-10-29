@@ -1,0 +1,60 @@
+baseURL: https://cv.itsame-mcl.eu/
+title: Maxence Lagalle
+defaultContentLanguage: fr
+defaultContentLanguageInSubdir: false
+enableRobotsTXT: true
+enableEmoji: true
+timeZone: Europe/Paris
+
+languages:
+  fr:
+    label: Français
+    locale: fr-FR
+    weight: 1
+    menus:
+      main:
+        - { identifier: home, name: Accueil, pageRef: /, weight: 10 }
+        - { identifier: career, name: Parcours, pageRef: /parcours, weight: 20 }
+        - { identifier: teaching, name: Enseignement et interventions, pageRef: /enseignement, weight: 30 }
+        - { identifier: projects, name: Projets, pageRef: /projets, weight: 40 }
+        - { identifier: courses, name: Formations, pageRef: /posts/formations, weight: 50 }
+  en:
+    label: English
+    locale: en-GB
+    weight: 2
+    menus:
+      main:
+        - { identifier: home, name: Home, pageRef: /, weight: 10 }
+        - { identifier: career, name: Career, pageRef: /parcours, weight: 20 }
+        - { identifier: teaching, name: Teaching and talks, pageRef: /enseignement, weight: 30 }
+        - { identifier: projects, name: Projects, pageRef: /projets, weight: 40 }
+
+taxonomies:
+  tag: tags
+  category: categories
+
+outputs:
+  home: [HTML, RSS]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: false
+  highlight:
+    noClasses: false
+    guessSyntax: false
+    lineNos: false
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+    ordered: false
+
+params:
+  author: Maxence (Collard) Lagalle
+  email: hello@itsame-mcl.eu
+  linkedin: https://www.linkedin.com/in/itsamemcl/
+  github: https://github.com/itsame-mcl
+  gpgFingerprint: "1350 C635 4468 6468 32DF F01E 8F91 890F 26BE 628F"
+  gpgFile: files/maxence-lagalle-gpg-public.asc
+  repo: https://github.com/itsame-mcl/itsame-mcl.github.io
+  counterDevId: 1c78cebc-b650-4a21-9910-330b02cbb999

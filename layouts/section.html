@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{- /* Racine des formations : une carte par formation. Page d'une formation : sommaire de ses chapitres. */ -}}
+<div class="wrap prose-wide">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{- with .Sections }}
+  <ul class="cards">
+    {{- range . }}<li class="card"><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>{{ with .Description }}<p>{{ . }}</p>{{ end }}</li>{{ end }}
+  </ul>
+  {{- end }}
+  {{- with .RegularPages }}
+  <ol class="chapters">
+    {{- range sort . "Params.menu.sidebar.weight" }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Description }}<span>{{ . }}</span>{{ end }}</li>
+    {{- end }}
+  </ol>
+  {{- end }}
+</div>
+{{ end }}

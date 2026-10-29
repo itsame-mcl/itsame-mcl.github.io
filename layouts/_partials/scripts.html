@@ -1,0 +1,11 @@
+{{- if .Store.Get "mermaid" }}
+{{- $m := resources.Get "vendor/mermaid-11.16.1.min.js" | fingerprint }}
+{{- $i := resources.Get "js/diagrams.js" | minify | fingerprint }}
+<script src="{{ $m.RelPermalink }}" integrity="{{ $m.Data.Integrity }}"></script>
+<script src="{{ $i.RelPermalink }}" integrity="{{ $i.Data.Integrity }}"></script>
+{{- end }}
+{{- with site.Params.counterDevId }}
+{{- if hugo.IsProduction }}
+<script src="https://cdn.counter.dev/script.js" data-id="{{ . }}" data-utcoffset="1" defer></script>
+{{- end }}
+{{- end }}

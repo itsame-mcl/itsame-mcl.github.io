@@ -2,6 +2,7 @@
 title: "Travailler avec GitLab"
 description: "Se synchroniser avec un dépôt distant et travailler de manière collaborative, exploiter les fonctionnalités de la forge logicielle GitLab"
 date: 2023-04-16T19:00:00+01:00
+lastmod: 2026-10-28T12:00:00+01:00
 tags: ["Git", "GitLab"]
 categories: ["Formation"]
 menu:
@@ -79,7 +80,7 @@ La clé publique doit alors être renseignée dans GitLab pour pouvoir l'utilise
  
 Il faut pour cela se connecter à GitLab et accéder à la [page de configuration des clés SSH de GitLab](https://gitlab.com/-/profile/keys) :
 
-{{< img src="/images/posts/formations/git/software-forge/ssh.png" title="Interface d'ajout d'une clé SSH dans GitLab" >}}
+{{< img src="/images/posts/formations/git/software-forge/ssh.png" title="Interface d'ajout d'une clé SSH dans GitLab" alt="Page « Clés SSH » des paramètres de GitLab : un grand champ « Clé » où coller la clé publique, un champ « Titre », un type d'utilisation (« Authentification et Signature »), une date d'expiration facultative et le bouton « Ajouter une clé »." >}}
 
 - L'empreinte à saisir dans le champ clé peut être obtenue en lisant le fichier de la clé publique dont l'emplacement a été donné précédemment :
   ```bash
@@ -94,7 +95,7 @@ Il faut pour cela se connecter à GitLab et accéder à la [page de configuratio
 La création d'un dépôt distant commence par la [création d'un nouveau projet GitLab](https://gitlab.com/projects/new).
 Dans un premier temps, il est conseillé de choisir "Create blank project" pour démarrer d'un dépôt vide.
 
-{{< img src="/images/posts/formations/git/software-forge/blank_project.png" title="Interface de création d'un projet vide sur GitLab" >}}
+{{< img src="/images/posts/formations/git/software-forge/blank_project.png" title="Interface de création d'un projet vide sur GitLab" alt="Formulaire « Create blank project » de GitLab : nom du projet, URL et identifiant du projet, niveau de visibilité (Privé ou Public), case « Initialiser le dépôt avec un README » cochée par défaut, et boutons « Créer le projet » et « Annuler »." >}}
 - La case "Initialiser le dépôt avec un README" ne doit PAS être cochée si un dépôt local existe déjà.
 
 ### Relier un dépôt local existant à un dépôt distant
@@ -150,7 +151,7 @@ Récupérer des modifications revient à fusionner la branche distante dans la b
   ```bash
   git pull
   ```
-  - Si on souhaite effectuer cette fusion avec un rebase, il suffit d'ajouter l'option `--rebase`.
+  - Si on souhaite effectuer cette fusion avec un rebase, il suffit d'ajouter l'option `--rebase` (`git pull --rebase`). Cette variante évite de multiplier les commits de fusion inutiles lorsqu'on se synchronise régulièrement avec la branche principale, et peut devenir le comportement par défaut avec `git config --global pull.rebase true`.
   - Le `pull` est en fait l'enchaînement de deux opérations : `fetch` pour télécharger les modifications, puis `merge` pour les intégrer.  
 
 ## Rôles et permissions
@@ -171,7 +172,7 @@ Ces paramètres se règlent à l'échelle du projet dans les options relatives a
 
 ### Créer un ticket
 
-{{< img src="/images/posts/formations/git/software-forge/new_ticket.png" title="Interface de création d'un ticket GitLab" >}}
+{{< img src="/images/posts/formations/git/software-forge/new_ticket.png" title="Interface de création d'un ticket GitLab" alt="Formulaire « Nouveau ticket » de GitLab : titre obligatoire, type (Issue), description en Markdown, case de confidentialité, listes pour l'assigné, le jalon et les étiquettes, date d'échéance, et bouton « Créer ticket »." >}}
 
 Un ticket peut être relié à un jalon, par exemple une itération pour un projet Scrum.
 Il peut également être associé à une étiquette dont la liste est définie à l'échelle du projet. Il existe deux approches courantes et complémentaires :
@@ -180,12 +181,24 @@ Il peut également être associé à une étiquette dont la liste est définie �
 
 ### Gérer un ticket
 
-{{< img src="/images/posts/formations/git/software-forge/manage_ticket.png" title="Interface de gestion d'un ticket GitLab" >}}
+{{< img src="/images/posts/formations/git/software-forge/manage_ticket.png" title="Interface de gestion d'un ticket GitLab" alt="Page d'un ticket ouvert intitulé « Ecrire une scène de théâtre » : sa description, un bouton « Créer une demande de fusion », une liste de deux sous-tâches, une zone d'éléments liés, puis l'historique d'activité (étiquette « enhancement » ajoutée, ticket assigné, tickets #2 et #3 ajoutés comme sous-tâches) au-dessus de la zone de commentaire." >}}
 
 GitLab permet de décomposer un ticket en sous-tâches, mais aussi de l'associer à d'autres tickets.
 
 Il est également possible de créer automatiquement une branche liée au ticket, ce qui permet de le clore une fois la branche fusionnée.
 Des outils de gestion du temps (estimation de charge, date d'échéance) sont aussi proposés.
+
+### Jalons
+
+Un jalon (*milestone*) regroupe des tickets autour d'une version ou d'une itération (par exemple un sprint). Il offre une vue d'ensemble de l'avancement, des statistiques sur les tickets terminés et une date limite de livraison.
+
+## Wiki
+
+GitLab intègre un wiki, géré lui-même comme un dépôt Git, qui permet de documenter un projet. Usages courants :
+  - documentation d'architecture ;
+  - guide de contribution ;
+  - procédures de déploiement ;
+  - documentation d'API.
 
 ## Branches protégées
 
@@ -203,7 +216,7 @@ Selon la configuration du dépôt, la validation de cette demande peut être sou
 
 #### Créer une merge request
 
-{{< img src="/images/posts/formations/git/software-forge/merge_request.png" title="Interface de création d'une merge request GitLab" >}}
+{{< img src="/images/posts/formations/git/software-forge/merge_request.png" title="Interface de création d'une merge request GitLab" alt="Formulaire « Nouvelle demande de fusion » de la branche 1-ecrire-une-scene-de-theatre vers main : titre préfixé par « Draft: », description « Closes #1 », champs assigné, relecteur, jalon et étiquettes, et options de fusion cochées (supprimer la branche source, écraser les commits)." >}}
 
 La création d'une merge request demande au développeur de préciser les branches source et cible et de décrire ses modifications.
 
@@ -211,10 +224,14 @@ Il est possible de configurer une merge request pour qu'elle effectue automatiqu
 
 #### Valider une merge request
 
-{{< img src="/images/posts/formations/git/software-forge/merge_request_ready.png" title="Interface de validation d'une merge request GitLab" >}}
+{{< img src="/images/posts/formations/git/software-forge/merge_request_ready.png" title="Interface de validation d'une merge request GitLab" alt="Demande de fusion « Resolve “Ecrire une scène de théâtre” » ouverte et prête à fusionner (« Ready to merge! ») : onglets Vue d'ensemble, Commits (2), Pipelines et Modifications ; cases « Delete source branch » et « Squash commits » cochées, bouton « Merge », et historique listant les deux commits." >}}
 
 Lorsque le message *"Ready to merge !"* est visible sur une merge request, elle est prête à être validée et fusionnée.
   - L'option *"Delete source branch"* permet de supprimer automatiquement la branche source une fois l'opération terminée
   - *Edit commit message* permet de modifier le message du commit de merge, pour la lisibilité de l'historique.
 
 Une fois la validation effectuée, l'exécution de la commande `git pull` permet de répercuter la fusion sur le dépôt local.
+
+{{< alert type="practice" >}}
+Les exercices 1, 5, 7 et 8 du [TP Git]({{< relref "tp-git" >}}) portent sur cette page : dépôt distant, merge requests, workflow d'équipe avec tickets, puis jalons, permissions et wiki.
+{{< /alert >}}
