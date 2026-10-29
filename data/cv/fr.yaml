@@ -33,6 +33,7 @@ ui:
   prev: Précédent
   next: Suivant
   courses_all: Toutes les formations
+  course_home: Sommaire de la formation
   untranslated: Ce contenu n'existe qu'en français.
   tags: Étiquettes
   alert_info: Information
@@ -61,7 +62,7 @@ person:
   summary:
     - "Attaché statisticien de l'Insee depuis 2020, je suis depuis septembre 2026 **RSSI adjoint, composante homologation** : j'accompagne les équipes métier et informatiques pour que chaque système d'information soit mis en service en connaissance des risques et avec des mesures de sécurité décidées."
     - "Auparavant, j'ai piloté la maîtrise d'œuvre informatique de la **refonte modulaire d'insee.fr**, après deux ans comme analyste-développeur sur le site. Je viens des enquêtes auprès des ménages, de la recherche en économétrie et d'une expérience d'entrepreneur."
-    - "J'enseigne l'informatique à l'ENSAI, je forme les développeurs de la DSI à Git et au web, et je partage ce que j'apprends en séminaires et sur ce site."
+    - "J'enseigne l'informatique à l'ENSAI, j'anime des formations internes, notamment sur Git, et je partage ce que j'apprends en séminaires et sur ce site."
 
 highlights:
   - title: Sécurité et homologation
@@ -74,15 +75,15 @@ highlights:
     text: Scrum Master, Heart of Agile, certification Opquast de niveau avancé, auditeur de l'accessibilité numérique (RGAA).
     link: /parcours/
   - title: Enseignement et transmission
-    text: Travaux dirigés et tutorat de projet à l'ENSAI, jurys, séminaire du développement de la DSI, formations Git et HTML/CSS.
+    text: Travaux dirigés et tutorat de projet à l'ENSAI, jurys, formations internes, séminaires, supports de formation publiés sur ce site.
     link: /enseignement/
 
 experience:
   - role: RSSI adjoint, composante homologation
-    org: Insee, Direction du système d'information
+    org: Insee, Division Sécurité et maîtrise des risques (Direction du système d'information)
     place: Montrouge
     start: Septembre 2026
-    summary: "Division Sécurité et maîtrise des risques. Je veille à ce qu'aucun système d'information de l'Insee ne soit mis ou maintenu en service sans que ses risques aient été analysés, que les mesures de sécurité aient été décidées et que son directeur responsable ait formellement accepté les risques restants."
+    summary: "Je veille à ce qu'aucun système d'information de l'Insee ne soit mis ou maintenu en service sans que ses risques aient été analysés, que les mesures de sécurité aient été décidées et que son directeur responsable ait formellement accepté les risques restants."
     points:
       - Pilotage de plusieurs démarches d'homologation par an, applications ou infrastructures, en lien avec les chefs de projet et les maîtrises d'ouvrage des directions métier.
       - Analyse de risques selon la méthode de référence de l'ANSSI, avec le métier, les équipes de développement, d'exploitation et d'architecture.
@@ -141,7 +142,7 @@ education:
   - name: Cursus d'attaché statisticien (voie interne)
     org: ENSAI
     period: 2020 à 2022
-  - name: Cycle long (B6)
+  - name: Formation initiale de contrôleur, cycle long (B6)
     org: Centre de formation de l'Insee à Libourne
     period: 2017 à 2018
   - name: Master recherche Finance de marché, mention très bien
@@ -172,8 +173,6 @@ certifications:
   - name: Examen professionnel de programmeur
     period: Février 2019
     url: https://www.economie.gouv.fr/recrutement/programmeur-examen-professionnel
-  - name: Formations de l'ANSSI
-    period: Prévues en 2027
 
 skills:
   - group: Sécurité des systèmes d'information
@@ -206,31 +205,34 @@ teaching:
           text: Membre du jury de l'examen professionnel de programmeur du ministère de l'Économie et des Finances et auteur du sujet de l'épreuve écrite d'admissibilité, avec l'IGPDE et des collègues d'autres directions.
     - title: Formation interne à la DSI
       items:
-        - period: 2022 à 2024
-          text: Refonte et animation des formations des développeurs à Git et aux bases du web, y compris à distance pour les équipes de production. Les supports sont publiés sur ce site.
-  talks_intro: Séminaire du développement de la DSI de l'Insee, chaque année depuis 2024.
+        - period: Depuis 2022
+          text: Refonte et animation de la formation Git des développeurs, y compris à distance pour les équipes de production, et de la formation aux bases du web jusqu'en 2024. Les supports sont publiés sur ce site.
+  talks_intro: "Je participe chaque année depuis 2024 au séminaire interne du développement de la DSI de l'Insee. Mes interventions publiques :"
   talks:
-    - period: 2026
-      place: Metz
-      text: "« Vue depuis la frontière : récit d'une expérimentation d'IA générative sur nos données ouvertes », prolongée par un billet sur le blog interne de la DSI. Atelier sur les tests de charge, coanimé avec l'équipe Infrastructure pour le développement et le déploiement des applications."
-    - period: 2025
-      place: Orléans
-      text: Atelier de présentation d'un outil de développement web, coanimé avec deux collègues de mon équipe.
     - period: 2024
-      place: Lille
-      text: "« Ne tirez pas sur le coach agile », conférence théâtralisée qui rappelle les bases de Scrum par des saynètes, donnée avec un collègue de la division accompagnement et coaching. Rejouée à la Direction générale et à la conférence Agile Secteur Public (18 octobre 2024)."
+      place: Agile Secteur Public
+      text: "« Ne tirez pas sur le coach agile ! », retour d'expérience en conférence théâtralisée qui rappelle les bases de Scrum par des saynètes, coanimé avec un coach agile de l'Insee. Présenté le 18 octobre 2024, de 13 h 30 à 15 h 20, salle Solférino, après une première version au séminaire interne."
+      url: https://agilesecteurpublic.wixsite.com/agile-secteur-public/programme-2024
+      link: Programme de la conférence
     - period: Novembre 2023
       place: YouTube
       text: Témoignage sur mon parcours de contrôleur devenu attaché, dans une vidéo de promotion du concours de contrôleur sur la chaîne de l'Insee.
+      url: https://youtu.be/_CWR9EI-Pqs
+      link: Voir la vidéo
 
 projects_intro: "Réalisations personnelles et libres. Mon travail à l'Insee, qui appartient à l'État, est décrit dans mon parcours."
 
 projects:
-  - name: Formations Git et HTML/CSS
+  - name: Formation Git et GitLab
     period: 2023
-    summary: Supports de formation sous licence libre, utilisés pour former les développeurs de la DSI.
-    url: /posts/formations/
-    tags: [Formation, Git, HTML, CSS]
+    summary: Support de formation sous licence libre, de l'installation aux flux de travail d'équipe et à GitLab CI, avec des travaux pratiques. Utilisé pour former les développeurs de la DSI.
+    url: /posts/formations/git/introduction/
+    tags: [Formation, Git, GitLab]
+  - name: Formation HTML 5 et CSS 3
+    period: 2023
+    summary: Support de formation sous licence libre sur les fondamentaux du web, avec l'accessibilité numérique en fil rouge et des travaux pratiques corrigés.
+    url: /posts/formations/html-css/
+    tags: [Formation, HTML, CSS, Accessibilité]
   - name: PSyCoQuAC
     period: 2021
     summary: Système collaboratif de qualification et de géolocalisation de lots d'adresses postales françaises à partir de la Base Adresse Nationale. Projet de deuxième année à l'ENSAI.

@@ -11,7 +11,7 @@
   </section>
   <section aria-labelledby="talks"><h2 id="talks">{{ $d.ui.talks }}</h2>
     <p>{{ $d.teaching.talks_intro }}</p>
-    <ul class="plain">{{ range $d.teaching.talks }}<li><strong>{{ .period }}, {{ .place }}</strong> · {{ .text }}</li>{{ end }}</ul>
+    <ul class="plain">{{ range $d.teaching.talks }}{{ $t := . }}<li><strong>{{ .period }}{{ with .place }}, {{ . }}{{ end }}</strong> · {{ .text }}{{ with .url }} <a href="{{ . }}">{{ $t.link }}</a>{{ end }}</li>{{ end }}</ul>
   </section>
 </div>
 {{ end }}

@@ -6,7 +6,7 @@
   <ul class="cards cards-wide">
     {{- range $d.projects }}
     <li class="card">
-      <h2>{{ if .url }}<a href="{{ .url | relLangURL }}">{{ .name }}</a>{{ else if .repo }}<a href="{{ .repo }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</h2>
+      <h2>{{ if .url }}<a href="{{ .url | relURL }}">{{ .name }}</a>{{ else if .repo }}<a href="{{ .repo }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</h2>
       <p class="meta">{{ .period }}</p>
       <p>{{ .summary }}</p>
       {{- with .tags }}<p class="tags">{{ range . }}<span>{{ . }}</span>{{ end }}</p>{{ end }}

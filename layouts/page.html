@@ -1,14 +1,7 @@
 {{ define "main" }}
 {{- $d := partial "cv.html" . }}
 <div class="wrap article-layout">
-  {{- if eq .Section "posts" }}
-  <aside class="course-nav">
-    <details open>
-      <summary>{{ $d.ui.course_nav }}</summary>
-      {{ partial "course-nav.html" (dict "page" .) }}
-    </details>
-  </aside>
-  {{- end }}
+  {{- if eq .Section "posts" }}{{ partial "course-nav.html" (dict "page" . "ui" $d.ui) }}{{ end }}
   <article class="prose">
     <h1>{{ .Title }}</h1>
     {{- with .GetTerms "tags" }}

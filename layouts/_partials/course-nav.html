@@ -1,12 +1,15 @@
-{{- /* Arbre de navigation des cours, construit à partir du menu « sidebar » du front matter. */ -}}
+{{- /* Navigation d'une formation : liste ordonnée de ses chapitres, avec retour à l'ensemble des formations. */ -}}
 {{- $page := .page -}}
-{{- $entries := .entries | default site.Menus.sidebar -}}
-<ul>
-  {{- range $entries }}
-  {{- $current := $page.IsMenuCurrent "sidebar" . }}
-  <li>
-    <a href="{{ .URL }}"{{ if $current }} aria-current="page"{{ end }}>{{ .Name }}</a>
-    {{- if .HasChildren }}{{ partial "course-nav.html" (dict "page" $page "entries" .Children) }}{{ end }}
-  </li>
-  {{- end }}
-</ul>
+{{- $ui := .ui -}}
+{{- $course := $page.CurrentSection -}}
+<aside class="course-nav" aria-label="{{ $ui.course_nav }}">
+  <details open>
+    <summary>{{ $course.Title }}</summary>
+    <p class="course-links"><a href="{{ $course.Parent.RelPermalink }}">← {{ $ui.courses_all }}</a> · <a href="{{ $course.RelPermalink }}">{{ $ui.course_home }}</a></p>
+    <ol>
+      {{- range sort $course.RegularPages "Params.menu.sidebar.weight" }}
+      <li><a href="{{ .RelPermalink }}"{{ if eq . $page }} aria-current="page"{{ end }}>{{ .Params.menu.sidebar.name | default .Title }}</a></li>
+      {{- end }}
+    </ol>
+  </details>
+</aside>

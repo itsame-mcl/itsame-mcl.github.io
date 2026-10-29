@@ -33,6 +33,7 @@ ui:
   prev: Previous
   next: Next
   courses_all: All courses
+  course_home: Course contents
   untranslated: This content is only available in French.
   tags: Tags
   alert_info: Information
@@ -61,7 +62,7 @@ person:
   summary:
     - "I have been an *attaché statisticien* at Insee, the French national statistics institute, since 2020. Since September 2026 I have been **deputy CISO for accreditation**: I work with business and IT teams so that every information system goes live with its risks understood and its security measures decided."
     - "Before that, I led the IT delivery of the **modular overhaul of insee.fr**, after two years as a developer on the site. My background includes household surveys, econometrics research and running a small company."
-    - "I teach computer science at ENSAI, train IT department developers in Git and web basics, and share what I learn in seminars and on this site."
+    - "I teach computer science at ENSAI, run internal training courses, notably on Git, and share what I learn in seminars and on this site."
 
 highlights:
   - title: Security and accreditation
@@ -74,15 +75,15 @@ highlights:
     text: Scrum Master, Heart of Agile, advanced Opquast certification, digital accessibility auditor (RGAA).
     link: /en/career/
   - title: Teaching and sharing
-    text: Tutorials and project supervision at ENSAI, exam juries, the IT department's development seminar, Git and HTML/CSS courses.
+    text: Tutorials and project supervision at ENSAI, exam juries, internal training, seminars, course material published on this site.
     link: /en/teaching/
 
 experience:
   - role: Deputy CISO, accreditation
-    org: Insee, Information Systems Department
+    org: Insee, Security and Risk Management Division (Information Systems Department)
     place: Montrouge
     start: September 2026
-    summary: "Security and Risk Management Division. I make sure no Insee information system is put into or kept in service unless its risks have been analysed, security measures decided, and the responsible director has formally accepted the remaining risks."
+    summary: "I make sure no Insee information system is put into or kept in service unless its risks have been analysed, security measures decided, and the responsible director has formally accepted the remaining risks."
     points:
       - Leading several accreditation processes each year, for applications or infrastructure, with project managers and business owners across directorates.
       - Risk analysis following the ANSSI reference method, bringing together business, development, operations and architecture teams.
@@ -141,7 +142,7 @@ education:
   - name: Statistician-administrator programme (internal route)
     org: ENSAI
     period: 2020 to 2022
-  - name: Long cycle (B6)
+  - name: Initial training as controller, long cycle (B6)
     org: Insee training centre in Libourne
     period: 2017 to 2018
   - name: Research Master's in Financial Markets, first-class honours
@@ -172,8 +173,6 @@ certifications:
   - name: Professional examination, programmer
     period: February 2019
     url: https://www.economie.gouv.fr/recrutement/programmeur-examen-professionnel
-  - name: ANSSI training courses
-    period: Planned for 2027
 
 skills:
   - group: Information security
@@ -206,31 +205,34 @@ teaching:
           text: Member of the jury of the Ministry of Economy and Finance's programmer professional examination and author of the written admission test, with IGPDE and colleagues from other directorates.
     - title: Internal training
       items:
-        - period: 2022 to 2024
-          text: Rebuilt and delivered the Git and web basics courses for developers, including remotely for production teams. The material is published on this site (in French).
-  talks_intro: The IT department's development seminar at Insee, every year since 2024.
+        - period: Since 2022
+          text: Rebuilt and delivered the Git course for developers, including remotely for production teams, and the web basics course until 2024. The material is published on this site (in French).
+  talks_intro: "I take part every year since 2024 in the IT department's internal development seminar at Insee. My public talks:"
   talks:
-    - period: 2026
-      place: Metz
-      text: "« A view from the frontier: an account of a generative AI experiment on our open data » (in French), followed by a post on the IT department's internal blog. Workshop on load testing, co-hosted with the application development and deployment infrastructure team."
-    - period: 2025
-      place: Orléans
-      text: Workshop presenting a web development tool, co-hosted with two colleagues from my team.
     - period: 2024
-      place: Lille
-      text: "« Don't shoot the agile coach », a theatrical talk that recalls the basics of Scrum through short sketches, given with a colleague from the coaching division. Replayed at Insee's head office and at the Agile Secteur Public conference (18 October 2024)."
+      place: Agile Secteur Public
+      text: "« Don't shoot the agile coach! », a case-study talk in theatrical form that recalls the basics of Scrum through short sketches, co-hosted with an Insee agile coach. Given on 18 October 2024, 1:30 pm to 3:20 pm, in the Solférino room, after a first version at the internal seminar."
+      url: https://agilesecteurpublic.wixsite.com/agile-secteur-public/programme-2024
+      link: Conference programme (in French)
     - period: November 2023
       place: YouTube
       text: Testimonial on my path from controller to attaché, in a video promoting the controller competition on Insee's channel.
+      url: https://youtu.be/_CWR9EI-Pqs
+      link: Watch the video (in French)
 
 projects_intro: "Personal and open-source work. My work at Insee, which belongs to the State, is described in my career page."
 
 projects:
-  - name: Git and HTML/CSS courses
+  - name: Git and GitLab course
     period: 2023
-    summary: Open-licensed course material, used to train the IT department's developers. In French.
-    url: /posts/formations/
-    tags: [Training, Git, HTML, CSS]
+    summary: Open-licensed course material, from installation to team workflows and GitLab CI, with practical exercises. Used to train the IT department's developers. In French.
+    url: /posts/formations/git/introduction/
+    tags: [Training, Git, GitLab]
+  - name: HTML 5 and CSS 3 course
+    period: 2023
+    summary: Open-licensed course material on web fundamentals, with digital accessibility as a common thread and corrected exercises. In French.
+    url: /posts/formations/html-css/
+    tags: [Training, HTML, CSS, Accessibility]
   - name: PSyCoQuAC
     period: 2021
     summary: Collaborative system to qualify and geolocate batches of French postal addresses using the National Address Base. Second-year project at ENSAI.
